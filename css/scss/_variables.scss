@@ -1,0 +1,116 @@
+/* ============================================================
+
+    VARIABLES
+
+    Includes: Typography, Font Weights, Colors, Icons, Shadows, Padding & Margin, Rounded Corners
+
+============================================================ */
+
+// ======= Grid
+$global-width: rem-calc(1440px);
+
+// ======= Typography
+
+$serif-font: "Arsenal", sans-serif;
+$sans-serif-font: "Libre Franklin", sans-serif;
+
+// ======= Font Weights
+
+$black-font-weight: 900;
+$bold-font-weight: 700;
+
+// ======= Colors
+
+$orange-main: #f55600;
+$orange-health: #ad4200;
+$midnight: #032044;
+$white: #ffff;
+$off-white: #f1f5f7;
+$black: #0000;
+$off-black: #171717;
+$limestone: #f8f4f1;
+$concrete: #ebe6e2;
+$smoke: #d5cfc8;
+$rivermist: #c8dcff;
+$talavera: #265bf7;
+$clay: #dbb485;
+$brass: #a06620;
+$golden-light: #f3d6a7;
+$golden: #ffa01a;
+$golden-dark: #8d4b1d;
+$cactus-light: #b5ead5;
+$cactus: #07b874;
+$cactus-dark: #094536;
+$lavender-light: #d2cafc;
+$lavender: #694df6;
+$lavender-dark: #150567;
+$primrose-light: #f5cfe9;
+$primrose: #e30fa7;
+$primrose-dark: #5f0446;
+
+// ======= Icons
+
+$fa-font-size-base: rem-calc(18px) !default;
+$fa-fw-width: math.div(20em, 18);
+
+// ======= Shadows
+
+$shadow: rem-calc(3px 3px 7px 0) rgba(23, 23, 23, 0.5); //apply box-shadow to base element (transition .3 ease-in-out)
+$shadow-hover: rem-calc(3px 8px 7px 0) rgba(23, 23, 23, 0.5); //apply box-shadow to :hover
+$shadow-2: rem-calc(0px 2px 5px 0) rgba(23, 23, 23, 0.35);
+$shadow-3: rem-calc(3px 3px 7px 0) rgba(23, 23, 23, 0.35);
+//shadow effect for squircle
+
+// ======= Padding & Margin
+
+$top-bottom: rem-calc(30px 0 30px 0);
+$top-bottom-2: rem-calc(60px 0 60px 0);
+
+// ======= Rounded Corners
+
+$rounded-corners: rem-calc(6px);
+
+// ======= Gradients
+
+$smoke-gradient-left: linear-gradient(
+    -75deg,
+    rgba(26, 36, 41, 0) 20%,
+    rgba(26, 36, 41, 0.75),
+    rgba(26, 36, 41, 1)
+);
+$orange-main-gradient-left: linear-gradient(
+    -75deg,
+    rgba(148, 41, 0, 0) 20%,
+    rgba(148, 41, 0, 0.75),
+    rgba(148, 41, 0, 1)
+);
+$white-gradient-left: linear-gradient(
+    -75deg,
+    rgba(241, 245, 247, 0) 20%,
+    rgba(241, 245, 247, 0.75),
+    rgba(241, 245, 247, 1)
+);
+
+$smoke-gradient-right: linear-gradient(
+    75deg,
+    rgba(26, 36, 41, 0) 20%,
+    rgba(26, 36, 41, 0.75),
+    rgba(26, 36, 41, 1)
+);
+$orange-main-gradient-right: linear-gradient(
+    75deg,
+    rgba(148, 41, 0, 0) 20%,
+    rgba(148, 41, 0, 0.75),
+    rgba(148, 41, 0, 1)
+);
+$white-gradient-right: linear-gradient(
+    75deg,
+    rgba(241, 245, 247, 0) 20%,
+    rgba(241, 245, 247, 0.75),
+    rgba(241, 245, 247, 1)
+);
+
+// ======= Screen sizes
+
+$small-screen: 639px;
+$medium-screen: 1024px;

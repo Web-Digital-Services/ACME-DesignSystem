@@ -1,0 +1,394 @@
+/* ============================================================
+    TEXT STYLES
+============================================================ */
+
+//Setting rem size to 16px by default (This is a fix for an issue in FireFix where font size was not rendering properly)
+html {
+    font-size: 16px;
+}
+
+//Setting text size to 18px
+body {
+    font-size: 18px;
+}
+
+/*============== RESPONSIVE HEADING SIZES ===================
+For the base heading sizes, rem-calc() is not calculating properly, so please leave the sizes in pixels.
+*/
+h1,
+.h1 {
+    font-size: 54px;
+
+    /*---- MEDIUM or TABLET----*/
+    @media screen and (max-width: $medium-screen) {
+        font-size: 45px;
+    }
+
+    /*---- SMALL or MOBILE----*/
+    @media screen and (max-width: $small-screen) {
+        font-size: 34px;
+    }
+}
+
+h2,
+.h2 {
+    font-size: 45px;
+
+    /*---- MEDIUM or TABLET----*/
+    @media screen and (max-width: $medium-screen) {
+        font-size: 37px;
+    }
+
+    /*---- SMALL or MOBILE----*/
+    @media screen and (max-width: $small-screen) {
+        font-size: 28px;
+    }
+}
+
+h3,
+.h3 {
+    font-size: 36px;
+
+    /*---- MEDIUM or TABLET----*/
+    @media screen and (max-width: $medium-screen) {
+        font-size: 32px;
+    }
+
+    /*---- SMALL or MOBILE----*/
+    @media screen and (max-width: $small-screen) {
+        font-size: 26px;
+    }
+}
+
+h4,
+.h4 {
+    font-size: 32px;
+
+    /*---- MEDIUM or TABLET----*/
+    @media screen and (max-width: $medium-screen) {
+        font-size: 26px;
+    }
+
+    /*---- SMALL or MOBILE----*/
+    @media screen and (max-width: $small-screen) {
+        font-size: 23px;
+    }
+}
+
+h5,
+.h5 {
+    font-size: 27px;
+
+    /*---- MEDIUM or TABLET----*/
+    @media screen and (max-width: $medium-screen) {
+        font-size: 20px;
+    }
+
+    /*---- SMALL or MOBILE----*/
+    @media screen and (max-width: $small-screen) {
+        font-size: 20px;
+    }
+}
+
+h6,
+.h6 {
+    font-size: 18px;
+}
+
+.supersize {
+    font-size: 80px;
+
+    /*---- MEDIUM or TABLET----*/
+    @media screen and (max-width: $medium-screen) {
+        font-size: 54px;
+    }
+
+    /*---- SMALL or MOBILE----*/
+    @media screen and (max-width: $small-screen) {
+        font-size: 38px;
+    }
+}
+
+.giant {
+    font-size: 125px;
+    font-weight: 900;
+    line-height: 1;
+
+    /*---- MEDIUM or TABLET----*/
+    @media screen and (max-width: $medium-screen) {
+        font-size: 90px;
+    }
+
+    /*---- SMALL or MOBILE----*/
+    @media screen and (max-width: $small-screen) {
+        font-size: 75px;
+    }
+}
+
+// ======= Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $serif-font;
+}
+
+body {
+    font-family: $sans-serif-font;
+    line-height: 1.2;
+}
+
+//eyebrow style
+p.eyebrow {
+    font-size: 18px;
+    font-family: $serif-font;
+
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5 {
+        margin-top: rem-calc(-18px);
+    }
+
+    @media screen and (max-width: $small-screen) {
+        font-size: 16px;
+    }
+}
+
+h1,
+.h1 {
+    margin-bottom: rem-calc(15px);
+    line-height: 1.2;
+    font-family: $serif-font;
+}
+
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    font-family: $serif-font;
+    margin-bottom: rem-calc(18px);
+    line-height: 1.3;
+}
+
+label {
+    font-family: $sans-serif-font;
+    font-size: rem-calc(18px);
+}
+
+address {
+    font-style: normal;
+    margin-bottom: 1rem;
+}
+
+strong {
+    font-weight: 900;
+}
+
+.lead {
+    font-size: 32px;
+}
+
+.black {
+    font-weight: $black-font-weight;
+}
+
+.bold {
+    font-weight: $bold-font-weight;
+}
+
+.sans-serif {
+    font-family: $sans-serif-font !important;
+}
+
+.serif {
+    font-family: $serif-font !important;
+}
+
+h1 + .subheader,
+h1 + .subheader + .subheader,
+h1 + .subheader + .subheader + .subheader,
+h1 + .subheader + .subheader + .subheader + .subheader,
+h1 + .subheader + .subheader + .subheader + .subheader + .subheader {
+    font-family: $sans-serif-font;
+    color: $off-black;
+    font-size: rem-calc(28px);
+    margin-top: rem-calc(-10px);
+    padding-bottom: rem-calc(15px);
+
+    &.small {
+        font-size: rem-calc(25px);
+
+        @media screen and (max-width: 569px) {
+            font-size: rem-calc(22px);
+        }
+    }
+
+    @media screen and (max-width: 569px) {
+        font-size: rem-calc(22px);
+    }
+}
+
+/**.subheader+.subheader {
+    margin-top: rem-calc(-18px) !important;
+}**/
+
+h2 + .subheader {
+    font-size: rem-calc(25px);
+    font-family: $sans-serif-font;
+    color: $off-black;
+    margin-top: rem-calc(-24px);
+
+    &.small {
+        font-size: rem-calc(25px);
+
+        @media screen and (max-width: 569px) {
+            font-size: rem-calc(20px);
+        }
+    }
+
+    @media screen and (max-width: 569px) {
+        font-size: rem-calc(20px);
+    }
+}
+
+.callout {
+    &.orange,
+    &.grey {
+        .subheader {
+            color: $off-white;
+        }
+    }
+}
+
+.subheader + .subtext {
+    margin-top: rem-calc(-5px);
+}
+
+// ======= Colorized headings and paragraph text
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    &.color {
+        color: $talavera;
+        background-color: transparent;
+    }
+
+    &.filled {
+        color: $off-white !important;
+        background-color: $talavera;
+    }
+}
+
+p {
+    &.light {
+        font-weight: 100;
+    }
+
+    &.large {
+        font-size: 24px;
+    }
+}
+
+.ruled {
+    padding-bottom: 0.25em;
+    border-bottom: #808a8f rem-calc(1px) solid;
+}
+
+.required {
+    color: $golden;
+    font-weight: 900;
+    font-size: rem-calc(20px);
+}
+
+// ======= Figcaption
+figcaption {
+    color: $talavera;
+    font-style: italic;
+    padding: rem-calc(2px);
+    text-align: center;
+    text-align: left;
+
+    &.small {
+        font-size: rem-calc(14px);
+    }
+
+    &.large {
+        font-size: rem-calc(22px);
+    }
+
+    &.grey {
+        color: $midnight;
+    }
+}
+
+.color figcaption {
+    color: $off-white !important;
+}
+
+.coward {
+    font-weight: 600 !important;
+}
+
+/* =========================
+Date
+=================*/
+
+.help-text {
+    font-size: rem-calc(16px);
+    font-weight: 200;
+    color: $off-black;
+    font-style: normal;
+}
+
+/* =========================
+Tooltip
+=================*/
+
+.has-tip {
+    color: $midnight;
+    border-bottom: solid 1px $midnight;
+}
+
+.tooltip {
+    border: solid $talavera 1px;
+    background-color: $off-white;
+    color: $off-black;
+
+    &.right {
+        &:before {
+            border-color: transparent $talavera transparent transparent;
+        }
+    }
+
+    &.left {
+        &:before {
+            border-color: transparent transparent transparent $talavera;
+        }
+    }
+
+    &.top {
+        &:before {
+            border-color: $talavera transparent transparent;
+        }
+    }
+
+    &.bottom {
+        &:before {
+            border-color: transparent transparent $talavera;
+        }
+    }
+}

@@ -1,0 +1,103 @@
+/* ============================================================
+    BLOCKQUOTES
+============================================================ */
+
+blockquote {
+    color: $midnight;
+    border-left: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    p {
+        color: $midnight;
+        line-height: inherit;
+        + cite {
+            margin-top: -0.5rem;
+        }
+    }
+}
+cite {
+    color: $midnight;
+    font-style: italic;
+    font-weight: 600;
+    font-size: inherit;
+
+    a {
+        font-weight: 700;
+    }
+}
+cite:before {
+    content: "\2014";
+    margin-right: 0.25rem;
+}
+
+.bleed.color blockquote {
+    color: $off-white;
+    border-left: none;
+    margin: 0;
+    padding: 0;
+    p {
+        color: $off-white;
+        line-height: inherit;
+        + cite {
+            margin-top: -0.5rem;
+        }
+    }
+
+    cite {
+        color: $off-white;
+        font-style: italic;
+        font-weight: 600;
+        font-size: inherit;
+        &:before {
+            content: "\2014";
+            margin-right: 0.25rem;
+        }
+    }
+}
+
+.bleed.pullquote {
+    blockquote p:first-of-type::before {
+        content: "\201C";
+        position: absolute;
+        top: rem-calc(-110px);
+        left: rem-calc(-50px);
+        font-size: 8.33rem;
+        @media screen and (max-width: $small-screen) {
+            left: rem-calc(-5px);
+        }
+    }
+    blockquote p:last-of-type::after {
+        content: "\201D";
+    }
+}
+
+.bleed.color.pullquote {
+    color: $off-white;
+}
+
+blockquote.fancy {
+    background-color: $smoke;
+    p {
+        padding: 2rem 1.667rem 1.667rem 2.75rem;
+        color: $off-black;
+        &:first-of-type::before {
+            content: "\201C";
+            position: absolute;
+            top: rem-calc(-50px);
+            left: rem-calc(-5px);
+            font-size: 8.33rem;
+            color: $talavera;
+        }
+        &:last-of-type::after {
+            content: "\201D";
+        }
+    }
+}
+
+blockquote.fancy cite {
+    background-color: $talavera;
+    color: $off-white;
+    padding: 1.667rem;
+    font-weight: 900;
+}

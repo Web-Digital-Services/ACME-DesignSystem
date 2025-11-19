@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+  <head>
+    <title>Title ipsum dolor sit (39 characters)</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="stylesheet" href="../../css/main.css?1763569242860" media="all" />
+    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1763569242860" media="all" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+
+    <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+    
+    <!-- End Pattern Lab -->
+
+  </head>
+  <body class="">
+<div class="test-box">
+    <p class="text-left">I am using .text-left</p>
+</div>
+<div class="test-box">
+    <p class="text-right">I am using .text-right</p>
+</div>
+<div class="test-box">
+    <p class="text-center">I am using .text-center</p>
+</div>
+<div class="test-box">
+    <p class="text-justify"><strong>I am using .text-justify</strong>
+        Rize bai mudan taro steep irish breakfast honeydew infusion ginger bai
+        mudan hong yixing irish breakfast white steep mug boba hojicha.
+        Chamomile jasmine kombucha taro sachet lychee bai mudan loose leaf
+        tisane bai mudan lapsang souchong steep kukicha.</p>
+</div>
+<div class="test-box">
+    <p class="text-start">I am using .text-start</p>
+</div>
+<div class="test-box">
+    <p class="text-end">I am using .text-end</p>
+</div>
+<!--DO NOT REMOVE-->
+<script type="text/json" id="pl-pattern-data-footer" class="pl-js-pattern-data">
+  {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"<p>These are text alignment classes. These are used to align text such as parapraphs, links, and headings inside their parent container. Text is left-aligned by default and does not need a class unless it needs to override a previous alignment class. The most commonly used class is .text-center. These classes will affect all text objects inside its container.</p>\n<p>The complete list of alignment classes are as follows:</p>\n<p><code>.text-left</code> - Left align\n<code>.text-right</code> - Right align\n<code>.text-center</code> - Center align\n<code>.text-justify</code> - Justify align\n<code>.text-start</code> - Start align\n<code>.text-end</code> - End align\n<code>.text-match</code> - Match parent align</p>\n<p>You can learn more about text alignment classes in the <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-align\">MDN</a> docs.</p>\n","patternBreadcrumb":{"patternGroup":"assets","patternSubgroup":"grid-and-alignment"},"patternExtension":"hbs","patternName":"Typography Alignment","patternPartial":"assets-typography-alignment","patternState":"","patternEngineName":"handlebars","extraOutput":{"order":6}}
+</script>
+
+<script>
+  window.patternData = {"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"<p>These are text alignment classes. These are used to align text such as parapraphs, links, and headings inside their parent container. Text is left-aligned by default and does not need a class unless it needs to override a previous alignment class. The most commonly used class is .text-center. These classes will affect all text objects inside its container.</p>\n<p>The complete list of alignment classes are as follows:</p>\n<p><code>.text-left</code> - Left align\n<code>.text-right</code> - Right align\n<code>.text-center</code> - Center align\n<code>.text-justify</code> - Justify align\n<code>.text-start</code> - Start align\n<code>.text-end</code> - End align\n<code>.text-match</code> - Match parent align</p>\n<p>You can learn more about text alignment classes in the <a href=\"https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/text-align\">MDN</a> docs.</p>\n","patternBreadcrumb":{"patternGroup":"assets","patternSubgroup":"grid-and-alignment"},"patternExtension":"hbs","patternName":"Typography Alignment","patternPartial":"assets-typography-alignment","patternState":"","patternEngineName":"handlebars","extraOutput":{"order":6}};
+</script>
+
+<script>
+  /*!
+   * scriptLoader - v0.1
+   *
+   * Copyright (c) 2014 Dave Olsen, http://dmolsen.com
+   * Licensed under the MIT license
+   *
+   */
+
+  var scriptLoader = {
+
+    run: function(js,cb,target) {
+      var s  = document.getElementById(target+'-'+cb);
+      for (var i = 0; i < js.length; i++) {
+        var src = (typeof js[i] != 'string') ? js[i].src : js[i];
+        var c   = document.createElement('script');
+        c.src   = '../../'+src+'?'+cb;
+        if (typeof js[i] != 'string') {
+          if (js[i].dep !== undefined) {
+            c.onload = function(dep,cb,target) {
+              return function() {
+                scriptLoader.run(dep,cb,target);
+              }
+            }(js[i].dep,cb,target);
+          }
+        }
+        s.parentNode.insertBefore(c,s);
+      }
+    }
+
+  }
+</script>
+
+<script id="pl-js-polyfill-insert-1763569242860">
+  (function() {
+    if (self != top) {
+      var cb = '1763569242860';
+      var js = [];
+      scriptLoader.run(js,cb,'pl-js-polyfill-insert');
+    }
+  })();
+</script>
+
+
+<script type="module">
+  // always load Pattern-specific JS so UI like accordions, etc can continue to work even when viewed as a standalone HTML page
+  import('../../styleguide/js/patternlab-pattern.modern.js');
+</script>
+
+<script id="pl-js-insert-1763569242860" nomodule>
+  /*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on https://goo.gl/REQGQ by Paul Irish). Licensed MIT */
+  !function(e){var t=function(t,n){"use strict";var o=e.document.getElementsByTagName("script")[0],r=e.document.createElement("script");return r.src=t,r.async=!0,o.parentNode.insertBefore(r,o),n&&"function"==typeof n&&(r.onload=n),r};"undefined"!=typeof module?module.exports=t:e.loadJS=t}("undefined"!=typeof global?global:this);
+
+  // always load Pattern-specific JS so UI like accordions, etc can continue to work even when viewed as a standalone HTML page
+  loadJS('../../styleguide/js/patternlab-pattern.js');
+</script>
+
+
+<script type="text/javascript" src="../../js/vendor/jQuery/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/vendor/foundation/foundation.min.js"></script>
+<script type="text/javascript" src="../../js/vendor/motion-ui/motion-ui.min.js"></script>
+<script type="text/javascript" src="../../js/shield.min.js"></script>
+<script type="text/javascript" src="../../js/vendor/what-input/what-input.min.js"></script>
+
+</body>
+</html>

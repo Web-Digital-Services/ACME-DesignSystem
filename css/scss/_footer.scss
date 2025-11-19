@@ -1,0 +1,217 @@
+footer {
+    color: $off-white;
+    background-color: $midnight;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    position: relative;
+    margin-top: rem-calc(60px);
+
+    &.flatten {
+        margin-top: 0;
+    }
+
+    .alamo {
+        position: absolute;
+        top: rem-calc(-60px);
+        width: 100%;
+        text-align: center;
+
+        svg {
+            width: rem-calc(200px);
+            fill: $midnight;
+        }
+    }
+
+    h2 {
+        font-size: rem-calc(30px);
+        font-weight: 800;
+    }
+
+    h3 {
+        font-size: rem-calc(22px);
+        margin-top: rem-calc(-25px);
+        margin-bottom: rem-calc(40px);
+        font-weight: 500;
+        font-family: $sans-serif-font;
+    }
+
+    p {
+        margin-bottom: rem-calc(12px);
+
+        &.large-text {
+            font-family: $serif-font;
+            font-size: rem-calc(20px);
+        }
+    }
+
+    a {
+        color: $smoke;
+        font-weight: 900 !important;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: $smoke;
+        }
+
+        &.arrow::after {
+            color: $smoke;
+        }
+
+        &.arrow:hover:after {
+            color: $smoke;
+        }
+    }
+
+    p > a {
+        background-image: linear-gradient($smoke, $smoke) !important;
+        color: $smoke !important;
+
+        &:hover {
+            background-color: $smoke;
+            color: $midnight !important;
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin-left: 0;
+
+        li {
+            margin-bottom: 0.625rem;
+        }
+    }
+
+    .contact {
+        display: flex;
+        align-items: center;
+        margin-bottom: rem-calc(30px);
+
+        .fa-stack {
+            margin-right: rem-calc(10px);
+
+            a:hover {
+                color: $off-white !important;
+            }
+        }
+    }
+
+    .status {
+        display: flex;
+        align-items: center;
+
+        i {
+            font-size: 36px;
+            color: $limestone;
+            margin-right: rem-calc(10px);
+        }
+    }
+
+    .shield {
+        background-image: url("../images/half-shield.svg");
+        background-repeat: no-repeat;
+        position: relative;
+        background-position: right center;
+
+        @media screen and (max-width: 1159px) {
+            //temporary solution
+            background: none;
+        }
+    }
+
+    .bleed {
+        background-color: $midnight;
+        color: $off-white;
+    }
+
+    &.mission {
+        background-color: $white;
+        color: $off-black;
+        margin-top: rem-calc(-45px);
+
+        & hr {
+            margin: rem-calc(60px 0);
+            max-width: none;
+        }
+
+        & hr:after {
+            content: url("../images/orange-shield.svg");
+            left: 50%;
+            position: absolute;
+            transform: translateY(-50%) translateX(-50%);
+            padding: rem-calc(20px);
+            background: #fff;
+        }
+
+        a {
+            color: $orange-main;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: $midnight;
+            }
+
+            &.arrow::after {
+                color: $orange-main;
+            }
+
+            &.arrow:hover:after {
+                color: $midnight;
+            }
+        }
+
+        .social {
+            li {
+                a {
+                    color: $orange-main;
+
+                    &:hover {
+                        color: $midnight;
+                    }
+                }
+            }
+        }
+
+        .columns {
+            -webkit-columns: 2 auto;
+            -moz-columns: 2 auto;
+            columns: 2 auto;
+
+            @media screen and (max-width: $medium-screen) {
+                -webkit-columns: 1 auto;
+                -moz-columns: 1 auto;
+                columns: 1 auto;
+            }
+        }
+    }
+
+    @media screen and (max-width: $small-screen) {
+        h2 {
+            font-size: 1.25rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.1875rem;
+            text-align: center;
+            margin-top: rem-calc(-20px);
+        }
+
+        .social {
+            text-align: center;
+            margin-top: rem-calc(45px);
+            margin-bottom: rem-calc(34px);
+
+            li {
+                margin-right: rem-calc(14px);
+            }
+        }
+
+        ul {
+            li {
+                margin-bottom: rem-calc(20px);
+            }
+        }
+    }
+}

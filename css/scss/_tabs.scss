@@ -1,0 +1,295 @@
+/* ============================================================
+    TABS
+
+    Variants: Pill, Manila, Folding
+============================================================ */
+
+div.tab-container {
+    ul.tabs {
+        // ======= Floating style
+        background: $orange-main;
+        text-align: center;
+        border: none;
+
+        li.tabs-title {
+            position: relative;
+            background: $orange-main;
+            display: inline-block;
+            float: none;
+
+            a {
+                color: $off-white;
+                font-weight: 700;
+                font-size: 1rem;
+                transition: 0.3s ease-in-out;
+
+                &:hover,
+                &:focus,
+                &:visited {
+                    background: $midnight;
+                }
+
+                &:after {
+                    position: absolute;
+                    content: "";
+                    height: rem-calc(2.5px);
+                    bottom: 0;
+                    margin: 0 auto;
+                    left: 0;
+                    right: 0;
+                    width: 30%;
+                    background: transparent;
+                    transition: 0.2s 0.1s;
+                }
+
+                &:hover:after {
+                    background: $golden;
+                }
+            }
+
+            &.is-active {
+                a {
+                    background: $orange-main;
+                    font-weight: 900;
+
+                    &:hover {
+                        background: $orange-main;
+                    }
+
+                    &:after {
+                        position: absolute;
+                        content: "";
+                        height: rem-calc(2.5px);
+                        bottom: 0;
+                        margin: 0 auto;
+                        left: 0;
+                        right: 0;
+                        width: 100%;
+                        background: $golden;
+                    }
+                }
+            }
+        }
+
+        //Color options
+
+        //manila style
+        &.manila {
+            text-align: left;
+            background: transparent;
+            overflow: auto;
+            white-space: nowrap;
+
+            li.tabs-title {
+                margin-right: 0.5rem;
+                border-radius: 0.3rem 0.3rem 0 0;
+
+                a {
+                    padding: 0.75rem 1rem 0.75rem 1rem;
+
+                    &:after {
+                        display: none;
+                    }
+                }
+
+                &.is-active {
+                    a {
+                        background: $concrete;
+                        color: $off-black;
+
+                        &:hover {
+                            background: $clay;
+                        }
+                    }
+                }
+            }
+
+            &.color {
+                li.tabs-title {
+                    a {
+                        background: $talavera;
+                        color: $off-white;
+
+                        &:hover {
+                            background: $talavera;
+                        }
+                    }
+
+                    &.is-active {
+                        a {
+                            background: $off-white;
+                            color: $midnight;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.pill {
+            // ======= Pill style
+            background: transparent;
+            overflow: auto;
+            white-space: nowrap;
+
+            li.tabs-title {
+                margin-right: rem-calc(-5px);
+                background: transparent;
+
+                &:first-child a {
+                    border-top-left-radius: 1rem;
+                    border-bottom-left-radius: 1rem;
+                }
+
+                &:last-child a {
+                    border-top-right-radius: 1rem;
+                    border-bottom-right-radius: 1rem;
+                }
+
+                a {
+                    background: $orange-main;
+                    color: $off-white;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    transition: 0.3s ease-in-out;
+
+                    &:hover {
+                        background: $midnight;
+
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+
+                &.is-active {
+                    a {
+                        background: $midnight;
+                        font-weight: 900;
+
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            &.color {
+                li.tabs-title {
+                    a {
+                        background: $off-white;
+                        color: $midnight;
+
+                        &:hover {
+                            background: $talavera;
+                            color: $off-white;
+                        }
+                    }
+
+                    &.is-active {
+                        a {
+                            background: $talavera;
+                            color: $off-white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .tabs-content {
+        background: $concrete;
+        border: 0;
+    }
+
+    .pill ~ .tabs-content {
+        margin-top: 1rem;
+    }
+
+    .pill.color ~ .tabs-content {
+        background: $off-white;
+    }
+
+    .manila.color ~ .tabs-content {
+        background: $off-white;
+    }
+
+    &.color {
+        ul.tabs {
+            background: $talavera;
+
+            li.tabs-title {
+                background: $talavera;
+
+                a {
+                    &:hover,
+                    &:focus,
+                    &:visited {
+                        background: $talavera;
+                    }
+
+                    &:hover:after {
+                        background: $rivermist;
+                    }
+                }
+
+                &.is-active {
+                    a {
+                        background: $talavera;
+
+                        &:hover {
+                            background: $talavera;
+                        }
+
+                        &:after {
+                            background: $rivermist;
+                        }
+                    }
+                }
+            }
+        }
+
+        .tabs-content {
+            background: $smoke;
+        }
+
+        &.grey {
+            ul.tabs {
+                background: $smoke;
+
+                li.tabs-title {
+                    background: $smoke;
+
+                    a {
+                        &:hover,
+                        &:focus,
+                        &:visited {
+                            background: $midnight;
+                        }
+
+                        &:hover:after {
+                            background: $limestone;
+                        }
+                    }
+
+                    &.is-active {
+                        a {
+                            background: $smoke;
+
+                            &:hover {
+                                background: $smoke;
+                            }
+
+                            &:after {
+                                background: $limestone;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .tabs-content {
+                background: $smoke;
+            }
+        }
+    }
+}

@@ -1,0 +1,111 @@
+/* ============================================================
+    LISTS
+============================================================ */
+
+div.arrow ul,
+div.check ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+div.arrow ul li,
+div.check ul li {
+    text-indent: -0.875rem;
+    padding-left: 1em;
+}
+
+div.arrow ul li:before {
+    font-family: "Font Awesome 6 Pro";
+    font-weight: 900;
+    content: "\f105";
+    color: $orange-main;
+    padding-right: 0.313rem;
+}
+
+div.check ul li:before {
+    font-family: "Font Awesome 6 Pro";
+    font-weight: 900;
+    font-size: 0.85em;
+    content: "\f00c";
+    padding-right: 0.313rem;
+}
+
+ul li a,
+ol li a {
+    font-size: 18.7px;
+    font-weight: 600;
+}
+
+div.lines {
+    ul,
+    ol {
+        list-style-type: none;
+    }
+
+    ul:not(.tags) {
+        > li {
+            padding: 0.938em 0;
+            border-bottom: solid rem-calc(1px) #667075;
+        }
+    }
+
+    ul.tags {
+        padding-bottom: 0;
+    }
+
+    & a {
+        display: block;
+    }
+}
+
+div.indent-list {
+    margin-left: 2.5rem;
+}
+
+div.loose-list {
+    li {
+        margin-bottom: 0.625rem;
+    }
+}
+
+ul.inline,
+ol.inline {
+    li {
+        list-style-type: none;
+        display: inline-block;
+    }
+}
+
+ul,
+ol {
+    margin: 0 1.25rem 1.25rem 1.25rem;
+}
+
+div.decoration {
+    li > a {
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-decoration-color: $orange-main;
+        text-decoration-thickness: rem-calc(1px);
+
+        &:hover {
+            text-decoration-line: underline;
+            text-decoration-color: $midnight;
+        }
+    }
+}
+
+// ======= News Byline
+
+ul.byline {
+    margin-bottom: rem-calc(27px);
+    margin-left: 0;
+    padding-left: 0;
+
+    li {
+        font-weight: 300;
+        margin-top: 0;
+        list-style: none;
+    }
+}

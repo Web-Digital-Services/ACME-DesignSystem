@@ -1,0 +1,134 @@
+/*=============================================
+=            Grid System           =
+
+This is our own university grid system that uses the built-in grid properties in html/css
+
+Please refer to our online demo in the github for further documentation
+=============================================*/
+
+.grid-wrapper {
+    max-width: 90rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 40rem) {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    @media (max-width: $small-screen) {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+.grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-items: stretch;
+}
+
+.grid.no-gap {
+    gap: 0;
+}
+
+.grid.cols-8-4 {
+    grid-template-columns: 2fr 1fr;
+}
+.grid.cols-9-3 {
+    grid-template-columns: 3fr 1fr;
+}
+.grid.cols-7-5 {
+    grid-template-columns: 3fr 2fr;
+}
+.grid.cols-6-6 {
+    grid-template-columns: 1fr 1fr;
+}
+.grid.cols-5-7 {
+    grid-template-columns: 2fr 3fr;
+}
+.grid.cols-4-8 {
+    grid-template-columns: 1fr 2fr;
+}
+.grid.cols-3-9 {
+    grid-template-columns: 1fr 3fr;
+}
+
+.grid.centered {
+    place-items: center;
+    > div {
+        max-width: 70%;
+        @media (max-width: $medium-screen) {
+            max-width: 85%;
+        }
+        @media (max-width: $small-screen) {
+            max-width: 100%;
+        }
+    }
+}
+
+@media (max-width: $medium-screen) {
+    .grid.cols-8-4 {
+        grid-template-columns: 3fr 2fr;
+    }
+    .grid.cols-9-3 {
+        grid-template-columns: 2fr 1fr;
+    }
+    .grid.cols-7-5 {
+        grid-template-columns: 3fr 2fr;
+    }
+    .grid.cols-6-6 {
+        grid-template-columns: 1fr 1fr;
+    }
+    .grid.cols-5-7 {
+        grid-template-columns: 2fr 3fr;
+    }
+    .grid.cols-4-8 {
+        grid-template-columns: 2fr 3fr;
+    }
+    .grid.cols-3-9 {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media (max-width: $small-screen) {
+    .grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+.grid > .order-small-1 {
+    @media (max-width: $small-screen) {
+        order: 1;
+    }
+}
+
+.grid > .order-small-2 {
+    @media (max-width: $small-screen) {
+        order: 2;
+    }
+}
+
+.grid > .order-large-1 {
+    order: 1;
+}
+
+.grid > .order-large-2 {
+    order: 2;
+}
+
+.grid.cols-multi {
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    ); /*setting the columns to auto fit viewport and wrap when the grid items get small enough*/
+}
+
+.subgrid {
+    display: grid;
+    grid-template-rows: subgrid; /* Make box (grid item) a subgrid (one column) to inherit parent grid properties */
+}
+
+.subgrid.span-3 {
+    grid-row: span 3;
+}

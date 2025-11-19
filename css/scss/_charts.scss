@@ -1,0 +1,70 @@
+.blue {
+    .charts-css {
+        --color-1: #004661 !important; /*$midnight*/
+        --color-2: #0c607b !important; /*$talavera*/
+        --color-3: #257994 !important; /*$talavera*/
+        --color-4: #3f93ae !important; /*$talavera*/
+        --color-5: #58acc7 !important; /*$talavera*/
+        --color-6: #004661 !important; /*$midnight*/
+        --color-7: #0c607b !important; /*$talavera*/
+        --color-8: #257994 !important; /*$talavera*/
+        --color-9: #3f93ae !important; /*$talavera*/
+        --color-10: #58acc7 !important; /*$talavera*/
+
+        .data {
+            color: $off-white;
+            font-weight: 900;
+            text-shadow: 1px 1px $off-black;
+        }
+    }
+}
+
+.orange-line {
+    --color-1: #ad4200 !important; /*$orange-main*/
+}
+.orange {
+    .charts-css {
+        --color-1: #e07533 !important; /*$orange-main-40*/
+        --color-2: #c75c1a !important; /*$orange-main-50*/
+        --color-3: #ad4200 !important; /*$orange-main*/
+        --color-4: #942900 !important; /*$orange-main-70*/
+        --color-5: #7a0f00 !important; /*$midnight*/
+        --color-6: #e07533 !important; /*$orange-main-40*/
+        --color-7: #c75c1a !important; /*$orange-main-50*/
+        --color-8: #ad4200 !important; /*$orange-main*/
+        --color-9: #942900 !important; /*$orange-main-70*/
+        --color-10: #7a0f00 !important; /*$midnight*/
+
+        .data {
+            color: $off-white;
+            font-weight: 900;
+            text-shadow: 1px 1px $off-black;
+        }
+
+        &.stacked {
+            --color-1: #ffbc5b !important; /*$golden*/
+            --color-2: #72c6e1 !important; /*$rivermist*/
+            --color-3: #d45d00 !important; /*$orange-main*/
+            --color-4: #257994 !important; /*$talavera*/
+            --color-5: #fa8f4d !important; /*$orange-main-30*/
+            --color-6: #ffbc5b !important; /*$golden*/
+            --color-7: #72c6e1 !important; /*$rivermist*/
+            --color-8: #d45d00 !important; /*$orange-main*/
+            --color-9: #257994 !important; /*$talavera*/
+            --color-10: #fa8f4d !important; /*$orange-main-30*/
+        }
+    }
+}
+
+table.charts-css {
+    &.column {
+        height: rem-calc(300px);
+    }
+}
+
+ul.charts-css {
+    &.legend {
+        justify-content: center;
+        margin-top: rem-calc(10px);
+    }
+}
