@@ -7,17 +7,17 @@
 @use "sass:color" as color;
 
 blockquote {
-    color: $midnight;
-    border-left: none;
+    position: relative;
     margin: 0;
     padding: 0;
-    position: relative;
+    border-left: none;
+    color: $midnight;
 
     p {
-        color: $midnight;
+        color: inherit;
         line-height: inherit;
 
-        + cite {
+        +cite {
             margin-top: -0.5rem;
         }
     }
@@ -25,9 +25,14 @@ blockquote {
 
 cite {
     color: $midnight;
-    font-style: italic;
-    font-weight: 500;
     font-size: inherit;
+    font-style: normal;
+    font-weight: 500;
+
+    &::before {
+        content: "\2014";
+        margin-right: 0.25rem;
+    }
 
     a {
         font-weight: 500;
@@ -35,34 +40,28 @@ cite {
     }
 }
 
-cite:before {
-    content: "\2014";
-    margin-right: 0.25rem;
-}
-
 .blockquote-layout {
-    padding-top: rem-calc(30px);
-    padding-bottom: rem-calc(30px);
+    padding-top: 1.875rem;
+    padding-bottom: 1.875rem;
 
     .grid {
         align-items: center;
     }
 }
 
-.blockquote-media {
-    img {
-        display: block;
-        width: 100%;
-        max-width: rem-calc(300px);
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-    }
+.blockquote-media img {
+    display: block;
+    width: 100%;
+    max-width: 18.75rem;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
 .blockquote-media-right {
     justify-self: end;
 }
 
+/* Color bleeds */
 .bleed.color blockquote,
 .bleed.midnight blockquote,
 .bleed.talavera blockquote,
@@ -70,39 +69,21 @@ cite:before {
 .bleed.video blockquote,
 .bleed.video-fill blockquote {
     color: $off-white;
-    border-left: none;
-    margin: 0;
-    padding: 0;
 
-    p {
-        color: $off-white;
-        line-height: inherit;
-
-        + cite {
-            margin-top: -0.5rem;
-        }
-    }
-
+    p,
     cite {
-        color: $off-white;
-        font-style: italic;
-        font-weight: 500;
-        font-size: inherit;
-
-        &:before {
-            content: "\2014";
-            margin-right: 0.25rem;
-        }
+        color: inherit;
     }
 }
 
+/* Pullquote */
 .bleed.pullquote {
     blockquote p:first-of-type {
         position: relative;
     }
 
     blockquote p:first-of-type::before {
-        content: "“";
+        content: "\201C";
         position: absolute;
         top: -3rem;
         left: -3rem;
@@ -113,34 +94,26 @@ cite:before {
     }
 
     blockquote p:last-of-type::after {
-        content: "”";
+        content: "\201D";
     }
 
     cite {
         color: inherit;
-        font-style: italic;
         font-weight: 600;
-        font-size: inherit;
     }
 
     @media screen and (max-width: $small-screen) {
-        blockquote p:first-of-type {
-            padding-top: 0;
-            padding-left: 0;
-        }
-
         blockquote p:first-of-type::before {
             position: static;
             display: block;
-            top: auto;
-            left: auto;
             font-size: 4rem;
             line-height: 0.7;
-            margin-bottom: rem-calc(8px);
+            margin-bottom: 0.5rem;
         }
     }
 }
 
+/* Fancy */
 blockquote.fancy {
     background-color: $smoke;
 
@@ -153,7 +126,7 @@ blockquote.fancy {
         }
 
         &:first-of-type::before {
-            content: "“";
+            content: "\201C";
             position: absolute;
             top: 0.5125rem;
             left: 0.3125rem;
@@ -164,238 +137,180 @@ blockquote.fancy {
         }
 
         &:last-of-type::after {
-            content: "”";
+            content: "\201D";
         }
     }
 
     cite {
         display: block;
+        padding: 1.667rem;
         background-color: $talavera;
         color: $off-white;
-        padding: 1.667rem;
         font-weight: 700;
     }
 }
 
+/* Splash */
 .blockquote-splash {
-    padding-top: rem-calc(60px);
-    padding-bottom: rem-calc(60px);
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
 
-    > .grid-wrapper > .grid {
+    >.grid-wrapper>.grid {
         margin-top: 0;
-        background-color: $talavera;
-        border-radius: $rounded-corners;
         overflow: hidden;
+        border-radius: $rounded-corners;
+        background-color: $talavera;
     }
 
     .splash-image {
         background-color: $smoke;
+    }
 
-        img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            min-height: rem-calc(520px);
-            object-fit: cover;
-            object-position: center;
-        }
+    .splash-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 32.5rem;
+        object-fit: cover;
+        object-position: center;
     }
 
     .splash-quote {
         display: flex;
         align-items: center;
+        padding: 4rem;
         background-color: $talavera;
         background-image: url("../images/bg-pattern-waves-white.svg");
         background-repeat: repeat;
-        background-size: rem-calc(130px);
+        background-size: 8.125rem;
         color: $off-white;
-        padding: clamp(2rem, 4vw, 4rem);
     }
 
     blockquote {
-        max-width: rem-calc(560px);
+        max-width: 35rem;
         color: $off-white;
-    }
-
-    blockquote p:first-of-type {
-        color: inherit;
-        font-family: $serif-font;
-        font-size: 36px;
-        font-style: italic;
-        line-height: 1.25;
-        margin-bottom: rem-calc(24px);
-    }
-
-    cite {
-        display: flex;
-        align-items: flex-start;
-        gap: rem-calc(6px);
-        color: inherit;
-        font-style: normal;
-        line-height: 1.25;
-
-        &::before {
-            content: "\2014";
-            flex: 0 0 auto;
-            color: inherit;
-            font-style: normal;
-            margin-right: 0;
-        }
-
-        > span {
-            display: block;
-            font-style: normal;
-            font-weight: 400;
-        }
-
-        > span > span {
-            display: block;
-            font-style: normal;
-            font-weight: 400;
-        }
-
-        a {
-            color: $off-white;
-            font-style: normal;
-            font-weight: 700;
-            text-decoration: underline;
-            text-underline-offset: 0.12em;
-        }
-
-        a:hover {
-            color: $midnight;
-            background-color: $concrete;
-        }
-    }
-
-    @media screen and (max-width: $medium-screen) {
-        blockquote p:first-of-type {
-            font-size: 32px;
-        }
-    }
-
-    @media screen and (max-width: $small-screen) {
-        .splash-image img {
-            min-height: auto;
-            aspect-ratio: 1 / 1;
-        }
-
-        .splash-quote {
-            padding: rem-calc(32px 24px);
-        }
-
-        blockquote p:first-of-type {
-            font-size: 26px;
-        }
     }
 }
 
+/* Spotlight */
 .bleed.blockquote-spotlight {
     background-color: $talavera;
     background-image: url("../images/bg-pattern-waves-white.svg");
     background-repeat: repeat;
-    background-size: rem-calc(130px);
+    background-size: 8.125rem;
     color: $off-white;
 
     .spotlight-image {
         text-align: center;
+    }
 
-        img {
-            display: block;
-            width: min(100%, rem-calc(400px));
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .spotlight-image img {
+        display: block;
+        width: min(100%, 25rem);
+        margin-right: auto;
+        margin-left: auto;
     }
 
     .spotlight-quote {
-        max-width: rem-calc(620px);
         display: flex;
         flex-direction: column;
         justify-content: center;
+        max-width: 38.75rem;
         font-family: $serif-font;
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            margin-bottom: rem-calc(6px);
-        }
-
-        blockquote {
-            margin-top: 0;
-        }
-
-        blockquote p:first-of-type {
-            margin-top: 0;
-        }
     }
 
-    cite {
-        display: flex;
-        align-items: flex-start;
-        gap: rem-calc(6px);
+    .spotlight-quote h1,
+    .spotlight-quote h2,
+    .spotlight-quote h3,
+    .spotlight-quote h4,
+    .spotlight-quote h5,
+    .spotlight-quote h6 {
+        margin-bottom: 0.375rem;
+    }
+
+    .spotlight-quote blockquote,
+    .spotlight-quote blockquote p:first-of-type {
+        margin-top: 0;
+    }
+}
+
+/* Feature quote text */
+.blockquote-splash blockquote p:first-of-type,
+.bleed.blockquote-spotlight blockquote p:first-of-type {
+    color: inherit;
+    font-family: $serif-font;
+    font-size: 36px;
+    font-style: italic;
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+}
+
+.bleed.blockquote-spotlight blockquote p:first-of-type {
+    line-height: 1.2;
+}
+
+/* Feature citations */
+.blockquote-splash cite,
+.bleed.blockquote-spotlight cite {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.375rem;
+    color: inherit;
+    line-height: 1.25;
+
+    &::before {
+        flex: 0 0 auto;
+        margin-right: 0;
         color: inherit;
+    }
+
+    >span,
+    >span>span {
+        display: block;
         font-style: normal;
-        line-height: 1.25;
-
-        &::before {
-            content: "\2014";
-            flex: 0 0 auto;
-            color: inherit;
-            font-style: normal;
-        }
-
-        > span {
-            display: block;
-            font-style: normal;
-            font-weight: 400;
-        }
-
-        > span > span {
-            display: block;
-            font-style: normal;
-            font-weight: 400;
-        }
-
-        a {
-            color: $off-white;
-            font-style: normal;
-            font-weight: 700;
-            text-decoration: underline;
-            text-underline-offset: 0.12em;
-        }
-
-        a:hover {
-            color: $midnight;
-            background-color: $concrete;
-        }
+        font-weight: 400;
     }
 
-    blockquote p:first-of-type {
-        color: inherit;
-        font-family: $serif-font;
-        font-size: 36px;
-        font-style: italic;
-        line-height: 1.2;
-        margin-bottom: rem-calc(24px);
+    a {
+        color: $off-white;
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 0.12em;
     }
 
-    @media screen and (max-width: $medium-screen) {
-        blockquote p:first-of-type {
-            font-size: 32px;
-        }
+    a:hover {
+        background-color: $concrete;
+        color: $midnight;
+    }
+}
+
+@media screen and (max-width: $medium-screen) {
+    .blockquote-splash .splash-quote {
+        padding: 3rem;
     }
 
-    @media screen and (max-width: $small-screen) {
-        .blockquote-spotlight-label {
-            font-size: rem-calc(20px);
-        }
+    .blockquote-splash blockquote p:first-of-type,
+    .bleed.blockquote-spotlight blockquote p:first-of-type {
+        font-size: 32px;
+    }
+}
 
-        blockquote p:first-of-type {
-            font-size: 26px;
-        }
+@media screen and (max-width: $small-screen) {
+    .blockquote-splash .splash-image img {
+        min-height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .blockquote-splash .splash-quote {
+        padding: 2rem 1.5rem;
+    }
+
+    .blockquote-splash blockquote p:first-of-type,
+    .bleed.blockquote-spotlight blockquote p:first-of-type {
+        font-size: 26px;
+    }
+
+    .bleed.blockquote-spotlight .blockquote-spotlight-label {
+        font-size: 1.25rem;
     }
 }

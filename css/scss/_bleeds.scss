@@ -18,17 +18,17 @@
     >.grid-wrapper {
         position: relative;
         z-index: 2;
-
-        >.grid {
-            margin-top: 0;
-
-            +.grid {
-                margin-top: 1rem;
-            }
-        }
     }
 
-    /* Optional spacing */
+    >.grid-wrapper>.grid {
+        margin-top: 0;
+    }
+
+    >.grid-wrapper>.grid+.grid {
+        margin-top: 1rem;
+    }
+
+    /* Spacing */
     &.roomy {
         padding-top: $spacing-roomy;
         padding-bottom: $spacing-roomy;
@@ -44,7 +44,7 @@
         padding-bottom: $spacing-chonky;
     }
 
-    /* Color bleeds */
+    /* Colors */
     &.midnight {
         background-color: $midnight;
         color: $white;
@@ -67,7 +67,7 @@
         background-repeat: repeat;
     }
 
-    /* Image-fill and video bleeds */
+    /* Media fill */
     &.img-fill,
     &.video,
     &.video-fill {
@@ -90,7 +90,7 @@
             position: absolute;
             inset: 0;
             z-index: 1;
-            background: rgba(23, 23, 23, 0.77);
+            background: rgba($off-black, 0.77);
             pointer-events: none;
         }
 
@@ -110,11 +110,12 @@
         margin-bottom: -0.5625rem;
     }
 
+    /* Video fill */
     &.video-fill {
         .video-fill-content {
             max-width: 60rem;
-            margin-left: auto;
             margin-right: auto;
+            margin-left: auto;
             text-align: center;
         }
 
@@ -165,10 +166,7 @@
     }
 }
 
-/* ============================================================
-    VIDEO FILL MODAL
-============================================================ */
-
+/* Video modal */
 .video-fill-close-target {
     position: absolute;
     width: 0;
@@ -181,10 +179,10 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    padding: 1.5rem;
-    background: rgba(0, 0, 0, 0.85);
     align-items: center;
     justify-content: center;
+    padding: 1.5rem;
+    background: rgba($black, 0.85);
 
     &:target {
         display: flex;

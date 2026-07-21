@@ -6,44 +6,6 @@
 @use "sass:math" as math;
 @use "sass:color" as color;
 
-/* Stacked image hero */
-@mixin stacked-image-hero {
-    padding: 0;
-    overflow: visible;
-    background-color: transparent;
-
-    >img {
-        position: static;
-        display: block;
-        width: 100%;
-        height: auto;
-        margin: 0;
-    }
-
-    >.grid-wrapper {
-        padding-top: 0.625rem;
-        padding-bottom: 0.625rem;
-
-        >.grid {
-            min-height: 0;
-            align-items: start;
-        }
-    }
-
-    .callout {
-        grid-column: 1 / -1;
-        width: 100%;
-        max-width: none;
-        height: auto;
-        align-self: start;
-        justify-self: stretch;
-    }
-
-    &::before {
-        display: none;
-    }
-}
-
 .hero {
     position: relative;
     overflow: hidden;
@@ -55,20 +17,18 @@
     >.grid-wrapper {
         position: relative;
         z-index: 2;
+    }
 
-        >.grid {
-            margin-top: 0;
+    >.grid-wrapper>.grid {
+        margin-top: 0;
+    }
 
-            >div {
-                > :first-child {
-                    margin-top: 0;
-                }
+    >.grid-wrapper>.grid>div> :first-child {
+        margin-top: 0;
+    }
 
-                > :last-child {
-                    margin-bottom: 0;
-                }
-            }
-        }
+    >.grid-wrapper>.grid>div> :last-child {
+        margin-bottom: 0;
     }
 
     /* Spacing */
@@ -95,27 +55,6 @@
         color: $off-white;
     }
 
-    /* Blur and waves heights */
-    &.blur,
-    &.waves {
-        >.grid-wrapper>.grid {
-            min-height: 32rem;
-            align-items: center;
-        }
-
-        &.roomy>.grid-wrapper>.grid {
-            min-height: 35.75rem;
-        }
-
-        &.extra-roomy>.grid-wrapper>.grid {
-            min-height: 39.5rem;
-        }
-
-        &.chonky>.grid-wrapper>.grid {
-            min-height: 47rem;
-        }
-    }
-
     &.img>img,
     &.blur>img {
         position: absolute;
@@ -127,7 +66,6 @@
         object-position: center;
     }
 
-    /* Image */
     &.img {
         background-color: $off-black;
 
@@ -136,37 +74,6 @@
         }
     }
 
-    /* Large */
-    @media (min-width: ($medium-screen + 1px)) {
-        &.img {
-            >.grid-wrapper>.grid {
-                min-height: 32rem;
-                align-items: center;
-            }
-
-            &.roomy>.grid-wrapper>.grid {
-                min-height: 35.75rem;
-            }
-
-            &.extra-roomy>.grid-wrapper>.grid {
-                min-height: 39.5rem;
-            }
-
-            &.chonky>.grid-wrapper>.grid {
-                min-height: 47rem;
-            }
-
-            &.right .callout {
-                grid-column: 2;
-            }
-
-            &.left .callout {
-                grid-column: 1;
-            }
-        }
-    }
-
-    /* Blur */
     &.blur {
         background-color: $off-black;
 
@@ -181,7 +88,7 @@
             position: absolute;
             inset: 0;
             z-index: 1;
-            background: rgba(23, 23, 23, 0.68);
+            background: rgba($off-black, 0.68);
             pointer-events: none;
         }
 
@@ -190,50 +97,38 @@
             width: 100%;
             max-height: 23rem;
             object-fit: cover;
-            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.28);
+            box-shadow: 0 1rem 2rem rgba($black, 0.28);
         }
     }
 
-    /* Gradient */
+    /* Gradient hero */
     &.img.gradient {
-        &::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            pointer-events: none;
-        }
-
         &.grey.right::before {
-            background: linear-gradient(90deg,
-                    rgba(26, 36, 41, 0) 25%,
-                    rgba(26, 36, 41, 0.58) 48%,
-                    rgba(26, 36, 41, 0.96) 72%);
+            background: $grey-gradient-right;
         }
 
         &.grey.left::before {
-            background: linear-gradient(270deg,
-                    rgba(26, 36, 41, 0) 25%,
-                    rgba(26, 36, 41, 0.58) 48%,
-                    rgba(26, 36, 41, 0.96) 72%);
+            background: $grey-gradient-left;
         }
 
         &.orange.right::before {
-            background: linear-gradient(90deg,
-                    rgba(173, 66, 0, 0) 25%,
-                    rgba(173, 66, 0, 0.62) 48%,
-                    rgba(173, 66, 0, 0.96) 72%);
+            background: $orange-gradient-right;
         }
 
         &.orange.left::before {
-            background: linear-gradient(270deg,
-                    rgba(173, 66, 0, 0) 25%,
-                    rgba(173, 66, 0, 0.62) 48%,
-                    rgba(173, 66, 0, 0.96) 72%);
+            background: $orange-gradient-left;
+        }
+
+        &.white.right::before {
+            background: $white-gradient-right;
+        }
+
+        &.white.left::before {
+            background: $white-gradient-left;
         }
     }
 
-    /* Waves */
+    /* Waves hero */
     &.waves {
         background-color: #354d69;
         background-image: url("../images/design/hero-smoke-driving.png");
@@ -242,68 +137,120 @@
         background-size: cover;
         text-align: center;
 
-        &:not(.roomy):not(.extra-roomy):not(.chonky)>.grid-wrapper>.grid {
-            min-height: 34rem;
-        }
-
         h1 {
-            margin-bottom: 0.75rem;
-            font-size: clamp(2.5rem, 3vw + 1rem, 4.0625rem);
+            margin-bottom: 0.5rem;
+            font-size: 4.0625rem;
             line-height: 1.1;
         }
 
         p {
             margin: 0;
             font-family: $serif-font;
-            font-size: clamp(1.125rem, 1vw + 0.875rem, 1.5rem);
+            font-size: 1.5rem;
             line-height: 1.35;
         }
     }
 
-    /* Medium: 640–1023px */
-    @media (min-width: ($small-screen + 1px)) and (max-width: $medium-screen) {
+    @media (min-width: ($small-screen + 1px)) {
 
-        /* Standard image */
-        &.img:not(.gradient) {
-            >.grid-wrapper>.grid {
-                min-height: 32rem;
-                align-items: center;
-            }
-
-            &.roomy>.grid-wrapper>.grid {
-                min-height: 35.75rem;
-            }
-
-            &.extra-roomy>.grid-wrapper>.grid {
-                min-height: 39.5rem;
-            }
-
-            &.chonky>.grid-wrapper>.grid {
-                min-height: 47rem;
-            }
-
-            .callout {
-                grid-column: 1 / -1;
-                width: 100%;
-                max-width: 52rem;
-            }
-
-            &.right .callout {
-                justify-self: end;
-            }
-
-            &.left .callout {
-                justify-self: start;
-            }
+        &.img>.grid-wrapper>.grid,
+        &.blur>.grid-wrapper>.grid,
+        &.waves>.grid-wrapper>.grid {
+            min-height: 32rem;
+            align-items: center;
         }
 
-        /* Stacked gradient */
-        &.img.gradient {
-            @include stacked-image-hero;
+        &.img.roomy>.grid-wrapper>.grid,
+        &.blur.roomy>.grid-wrapper>.grid,
+        &.waves.roomy>.grid-wrapper>.grid {
+            min-height: 35.75rem;
+        }
+
+        &.img.extra-roomy>.grid-wrapper>.grid,
+        &.blur.extra-roomy>.grid-wrapper>.grid,
+        &.waves.extra-roomy>.grid-wrapper>.grid {
+            min-height: 39.5rem;
+        }
+
+        &.img.chonky>.grid-wrapper>.grid,
+        &.blur.chonky>.grid-wrapper>.grid,
+        &.waves.chonky>.grid-wrapper>.grid {
+            min-height: 47rem;
+        }
+
+        &.waves:not(.roomy):not(.extra-roomy):not(.chonky)>.grid-wrapper>.grid {
+            min-height: 34rem;
         }
     }
 
-    /* Small: 0–639px */
+    @media (min-width: ($medium-screen + 1px)) {
+        &.img.right .callout {
+            grid-column: 2;
+        }
+
+        &.img.left .callout {
+            grid-column: 1;
+        }
+
+        &.img.gradient::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+    }
+
+    /* Medium */
+    @media (min-width: ($small-screen + 1px)) and (max-width: $medium-screen) {
+        &.img:not(.gradient) .callout {
+            grid-column: 1 / -1;
+            width: 100%;
+            max-width: 52rem;
+        }
+
+        &.img:not(.gradient).right .callout {
+            justify-self: end;
+        }
+
+        &.img:not(.gradient).left .callout {
+            justify-self: start;
+        }
+
+        &.img.gradient {
+            overflow: visible;
+            background-color: transparent;
+        }
+
+        &.img.gradient>img {
+            position: static;
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0;
+        }
+
+        &.img.gradient>.grid-wrapper {
+            padding-top: 0.625rem;
+            padding-bottom: 0.625rem;
+        }
+
+        &.img.gradient>.grid-wrapper>.grid {
+            min-height: 0;
+            align-items: start;
+        }
+
+        &.img.gradient .callout {
+            grid-column: 1 / -1;
+            width: 100%;
+            max-width: none;
+            height: auto;
+            align-self: start;
+            justify-self: stretch;
+        }
+    }
+
+    /* Small */
     @media (max-width: $small-screen) {
         padding: 2.5rem 0 3rem;
 
@@ -322,52 +269,93 @@
             padding-bottom: $spacing-chonky-small;
         }
 
-        /* Stacked images */
         &.img {
-            @include stacked-image-hero;
+            padding: 0;
+            overflow: visible;
+            background-color: transparent;
         }
 
-        /* Blur */
-        &.blur {
-            >.grid-wrapper>.grid {
-                min-height: 24rem;
-                padding-top: 2.5rem;
-                padding-bottom: 2.5rem;
-            }
-
-            &.roomy>.grid-wrapper>.grid {
-                min-height: 27rem;
-            }
-
-            &.extra-roomy>.grid-wrapper>.grid {
-                min-height: 30rem;
-            }
-
-            &.chonky>.grid-wrapper>.grid {
-                min-height: 36rem;
-            }
-
-            .hero-image img {
-                max-height: none;
-            }
+        &.img>img {
+            position: static;
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0;
         }
 
-        &.waves {
-            >.grid-wrapper>.grid {
-                min-height: 28rem;
-            }
+        &.img>.grid-wrapper {
+            padding-top: 0.625rem;
+            padding-bottom: 0.625rem;
+        }
 
-            &.roomy>.grid-wrapper>.grid {
-                min-height: 30rem;
-            }
+        &.img>.grid-wrapper>.grid {
+            min-height: 0;
+            align-items: start;
+        }
 
-            &.extra-roomy>.grid-wrapper>.grid {
-                min-height: 33rem;
-            }
+        &.img .callout {
+            grid-column: 1 / -1;
+            width: 100%;
+            max-width: none;
+            height: auto;
+            align-self: start;
+            justify-self: stretch;
+        }
 
-            &.chonky>.grid-wrapper>.grid {
-                min-height: 39rem;
-            }
+        &.blur>.grid-wrapper>.grid {
+            min-height: 24rem;
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+        }
+
+        &.blur.roomy>.grid-wrapper>.grid {
+            min-height: 27rem;
+        }
+
+        &.blur.extra-roomy>.grid-wrapper>.grid {
+            min-height: 30rem;
+        }
+
+        &.blur.chonky>.grid-wrapper>.grid {
+            min-height: 36rem;
+        }
+
+        &.blur .hero-image img {
+            max-height: none;
+        }
+
+        &.waves>.grid-wrapper>.grid {
+            min-height: 28rem;
+        }
+
+        &.waves.roomy>.grid-wrapper>.grid {
+            min-height: 30rem;
+        }
+
+        &.waves.extra-roomy>.grid-wrapper>.grid {
+            min-height: 33rem;
+        }
+
+        &.waves.chonky>.grid-wrapper>.grid {
+            min-height: 39rem;
+        }
+
+        &.waves h1 {
+            font-size: 2.375rem;
+        }
+
+        &.waves p {
+            font-size: 1.1875rem;
+        }
+    }
+
+    @media (min-width: ($small-screen + 1px)) and (max-width: $medium-screen) {
+        &.waves h1 {
+            font-size: 3.375rem;
+        }
+
+        &.waves p {
+            font-size: 1.375rem;
         }
     }
 }
