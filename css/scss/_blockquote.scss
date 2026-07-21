@@ -2,43 +2,82 @@
     BLOCKQUOTES
 ============================================================ */
 
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
 blockquote {
     color: $midnight;
     border-left: none;
     margin: 0;
     padding: 0;
     position: relative;
+
     p {
         color: $midnight;
         line-height: inherit;
+
         + cite {
             margin-top: -0.5rem;
         }
     }
 }
+
 cite {
     color: $midnight;
     font-style: italic;
-    font-weight: 600;
+    font-weight: 500;
     font-size: inherit;
 
     a {
-        font-weight: 700;
+        font-weight: 500;
+        text-decoration: none;
     }
 }
+
 cite:before {
     content: "\2014";
     margin-right: 0.25rem;
 }
 
-.bleed.color blockquote {
+.blockquote-layout {
+    padding-top: rem-calc(30px);
+    padding-bottom: rem-calc(30px);
+
+    .grid {
+        align-items: center;
+    }
+}
+
+.blockquote-media {
+    img {
+        display: block;
+        width: 100%;
+        max-width: rem-calc(300px);
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
+}
+
+.blockquote-media-right {
+    justify-self: end;
+}
+
+.bleed.color blockquote,
+.bleed.midnight blockquote,
+.bleed.talavera blockquote,
+.bleed.img-fill blockquote,
+.bleed.video blockquote,
+.bleed.video-fill blockquote {
     color: $off-white;
     border-left: none;
     margin: 0;
     padding: 0;
+
     p {
         color: $off-white;
         line-height: inherit;
+
         + cite {
             margin-top: -0.5rem;
         }
@@ -47,8 +86,9 @@ cite:before {
     cite {
         color: $off-white;
         font-style: italic;
-        font-weight: 600;
+        font-weight: 500;
         font-size: inherit;
+
         &:before {
             content: "\2014";
             margin-right: 0.25rem;
@@ -57,47 +97,305 @@ cite:before {
 }
 
 .bleed.pullquote {
+    blockquote p:first-of-type {
+        position: relative;
+    }
+
     blockquote p:first-of-type::before {
-        content: "\201C";
+        content: "“";
         position: absolute;
-        top: rem-calc(-110px);
-        left: rem-calc(-50px);
-        font-size: 8.33rem;
-        @media screen and (max-width: $small-screen) {
-            left: rem-calc(-5px);
+        top: -3rem;
+        left: -3rem;
+        font-family: $sans-serif-font;
+        font-size: 7.33rem;
+        line-height: 0.8;
+        color: inherit;
+    }
+
+    blockquote p:last-of-type::after {
+        content: "”";
+    }
+
+    cite {
+        color: inherit;
+        font-style: italic;
+        font-weight: 600;
+        font-size: inherit;
+    }
+
+    @media screen and (max-width: $small-screen) {
+        blockquote p:first-of-type {
+            padding-top: 0;
+            padding-left: 0;
+        }
+
+        blockquote p:first-of-type::before {
+            position: static;
+            display: block;
+            top: auto;
+            left: auto;
+            font-size: 4rem;
+            line-height: 0.7;
+            margin-bottom: rem-calc(8px);
         }
     }
-    blockquote p:last-of-type::after {
-        content: "\201D";
-    }
-}
-
-.bleed.color.pullquote {
-    color: $off-white;
 }
 
 blockquote.fancy {
     background-color: $smoke;
+
     p {
-        padding: 2rem 1.667rem 1.667rem 2.75rem;
         color: $off-black;
+
+        &:first-of-type {
+            position: relative;
+            padding: 3rem 2rem 1.667rem 3.25rem;
+        }
+
         &:first-of-type::before {
-            content: "\201C";
+            content: "“";
             position: absolute;
-            top: rem-calc(-50px);
-            left: rem-calc(-5px);
-            font-size: 8.33rem;
+            top: 0.5125rem;
+            left: 0.3125rem;
+            font-family: $sans-serif-font;
+            font-size: 7.33rem;
+            line-height: 0.8;
             color: $talavera;
         }
+
         &:last-of-type::after {
-            content: "\201D";
+            content: "”";
+        }
+    }
+
+    cite {
+        display: block;
+        background-color: $talavera;
+        color: $off-white;
+        padding: 1.667rem;
+        font-weight: 700;
+    }
+}
+
+.blockquote-splash {
+    padding-top: rem-calc(60px);
+    padding-bottom: rem-calc(60px);
+
+    > .grid-wrapper > .grid {
+        margin-top: 0;
+        background-color: $talavera;
+        border-radius: $rounded-corners;
+        overflow: hidden;
+    }
+
+    .splash-image {
+        background-color: $smoke;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: rem-calc(520px);
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    .splash-quote {
+        display: flex;
+        align-items: center;
+        background-color: $talavera;
+        background-image: url("../images/bg-pattern-waves-white.svg");
+        background-repeat: repeat;
+        background-size: rem-calc(130px);
+        color: $off-white;
+        padding: clamp(2rem, 4vw, 4rem);
+    }
+
+    blockquote {
+        max-width: rem-calc(560px);
+        color: $off-white;
+    }
+
+    blockquote p:first-of-type {
+        color: inherit;
+        font-family: $serif-font;
+        font-size: 36px;
+        font-style: italic;
+        line-height: 1.25;
+        margin-bottom: rem-calc(24px);
+    }
+
+    cite {
+        display: flex;
+        align-items: flex-start;
+        gap: rem-calc(6px);
+        color: inherit;
+        font-style: normal;
+        line-height: 1.25;
+
+        &::before {
+            content: "\2014";
+            flex: 0 0 auto;
+            color: inherit;
+            font-style: normal;
+            margin-right: 0;
+        }
+
+        > span {
+            display: block;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        > span > span {
+            display: block;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        a {
+            color: $off-white;
+            font-style: normal;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 0.12em;
+        }
+
+        a:hover {
+            color: $midnight;
+            background-color: $concrete;
+        }
+    }
+
+    @media screen and (max-width: $medium-screen) {
+        blockquote p:first-of-type {
+            font-size: 32px;
+        }
+    }
+
+    @media screen and (max-width: $small-screen) {
+        .splash-image img {
+            min-height: auto;
+            aspect-ratio: 1 / 1;
+        }
+
+        .splash-quote {
+            padding: rem-calc(32px 24px);
+        }
+
+        blockquote p:first-of-type {
+            font-size: 26px;
         }
     }
 }
 
-blockquote.fancy cite {
+.bleed.blockquote-spotlight {
     background-color: $talavera;
+    background-image: url("../images/bg-pattern-waves-white.svg");
+    background-repeat: repeat;
+    background-size: rem-calc(130px);
     color: $off-white;
-    padding: 1.667rem;
-    font-weight: 900;
+
+    .spotlight-image {
+        text-align: center;
+
+        img {
+            display: block;
+            width: min(100%, rem-calc(400px));
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .spotlight-quote {
+        max-width: rem-calc(620px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-family: $serif-font;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-bottom: rem-calc(6px);
+        }
+
+        blockquote {
+            margin-top: 0;
+        }
+
+        blockquote p:first-of-type {
+            margin-top: 0;
+        }
+    }
+
+    cite {
+        display: flex;
+        align-items: flex-start;
+        gap: rem-calc(6px);
+        color: inherit;
+        font-style: normal;
+        line-height: 1.25;
+
+        &::before {
+            content: "\2014";
+            flex: 0 0 auto;
+            color: inherit;
+            font-style: normal;
+        }
+
+        > span {
+            display: block;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        > span > span {
+            display: block;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        a {
+            color: $off-white;
+            font-style: normal;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 0.12em;
+        }
+
+        a:hover {
+            color: $midnight;
+            background-color: $concrete;
+        }
+    }
+
+    blockquote p:first-of-type {
+        color: inherit;
+        font-family: $serif-font;
+        font-size: 36px;
+        font-style: italic;
+        line-height: 1.2;
+        margin-bottom: rem-calc(24px);
+    }
+
+    @media screen and (max-width: $medium-screen) {
+        blockquote p:first-of-type {
+            font-size: 32px;
+        }
+    }
+
+    @media screen and (max-width: $small-screen) {
+        .blockquote-spotlight-label {
+            font-size: rem-calc(20px);
+        }
+
+        blockquote p:first-of-type {
+            font-size: 26px;
+        }
+    }
 }

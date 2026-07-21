@@ -1,6 +1,16 @@
 /* ============================================================
     IMAGES
 ============================================================ */
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
+img {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
 
 // ======= Image floats
 img.float-left {
@@ -14,9 +24,9 @@ img.float-right {
 }
 
 .img-margin {
-    margin: .25rem;
+    margin: 0.25rem;
     @media screen and (max-width: 910px) {
-        margin: 1rem .25rem;
+        margin: 1rem 0.25rem;
     }
 }
 
@@ -24,10 +34,10 @@ img.float-right {
 .profile-thumbnail {
     height: 100% !important;
     object-fit: cover;
-    margin: .25rem;
+    margin: 0.25rem;
     /*padding: 2%;*/
     @media screen and (max-width: 568px) {
-        margin: 15px .25rem;
+        margin: 15px 0.25rem;
         padding: 0;
         width: 100%;
     }
@@ -51,15 +61,14 @@ img.float-right {
 
 // ======= Mobile image styles
 
-@media screen and (max-width:465px) {
-
+@media screen and (max-width: 465px) {
     img:not(.card > img) {
         margin-bottom: rem-calc(10px);
     }
 
     .hidden-mobile {
         display: none;
-      }
+    }
 }
 
 // logo
@@ -67,7 +76,7 @@ img.float-right {
 img.logo {
     width: rem-calc(300px);
 
-    @media screen and (max-width:$small-screen) {
+    @media screen and (max-width: $small-screen) {
         width: rem-calc(145px);
     }
 }
@@ -75,7 +84,7 @@ img.logo {
 // figcaption
 
 figcaption.camera::before {
-    font-family: "Font Awesome 6 Pro";
+    font-family: "Font Awesome 7 Pro";
     content: "\f030";
     font-weight: 900;
     font-style: normal;

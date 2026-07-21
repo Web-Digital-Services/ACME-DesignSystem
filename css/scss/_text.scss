@@ -2,6 +2,10 @@
     TEXT STYLES
 ============================================================ */
 
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
 //Setting rem size to 16px by default (This is a fix for an issue in FireFix where font size was not rendering properly)
 html {
     font-size: 16px;
@@ -150,7 +154,7 @@ p.eyebrow {
     + h3,
     + h4,
     + h5 {
-        margin-top: rem-calc(-18px);
+        margin-top: -18px;
     }
 
     @media screen and (max-width: $small-screen) {
@@ -176,13 +180,13 @@ h5,
 h6,
 .h6 {
     font-family: $serif-font;
-    margin-bottom: rem-calc(18px);
+    margin-bottom: $font-size-default;
     line-height: 1.3;
 }
 
 label {
     font-family: $sans-serif-font;
-    font-size: rem-calc(18px);
+    font-size: $font-size-default;
 }
 
 address {
@@ -305,7 +309,7 @@ p {
 
 .ruled {
     padding-bottom: 0.25em;
-    border-bottom: #808a8f rem-calc(1px) solid;
+    border-bottom: 1px solid #808a8f;
 }
 
 .required {
@@ -337,10 +341,6 @@ figcaption {
 
 .color figcaption {
     color: $off-white !important;
-}
-
-.coward {
-    font-weight: 600 !important;
 }
 
 /* =========================

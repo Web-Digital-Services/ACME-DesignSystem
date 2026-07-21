@@ -2,254 +2,229 @@
     BLEEDS
 ============================================================ */
 
-.grid-container {
-    padding-top: rem-calc(60px);
-    padding-bottom: rem-calc(60px);
-
-    &.img-bleed-container {
-        //What even is this?
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        position: relative;
-        width: 100%;
-        background-color: rgba(23, 23, 23, 0.5);
-        color: $off-white;
-    }
-}
-
-.roomy {
-    padding-top: rem-calc(90px);
-    padding-bottom: rem-calc(90px);
-
-    @media screen and (max-width: $small-screen) {
-        padding-top: rem-calc(10px);
-        padding-bottom: rem-calc(10px);
-    }
-}
-
-.extra-roomy {
-    padding-top: rem-calc(120px);
-    padding-bottom: rem-calc(120px);
-
-    @media screen and (max-width: $small-screen) {
-        padding-top: rem-calc(15px);
-        padding-bottom: rem-calc(15px);
-    }
-}
-
-.chonky {
-    padding-top: rem-calc(180px);
-    padding-bottom: rem-calc(180px);
-
-    @media screen and (max-width: $small-screen) {
-        padding-top: rem-calc(30px);
-        padding-bottom: rem-calc(30px);
-    }
-}
-
-.godly {
-    padding-top: rem-calc(210px);
-    padding-bottom: rem-calc(210px);
-
-    @media screen and (max-width: $small-screen) {
-        padding-top: rem-calc(40px);
-        padding-bottom: rem-calc(40px);
-    }
-}
-
-.massive {
-    padding-top: rem-calc(350px);
-    padding-bottom: rem-calc(350px);
-
-    @media screen and (max-width: $small-screen) {
-        padding-top: rem-calc(60px);
-        padding-bottom: rem-calc(60px);
-    }
-}
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
 
 .bleed {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
+    background-color: $off-white;
     color: $off-black;
 
-    &.light-beige {
-        background-color: $concrete !important;
+    >.grid-wrapper {
+        position: relative;
+        z-index: 2;
+
+        >.grid {
+            margin-top: 0;
+
+            +.grid {
+                margin-top: 1rem;
+            }
+        }
     }
 
-    &.hero:not(.img-fill) {
-        background-color: $clay !important;
+    /* Optional spacing */
+    &.roomy {
+        padding-top: $spacing-roomy;
+        padding-bottom: $spacing-roomy;
     }
 
-    &.beige {
-        background-color: $clay !important;
+    &.extra-roomy {
+        padding-top: $spacing-extra-roomy;
+        padding-bottom: $spacing-extra-roomy;
     }
 
-    &.dark-beige {
-        background-color: $brass !important;
+    &.chonky {
+        padding-top: $spacing-chonky;
+        padding-bottom: $spacing-chonky;
     }
 
-    &.light-grey {
-        background-color: $smoke !important;
+    /* Color bleeds */
+    &.midnight {
+        background-color: $midnight;
+        color: $white;
     }
 
-    &.color {
+    &.talavera {
+        background-color: $talavera;
+        color: $off-white;
+    }
+
+    &.orange {
+        background-color: $orange-main;
+        color: $off-black;
+    }
+
+    &.midnight.waves,
+    &.talavera.waves {
+        background-image: url("../images/design/bg-pattern-waves-white.svg");
+        background-position: top left;
+        background-repeat: repeat;
+    }
+
+    /* Image-fill and video bleeds */
+    &.img-fill,
+    &.video,
+    &.video-fill {
+        background-color: $off-black;
         color: $off-white;
 
-        &.grey {
-            background-color: $smoke !important;
+        >img,
+        >video {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
 
-        &.dark-grey {
-            background-color: $midnight !important;
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: rgba(23, 23, 23, 0.77);
+            pointer-events: none;
         }
 
-        &.orange {
-            background-color: $orange-main !important;
+        >img.top,
+        >video.top {
+            object-position: top;
         }
-        &.blue {
-            background-color: $talavera !important;
+
+        >img.bottom,
+        >video.bottom {
+            object-position: bottom;
         }
     }
 
-    &.noise {
-        background: url(../images/noise-texture.png);
+    &.img-fill>video,
+    &.video>video {
+        margin-bottom: -0.5625rem;
     }
 
-    &.rocky {
-        background: url(../images/rockywall-texture.png);
-    }
+    &.video-fill {
+        .video-fill-content {
+            max-width: 60rem;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
 
-    .shield {
-        background-image: url(../images/shield-transparent.svg);
-        background-repeat: no-repeat;
-        background-position: left;
-        position: relative;
-        padding: rem-calc(25px) 0; //This adds an absurd amount of padding to the top and bottom. Was this intended?
-    }
-
-    .shield-covid {
-        background-image: url(../images/shield-transparent.svg);
-        background-repeat: no-repeat;
-        background-position: left;
-        background-size: 20%;
-        position: relative;
-        padding: rem-calc(15px) 0;
-    }
-}
-
-/* ============================================================
- BLEEDING IMAGES
-============================================================ */
-
-.img-bleed-right {
-    padding: rem-calc(0px);
-
-    &.grid-container {
-        padding-left: rem-calc(30px);
-    }
-
-    .callout.jump-right {
-        blockquote,
-        cite {
+        .video-fill-play {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 4.5rem;
+            height: 4.5rem;
+            margin-top: 1.5rem;
+            border-radius: 999px;
+            background-color: $white;
             color: $midnight;
+            text-decoration: none;
+            transition: 0.25s ease;
+
+            &:hover {
+                background-color: $concrete;
+                color: $midnight;
+            }
+        }
+
+        .video-fill-play-icon {
+            width: 0;
+            height: 0;
+            margin-left: 0.15rem;
+            border-top: 0.55rem solid transparent;
+            border-bottom: 0.55rem solid transparent;
+            border-left: 0.85rem solid currentColor;
         }
     }
 
-    @media screen and (max-width: $medium-screen) {
-        .cell {
-            padding-left: rem-calc(15px);
-            padding-right: rem-calc(15px);
+    @media (max-width: $small-screen) {
+        &.roomy {
+            padding-top: $spacing-roomy-small;
+            padding-bottom: $spacing-roomy-small;
         }
 
-        &.grid-container {
-            padding-left: rem-calc(0px);
-            padding-top: rem-calc(60px);
-            padding-bottom: rem-calc(60px);
-        }
-    }
-}
-
-.img-bleed-left {
-    padding: rem-calc(0px);
-
-    &.grid-container {
-        padding-right: rem-calc(30px);
-    }
-
-    .callout.jump-left {
-        blockquote,
-        cite {
-            color: $midnight;
-        }
-    }
-
-    @media screen and (max-width: $medium-screen) {
-        .cell {
-            padding-left: rem-calc(15px);
-            padding-right: rem-calc(15px);
+        &.extra-roomy {
+            padding-top: $spacing-extra-roomy-small;
+            padding-bottom: $spacing-extra-roomy-small;
         }
 
-        &.grid-container {
-            padding-right: rem-calc(0px);
-            padding-top: rem-calc(60px);
-            padding-bottom: rem-calc(60px);
+        &.chonky {
+            padding-top: $spacing-chonky-small;
+            padding-bottom: $spacing-chonky-small;
         }
     }
 }
 
 /* ============================================================
-IMG Fill BLEEDS
+    VIDEO FILL MODAL
 ============================================================ */
 
-.img-fill {
-    display: inline-block;
+.video-fill-close-target {
+    position: absolute;
+    width: 0;
+    height: 0;
     overflow: hidden;
-    position: relative;
-    width: 100%;
-    background-color: rgba(23, 23, 23, 0.77);
-    color: $off-white;
-    padding-top: 0;
+}
 
-    &.full {
-        .cell {
-            padding-left: rem-calc(15px);
-            padding-right: rem-calc(15px);
-        }
+.video-fill-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+
+    &:target {
+        display: flex;
     }
+}
 
-    > img,
-    > video {
+.video-fill-frame {
+    position: relative;
+    width: min(900px, 100%);
+    aspect-ratio: 16 / 9;
+    background: $black;
+
+    iframe {
         position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
-        z-index: -1;
-        background-color: rgba(23, 2, 0, 0.5);
-        object-fit: cover;
-    }
-
-    > video {
-        margin-bottom: rem-calc(-9px);
-    }
-
-    > .grid-x {
-        padding-top: rem-calc(60px);
-    }
-
-    .bottom {
-        object-position: bottom;
-    }
-
-    .top {
-        object-position: top;
+        border: 0;
     }
 }
 
-/* ============================================================
-    NEWSLETTER ICON BLEED
-============================================================ */
+.video-fill-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    background: $white;
+    color: $midnight;
+    font-size: 1.5rem;
+    line-height: 1;
+    text-decoration: none;
+    transition: 0.25s ease;
 
-.fa-envelope-open-text.fa-10x {
-    @media screen and (max-width: $small-screen) {
-        font-size: 1rem;
-        visibility: hidden;
+    &:hover {
+        background: $concrete;
+        color: $midnight;
     }
 }

@@ -2,9 +2,13 @@
     NAVIGATION
 ============================================================ */
 
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
 // ======= Breadcrumbs
 
-.breadcrumbs {
+ul.breadcrumbs {
     max-width: $global-width;
     display: flex;
     align-items: center;
@@ -13,50 +17,61 @@
     padding-right: rem-calc(15px);
 }
 
-.breadcrumbs a {
-    color: $orange-main;
+ul.breadcrumbs a {
+    color: $midnight;
     text-transform: none;
-    font-size: rem-calc(18px);
+    font-size: $font-size-default;
     font-weight: 600;
+    text-decoration: none;
 }
 
-.breadcrumbs li:not(:last-child)::after {
-    font-family: "Font Awesome 6 Pro";
+ul.breadcrumbs a:hover {
+    color: $orange-health;
+}
+
+ul.breadcrumbs li {
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+ul.breadcrumbs li:not(:last-child)::after {
+    font-family: "Font Awesome 7 Pro";
     content: "\f105";
     font-weight: 900;
     color: $orange-main;
-    font-size: rem-calc(18px);
+    font-size: $font-size-default;
+    margin-left: 0.5rem;
 }
 
-.breadcrumbs li:last-child {
+ul.breadcrumbs li:last-child {
     color: $off-black;
     font-weight: 200;
     text-transform: none;
-    font-size: rem-calc(18px);
+    font-size: $font-size-default;
 }
 
 @media screen and (max-width: $small-screen) {
-    .breadcrumbs {
+    ul.breadcrumbs {
         padding-left: rem-calc(10px);
         padding-right: rem-calc(10px);
         margin-bottom: rem-calc(-48px);
         margin-top: rem-calc(60px);
     }
 
-    .breadcrumbs li:nth-last-child(2)::before {
-        font-family: "Font Awesome 6 Pro";
+    ul.breadcrumbs li:nth-last-child(2)::before {
+        font-family: "Font Awesome 7 Pro";
         content: "\f104";
         font-weight: 900;
         color: $orange-main;
-        font-size: rem-calc(18px);
+        font-size: $font-size-default;
         margin: 0 rem-calc(7px) 0 0;
     }
 
-    .breadcrumbs li:not(:nth-last-child(2)) {
+    ul.breadcrumbs li:not(:nth-last-child(2)) {
         display: none;
     }
 
-    .breadcrumbs li:nth-last-child(2)::after {
+    ul.breadcrumbs li:nth-last-child(2)::after {
         display: none;
     }
 }
@@ -67,9 +82,14 @@
     text-align: center;
 }
 
+.pagination li {
+    display: inline;
+    padding: 2px;
+}
+
 .pagination a {
-    color: $orange-main;
-    font-size: rem-calc(18px);
+    color: $orange-health;
+    font-size: $font-size-default;
     font-weight: 400;
 }
 
@@ -79,21 +99,21 @@
 }
 
 .pagination .current {
-    background-color: $orange-main;
+    background-color: $midnight;
     color: $off-white;
     font-weight: 900;
-    font-size: rem-calc(18px);
+    font-size: $font-size-default;
 }
 
 .pagination-previous a::before {
-    font-family: "Font Awesome 6 Pro";
+    font-family: "Font Awesome 7 Pro";
     content: "\f104";
     font-weight: 900;
     font-size: rem-calc(24px);
 }
 
 .pagination-next a::after {
-    font-family: "Font Awesome 6 Pro";
+    font-family: "Font Awesome 7 Pro";
     content: "\f105";
     font-weight: 900;
     font-size: rem-calc(24px);
@@ -101,24 +121,61 @@
 
 .pagination .ellipsis::after {
     color: $orange-main;
-    font-size: rem-calc(18px);
+    font-size: $font-size-default;
 }
 
-// ======= Subnav
+// ======= Vertical Subnav
 
-#subnav {
-    margin-bottom: rem-calc(30px);
+ul.sidenav {
+    padding: 1.5rem;
+}
 
-    .nested.vertical.submenu {
-        border-left: rem-calc(4px) solid $golden;
-        margin-top: rem-calc(6px);
-        margin-bottom: rem-calc(18px);
+ul.sidenav.outline {
+    border: 2px solid $midnight;
+    border-radius: $rounded-corners;
+}
 
-        li.is-nested {
-            font-weight: 900;
-            color: $midnight;
-        }
-    }
+ul.sidenav li {
+    position: relative;
+    list-style-type: none;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid $midnight;
+}
+
+ul.sidenav li a {
+    text-decoration: none;
+    padding-bottom: 0.25rem;
+    display: block;
+}
+
+ul.sidenav li a.subdrop:after {
+    position: absolute;
+    //top: 0;
+    right: 0;
+    font-family: "Font Awesome 7 Pro";
+    content: "\f0d7";
+    font-weight: 900;
+    transition: $transition-global;
+    //font-size: rem-calc(24px);
+}
+
+ul.sidenav li a.subdrop.active:after {
+    transform: rotate(180deg);
+}
+
+ul.sidenav li a.subdrop + .subdrop-container {
+    display: none;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid $rivermist;
+}
+
+ul.sidenav li a.subdrop + .subdrop-container li {
+    border-bottom: none;
+}
+
+ul.sidenav li a.subdrop.active + .subdrop-container {
+    display: block;
 }
 
 .accordion-menu li:not(.nested li) {
@@ -133,7 +190,7 @@
 .accordion-menu
     .is-accordion-submenu-parent:not(.has-submenu-toggle)
     > a::after {
-    font-family: "Font Awesome 6 Pro";
+    font-family: "Font Awesome 7 Pro";
     content: "\f107";
     font-weight: 900;
     color: $orange-main;
@@ -144,476 +201,203 @@
 }
 
 .accordion-menu .is-accordion-submenu-parent[aria-expanded="true"] > a::after {
-    font-family: "Font Awesome 6 Pro";
+    font-family: "Font Awesome 7 Pro";
     content: "\f106";
     font-weight: 900;
     color: $orange-main;
-    font-size: rem-calc(18px);
+    font-size: $font-size-default;
     transform: none;
     transform-origin: unset;
 }
 
-// ======= Mission Nav
-div#level-1 {
-    nav {
-        ul.menu > li {
-            a {
-                font-size: rem-calc(30px);
-            }
-        }
-
-        @media screen and (max-width: $small-screen) {
-            background-color: $midnight !important;
-            border-top: rem-calc(6px) solid $golden;
-
-            ul.menu {
-                display: block;
-                background-color: $midnight !important;
-
-                li {
-                    border-bottom: rem-calc(1.75px) solid $limestone;
-
-                    &:hover {
-                        background: $off-white !important;
-                    }
-
-                    a {
-                        color: $off-white;
-                        font-size: rem-calc(22px);
-
-                        &:hover {
-                            color: $orange-main !important;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    @media screen and (max-width: $small-screen) {
-        display: block !important;
-        width: 100%;
-    }
-}
-
 // ======= Navbar
 
-.nav-bar {
-    &#nav-bar-full {
-        //background-image: linear-gradient(to right, $orange-main, $orange-main 40%, $midnight 70%, $midnight);
+header {
+    border-top: 2px solid $concrete;
+    border-bottom: 2px solid $orange-main;
+    .main-bar {
         position: sticky;
         top: 0;
         z-index: 6;
         display: flex;
         justify-content: center;
-        border-top: 2px solid $concrete;
-        border-bottom: 2px solid $orange-main;
-        box-shadow: $shadow-2;
-        background: $smoke;
 
-        .top-bar {
-            padding: 0;
-            overflow: hidden;
-            position: relative;
-            width: $global-width;
+        > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 15px 20px 15px;
+            justify-self: center;
+            background: $white;
+            width: 100%;
+            max-width: 1400px;
+            .logo {
+                //display: flex;
+                img {
+                    width: 300px;
+                }
+            }
 
-            .top-bar-left {
+            .menu {
                 ul {
-                    background: transparent; //This is so the color doesn't get overrided by the old nav styles. DELETE LATER
-                    justify-content: space-evenly;
+                    margin: 0;
+                }
 
-                    .is-active {
-                        > a {
-                            background: $orange-main;
-                            color: $off-white;
-                        }
-                    }
+                ul li {
+                    display: inline;
+                    margin-right: 1rem;
+                    padding-bottom: 3px;
+                    line-height: 2;
+                }
 
-                    li {
-                        &:hover {
-                            background: transparent; //This is so the color doesn't get overrided by the old nav styles. DELETE LATER
-                        }
+                ul li.is-active {
+                    border-bottom: 2px solid $orange-main;
+                }
 
-                        a,
-                        a:after {
-                            transition: 0.3s;
-                        }
+                ul li a {
+                    color: $midnight;
+                }
 
-                        a {
-                            position: relative;
-                            z-index: 1;
-                            color: $orange-main;
-                            //expand click area
-                            padding-top: rem-calc(22px);
-                            padding-bottom: rem-calc(22px);
-
-                            //Hover animation - Hide orange fill and show on hover
-                            &:after {
-                                display: block;
-                                position: absolute;
-                                //top: 0;
-                                left: 0;
-                                bottom: 0;
-                                right: 0;
-                                margin: auto;
-                                width: 100%;
-                                height: 0px;
-                                content: ".";
-                                color: transparent;
-                                background: $orange-main;
-                                visibility: visible;
-                                opacity: 1;
-                                z-index: -1;
-                            }
-
-                            &:hover {
-                                color: $off-white;
-
-                                &:after {
-                                    height: 100%; //expands pseudo fill container to height of container
-                                }
-                            }
-
-                            &:active {
-                                background: $orange-main;
-                                color: $off-white;
-                            }
-
-                            &:focus {
-                                background: $smoke;
-                                color: $off-white;
-                            }
-                        }
-                    }
+                ul li a:hover,
+                ul li a:focus {
+                    color: $orange-health;
+                    //border-bottom: 2px solid $orange-main;
                 }
             }
         }
     }
-
-    &#mission-nav {
-        background: none;
-        box-shadow: none;
-        margin-right: rem-calc(30px);
-
-        .top-bar {
-            background-color: unset;
-            width: auto;
-
-            .top-bar-left {
-                ul {
-                    background-color: transparent; //This is so the color doesn't get overrided by the old nav styles. DELETE LATER
-                    justify-content: space-evenly;
-
-                    .is-active {
-                        > a {
-                            background: $orange-main;
-                            color: $off-white;
-                        }
-                    }
-
-                    li {
-                        &:hover {
-                            background: transparent; //This is so the color doesn't get overrided by the old nav styles. DELETE LATER
-                        }
-
-                        a,
-                        a:after {
-                            transition: 0.3s;
-                        }
-
-                        a {
-                            position: relative;
-                            z-index: 1;
-                            color: $orange-main;
-                            font-size: 24px;
-                            //expand click area
-                            padding-top: rem-calc(22px);
-                            padding-bottom: rem-calc(22px);
-
-                            &:hover {
-                                color: $midnight;
-
-                                &:after {
-                                    height: 100%; //expands pseudo fill container to height of container
-                                }
-                            }
-
-                            &:active {
-                                background: $orange-main;
-                                color: $off-white;
-                            }
-
-                            &:focus {
-                                background: $smoke;
-                                color: $off-white;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    &#magazine-nav {
-        background: none;
-        box-shadow: none;
-
-        .top-bar {
-            background-color: unset;
-            width: auto;
-
-            .top-bar-left {
-                ul {
-                    background-color: transparent; //This is so the color doesn't get overrided by the old nav styles. DELETE LATER
-                    justify-content: space-evenly;
-
-                    .is-active {
-                        > a {
-                            background: $smoke;
-                            color: $off-white;
-                        }
-                    }
-
-                    li {
-                        &:hover {
-                            background: transparent; //This is so the color doesn't get overrided by the old nav styles. DELETE LATER
-                        }
-
-                        a,
-                        a:after {
-                            transition: 0.3s;
-                        }
-
-                        a {
-                            position: relative;
-                            z-index: 1;
-                            color: $off-white;
-                            font-size: 24px;
-                            //expand click area
-                            padding-top: rem-calc(22px);
-                            padding-bottom: rem-calc(22px);
-
-                            &:hover {
-                                color: $golden;
-
-                                &:after {
-                                    height: 100%; //expands pseudo fill container to height of container
-                                }
-                            }
-
-                            &:active {
-                                background: $orange-main;
-                                color: $off-white;
-                            }
-
-                            &:focus {
-                                background: $smoke;
-                                color: $off-white;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    //OLD NAV DESIGN
-
-    //background-image: linear-gradient(to right, $orange-main, $orange-main 40%, $midnight 70%, $midnight);
-    display: flex;
-    justify-content: center;
-    box-shadow: $shadow-2;
-    background: $orange-main;
-
     .top-bar {
-        padding: 0;
-        overflow: hidden;
-        position: relative;
-        width: $global-width;
+        background-color: $midnight;
+        display: flex;
+        justify-content: end;
+        padding: 10px 15px;
 
-        .top-bar-left {
-            ul {
-                background: $orange-main;
-
-                li {
-                    transition: 0.3s ease-in-out;
-
-                    &:hover {
-                        background: $midnight;
-                    }
-                }
-
-                li a {
-                    color: $off-white;
-
-                    &:hover {
-                        color: $off-white;
-                    }
-                }
-            }
+        ul {
+            margin: 0;
+        }
+        ul li {
+            display: inline;
+            margin-right: 0.6rem;
+            border-right: 1px solid $talavera;
+            padding-right: 0.5rem;
         }
 
-        .top-bar-right {
-            border-left: rem-calc(4px) solid $golden;
-            background: $midnight;
-
-            ul {
-                background: $midnight;
-
-                li {
-                    transition: 0.3s ease-in-out;
-                }
-
-                li:hover {
-                    background: darken($color: $midnight, $amount: 5);
-                }
-
-                li a {
-                    color: $off-white;
-                }
-            }
+        ul li:last-child {
+            padding-right: 0;
+            border-right: none;
         }
 
-        .menu {
-            li {
-                font-size: rem-calc(22px);
-            }
+        ul li a {
+            color: $white;
+            font-size: 16px;
         }
-
-        &.utility {
-            background: $smoke;
-
-            .top-bar-left {
-                ul {
-                    background: $smoke;
-
-                    li {
-                        border-right: rem-calc(1px) solid $midnight;
-
-                        a {
-                            color: $midnight;
-                            font-weight: 700;
-                            text-decoration: rem-calc(1.5px) solid $midnight;
-                        }
-
-                        &:last-child {
-                            border-right: none;
-                        }
-
-                        &:hover {
-                            background: transparent;
-                        }
-                    }
-                }
-            }
-
-            .top-bar-right {
-                border-left: none;
-            }
+        ul li a:hover {
+            color: $orange-health;
+            text-decoration: solid;
+            font-size: 18.7px;
         }
     }
-}
 
-header {
-    .nav-bar {
-        &#nav-bar-full {
-            .top-bar {
-                .top-bar-left {
-                    ul {
-                        background-color: transparent;
-                    }
-                }
-            }
-        }
+    menu-mobile {
+        transition: cubic-bezier(1, 0, 0, 1);
     }
-}
 
-@media screen and (max-width: $small-screen) {
-    .nav-bar {
-        &#nav-bar-mobile {
-            .top-bar {
-                background-color: $midnight;
-                border-top: rem-calc(6px) solid $golden;
+    .menu-mobile ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+    }
 
-                ul {
-                    background-color: $midnight;
+    .menu-mobile {
+        display: none;
+    }
 
-                    li {
-                        border-bottom: rem-calc(1.75px) solid $limestone;
+    .menu-mobile.display {
+        display: block;
+    }
 
-                        &:last-child {
-                            border-bottom: none;
-                        }
+    .menu-mobile ul li {
+        padding: 8px 0px 8px 8px;
+        //background-color: $off-white;
+        border-bottom: 1.25px solid $talavera;
+    }
 
-                        a {
-                            &:hover {
-                                color: $orange-main;
-                                background: $off-white;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    .menu-mobile ul li:last-of-type {
+        border-bottom: none;
+    }
 
-        .top-bar {
-            background-color: $midnight !important; //test to remove
-            border-top: rem-calc(6px) solid $golden;
-            display: block;
-
-            ul {
-                display: block;
-                background-color: $midnight !important; //test to remove
-
-                li {
-                    border-bottom: rem-calc(1.75px) solid $limestone;
-
-                    &:hover {
-                        background: $off-white !important; //test to remove
-                    }
-
-                    a {
-                        &:hover {
-                            color: $orange-main !important; //test to remove
-                        }
-                    }
-                }
-            }
-
-            .top-bar-right {
-                border-left: none !important; //test to remove
-
-                ul > li:last-child {
-                    border-bottom: none;
-                }
-            }
-        }
-
-        //Hide full nav on mobile
-        &#nav-bar-full {
+    @media screen and (min-width: $small-screen) {
+        .main-bar .menu-icon {
             display: none;
         }
     }
-}
 
-@media screen and (min-width: $small-screen) {
-    //Hide mobile nav on large screens
-    nav#nav-bar-mobile {
-        display: none;
+    @media screen and (max-width: $medium-screen) {
+    }
+
+    @media screen and (max-width: $small-screen) {
+        .menu {
+            display: none;
+        }
+
+        .top-bar {
+            justify-content: center;
+        }
+
+        .main-bar .menu-icon {
+            display: block;
+        }
+
+        .main-bar .menu-icon:after {
+            color: $midnight;
+            display: inline-block;
+            font-family: $fa-pro;
+            font-weight: 300;
+            content: "\f0c9";
+            font-size: 2rem;
+        }
+
+        .main-bar .menu-icon.display:after {
+            content: "\f550";
+        }
+
+        .top-bar ul {
+            text-align: center;
+            padding-left: 0;
+        }
+        .top-bar ul li {
+            border-right: none;
+        }
     }
 }
 
-header.super-hero + .hero.mission + nav#nav-bar-full {
+// ======= Landing Page Subnav
+div.subnav {
+    background-color: $rivermist;
+    padding: 1rem;
+
     ul.menu {
-        justify-content: space-evenly;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0;
+    }
 
-        li {
-            font-size: rem-calc(24px);
-            margin-right: rem-calc(60px);
+    ul.menu li {
+        display: inline;
+        margin-right: 1rem;
+    }
 
-            &:last-child {
-                margin-right: 0;
-            }
-        }
+    ul.menu li:last-child {
+        margin-right: 0;
+    }
+
+    ul.menu li a {
+        color: $midnight;
+        text-decoration: none;
+    }
+
+    ul.menu li a:hover {
+        color: $orange-health;
     }
 }

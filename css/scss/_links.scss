@@ -1,0 +1,165 @@
+/* ============================================================
+    LINKS
+============================================================ */
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
+a {
+    color: $orange-health;
+    cursor: pointer;
+    font-weight: 700;
+    transition: $transition-global;
+}
+
+a:hover {
+    color: $midnight;
+    background-color: $concrete;
+}
+
+a.color {
+    color: $midnight;
+}
+
+a.color:hover {
+    color: $orange-health;
+    background-color: $limestone;
+}
+
+a.coward {
+    font-weight: 500;
+}
+
+a.underline {
+    text-decoration: underline;
+}
+
+a.arrow:before {
+    font-family: "Font Awesome 7 Pro";
+    font-weight: 900;
+    content: "\f105";
+    color: inherit;
+    padding-right: 0.313rem;
+}
+
+a.color.arrow:before {
+    color: $orange-health;
+}
+
+a.external:after {
+    display: inline-block;
+    font-family: "Font Awesome 7 Pro";
+    font-weight: 900;
+    content: "\f08e";
+    margin-left: 0.3rem;
+    transition: $transition-global;
+}
+
+a.external:hover:after {
+    transform: translate(0.15rem, -0.15rem);
+}
+
+a.file:after {
+    display: inline-block;
+    font-family: "Font Awesome 7 Pro";
+    font-weight: 900;
+    content: "\f56d";
+    margin-left: 0.3rem;
+    transition: $transition-global;
+}
+
+a.file:hover:after {
+    transform: translateY(0.15rem);
+}
+
+a.journey:before {
+    display: inline-block;
+    font-family: "Font Awesome Kit";
+    font-weight: 400;
+    content: "\e002";
+    color: inherit;
+    padding-right: 0.313rem;
+    transition: $transition-global;
+}
+
+a.journey:hover:before {
+    translate: 0.2rem;
+}
+
+/* ============================================================
+   Bleed link overrides
+============================================================ */
+
+.bleed {
+    // Keep arrow icon color from being forced to $orange-health inside bleeds */
+    a.color.arrow:before {
+        color: inherit;
+    }
+
+    /* Highlight link option */
+    a.highlight {
+        display: inline-block;
+        padding: 0.12em 0.35em;
+        border-radius: 0.2em;
+        text-decoration: none;
+        font-weight: 700;
+        transition: 0.5s ease;
+        background-color: $midnight;
+        color: $white;
+    }
+
+    a.highlight:hover {
+        background-color: $concrete;
+        color: $midnight;
+    }
+
+    &.orange {
+        a {
+            color: $midnight;
+            text-decoration: underline;
+            text-underline-offset: 0.12em;
+        }
+
+        a:hover {
+            color: $midnight;
+            background-color: $concrete;
+        }
+    }
+
+    &.talavera {
+        a {
+            color: $white;
+            text-decoration: underline;
+            text-underline-offset: 0.12em;
+        }
+
+        a:hover {
+            color: $midnight;
+            background-color: $concrete;
+        }
+    }
+
+    &.midnight,
+    &.img-fill {
+        a:not(.button) {
+            color: $clay;
+            text-decoration: underline;
+            text-underline-offset: 0.12em;
+        }
+
+        a:not(.button):hover {
+            color: $midnight;
+            background-color: $concrete;
+        }
+
+        a.highlight {
+            background-color: $concrete;
+            color: $midnight;
+        }
+
+        a.highlight:hover {
+            background-color: $limestone;
+            color: $midnight;
+        }
+    }
+}

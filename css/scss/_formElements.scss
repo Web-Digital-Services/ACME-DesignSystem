@@ -2,6 +2,10 @@
     FORM ELEMENTS
 ============================================================ */
 
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
 label {
     font-weight: 700;
 }
@@ -25,7 +29,7 @@ select {
     border: rem-calc(1px) solid $off-black;
     border-radius: rem-calc(5px);
     background-color: $off-white;
-    font-size: rem-calc(18px);
+    font-size: $font-size-default;
 
     @media (prefers-color-scheme: dark) {
         &:focus {
@@ -76,7 +80,7 @@ input[type="checkbox"]:checked {
     background: url(../images/check-solid.svg);
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: rem-calc(18px);
+    background-size: $font-size-default;
 }
 
 input[type="checkbox"] + label {
@@ -128,7 +132,7 @@ form.search {
     border: rem-calc(1px) solid $off-black;
     border-radius: rem-calc(5px);
     background-color: $off-white;
-    font-size: rem-calc(18px);
+    font-size: $font-size-default;
     align-items: center;
 
     .search-box {

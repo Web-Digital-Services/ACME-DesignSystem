@@ -1,18 +1,18 @@
 /* ============================================================
-
     VARIABLES
-
-    Includes: Typography, Font Weights, Colors, Icons, Shadows, Padding & Margin, Rounded Corners
-
+    Includes: Typography, Font Weights, Colors, Icons, Shadows, Padding & Margin, Hero & Bleed Spacing, Rounded Corners
 ============================================================ */
 
 // ======= Grid
-$global-width: rem-calc(1440px);
+$global-width: 1440px;
 
 // ======= Typography
 
 $serif-font: "Arsenal", sans-serif;
 $sans-serif-font: "Libre Franklin", sans-serif;
+$font-size-default: 18px;
+$fa-pro: "Font Awesome 7 Pro";
+$fa-kit: "Font Awesome Kit";
 
 // ======= Font Weights
 
@@ -24,13 +24,14 @@ $bold-font-weight: 700;
 $orange-main: #f55600;
 $orange-health: #ad4200;
 $midnight: #032044;
-$white: #ffff;
+$white: #fff;
 $off-white: #f1f5f7;
-$black: #0000;
+$black: #000;
 $off-black: #171717;
 $limestone: #f8f4f1;
 $concrete: #ebe6e2;
 $smoke: #d5cfc8;
+$grue: #b4bdc7;
 $rivermist: #c8dcff;
 $talavera: #265bf7;
 $clay: #dbb485;
@@ -48,17 +49,12 @@ $primrose-light: #f5cfe9;
 $primrose: #e30fa7;
 $primrose-dark: #5f0446;
 
-// ======= Icons
-
-$fa-font-size-base: rem-calc(18px) !default;
-$fa-fw-width: math.div(20em, 18);
-
 // ======= Shadows
 
-$shadow: rem-calc(3px 3px 7px 0) rgba(23, 23, 23, 0.5); //apply box-shadow to base element (transition .3 ease-in-out)
-$shadow-hover: rem-calc(3px 8px 7px 0) rgba(23, 23, 23, 0.5); //apply box-shadow to :hover
-$shadow-2: rem-calc(0px 2px 5px 0) rgba(23, 23, 23, 0.35);
-$shadow-3: rem-calc(3px 3px 7px 0) rgba(23, 23, 23, 0.35);
+$shadow: 3px 3px 7px 0 rgba(23, 23, 23, 0.5); //apply box-shadow to base element (transition .3 ease-in-out)
+$shadow-hover: 3px 8px 7px 0 rgba(23, 23, 23, 0.5); //apply box-shadow to :hover
+$shadow-2: 0px 2px 5px 0 rgba(23, 23, 23, 0.35);
+$shadow-3: 3px 3px 7px 0 rgba(23, 23, 23, 0.35);
 //shadow effect for squircle
 
 // ======= Padding & Margin
@@ -66,9 +62,17 @@ $shadow-3: rem-calc(3px 3px 7px 0) rgba(23, 23, 23, 0.35);
 $top-bottom: rem-calc(30px 0 30px 0);
 $top-bottom-2: rem-calc(60px 0 60px 0);
 
+// Spacing for bleeds & hero banners
+$spacing-roomy: 5.625rem;
+$spacing-extra-roomy: 7.5rem;
+$spacing-chonky: 11.25rem;
+$spacing-roomy-small: 4.25rem;
+$spacing-extra-roomy-small: 5rem;
+$spacing-chonky-small: 6rem;
+
 // ======= Rounded Corners
 
-$rounded-corners: rem-calc(6px);
+$rounded-corners: 6px;
 
 // ======= Gradients
 
@@ -110,7 +114,31 @@ $white-gradient-right: linear-gradient(
     rgba(241, 245, 247, 1)
 );
 
-// ======= Screen sizes
+//$transition-global: 0.3s ease-in-out;
+$transition-global: 0.2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+// ======= Screen sizes (maximum widths)
 
 $small-screen: 639px;
-$medium-screen: 1024px;
+$medium-screen: 1023px;
+
+/* ==============================
+    Interactive jump animation
+============================== */
+
+//Apply %jump-base to base element
+%jump-base {
+    transition: 0.3s ease-in-out;
+    box-shadow: $shadow;
+}
+
+//Apply jump-hover to :hover state
+%jump-hover {
+    transform: translateY(-0.3rem);
+    box-shadow: $shadow-hover;
+}
+
+//super secret class shhhhhh
+/*.gradient {
+    background: linear-gradient(to right, $golden 10%, $orange-main 50%, $midnight 75%;
+    ;
+}*/

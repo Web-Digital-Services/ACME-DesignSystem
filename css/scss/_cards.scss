@@ -2,240 +2,9 @@
     CARDS
 ============================================================ */
 
-div.cell.nested {
-    border-radius: rem-calc(6px) !important; //test to remove
-    background-color: $clay;
-
-    &.color {
-        background-color: $talavera;
-
-        &.orange {
-            background-color: $orange-main;
-        }
-
-        &.darken {
-            background-color: $midnight;
-        }
-
-        &.grey {
-            background-color: $smoke;
-        }
-
-        &.dark-grey {
-            background-color: $midnight;
-        }
-    }
-
-    a.card {
-        margin: 1rem;
-        background-color: $off-white;
-
-        h4 {
-            text-align: center;
-        }
-    }
-}
-
-a.card {
-    //importants override the orange font color
-
-    padding: 0 !important; //Overrides the bleed padding for <a> //test to remove
-    border-radius: rem-calc(6px) !important; //test to remove
-    border: 0;
-    @extend %jump-base;
-    position: relative;
-    color: $off-black !important; //test to remove
-
-    &:hover {
-        @extend %jump-hover;
-        color: $off-black !important; //test to remove
-    }
-
-    img {
-        object-fit: cover;
-    }
-
-    .card-section {
-        margin-bottom: rem-calc(60px);
-
-        &:after {
-            position: absolute;
-            display: block;
-            font-family: "Font Awesome 6 Pro";
-            font-weight: 900;
-            font-size: rem-calc(60px);
-            content: "\f105";
-            margin-right: 0.5rem;
-            margin-bottom: -0.5rem;
-            right: 0;
-            bottom: 0;
-            color: $orange-main;
-        }
-    }
-
-    //importants should be tested for removal
-    &.color {
-        color: $off-white !important;
-
-        .card-section:after {
-            color: $rivermist !important;
-        }
-
-        &.orange .card-section:after {
-            color: $clay !important;
-        }
-
-        &.darken .card-section:after {
-            color: $brass !important;
-        }
-
-        &.grey .card-section:after {
-            color: $off-white !important;
-        }
-
-        &.dark-grey .card-section:after {
-            color: $smoke !important;
-        }
-
-        &:hover {
-            color: $off-white !important;
-        }
-    }
-
-    .grid-x {
-        //This is for the icon in the longcard component
-        &:after {
-            position: absolute;
-            display: block;
-            font-family: "Font Awesome 6 Pro";
-            font-weight: 900;
-            font-size: rem-calc(60px);
-            content: "\f105";
-            right: 0;
-            color: $orange-main;
-            margin-right: 0.5rem;
-        }
-    }
-
-    &.postcard {
-        position: relative;
-
-        img {
-            transform: scale(1);
-            transition: 0.4s ease-in-out;
-        }
-
-        .card-section {
-            position: absolute;
-            bottom: 0;
-            background: rgba(23, 23, 23, 0.7);
-            color: $off-white;
-            width: 100%;
-            height: 100%;
-            padding: rem-calc(30px);
-            margin-bottom: 0;
-            opacity: 100%;
-            transition: 0.4s ease-in-out;
-
-            h2,
-            h3,
-            h4,
-            p {
-                transition: 0.4s ease-in-out;
-            }
-
-            &:after {
-                color: $smoke;
-            }
-        }
-
-        &:hover {
-            .card-section {
-                background: none;
-                left: var(--mouse-x);
-                top: var(--mouse-y);
-
-                h2,
-                h3,
-                h4,
-                p {
-                    opacity: 0%;
-                }
-            }
-
-            img {
-                transform: scale(1.05);
-            }
-        }
-    }
-
-    //These are for the new MSRH Cards
-    &.simple {
-        border-radius: rem-calc(
-            1px
-        ) !important; //Needs !important to override base element styles
-        border: 3px solid $lavender-light;
-
-        .card-section {
-            h2,
-            h3,
-            h4 {
-                margin-right: 1.5rem;
-            }
-
-            p {
-                margin-bottom: 4rem;
-            }
-
-            &:after {
-                font-weight: 600;
-                font-size: rem-calc(32px);
-                content: "\f061";
-                margin-right: 0.5rem;
-                margin-bottom: 0.5rem;
-                color: $orange-main;
-            }
-        }
-
-        &:hover {
-            border: 3px solid $cactus-light;
-
-            .card-section {
-                &:after {
-                    color: $cactus-light;
-                }
-            }
-        }
-    }
-
-    &.top-border {
-        border-radius: rem-calc(
-            1px
-        ) !important; //Needs !important to override base element styles
-        border-top: 20px solid $midnight;
-
-        .card-section {
-            h2,
-            h3,
-            h4 {
-                margin-right: 1.5rem;
-            }
-
-            p {
-                margin-bottom: 4rem;
-            }
-
-            &:after {
-                font-weight: 600;
-                font-size: rem-calc(32px);
-                content: "\f061";
-                margin-right: 0.5rem;
-                margin-bottom: 0.5rem;
-                color: $orange-main;
-            }
-        }
-    }
-}
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
 
 @media screen and (max-width: $small-screen) {
     a.card.postcard {
@@ -247,7 +16,7 @@ a.card {
     .card.tile {
         .card-section {
             //Needs !important to override desktop styles
-            background: darken(rgba(23, 23, 23, 0.7), 25%) !important;
+            //background: color.adjust($smoke, -25%) !important;
 
             > div {
                 transform: none !important;
@@ -260,113 +29,334 @@ a.card {
     }
 }
 
-.card-section img + * {
-    margin-top: 1rem;
+.card {
+    border: 1px solid $smoke;
+    width: fit-content;
+
+    h2,
+    h3,
+    h4,
+    h5 {
+        margin-top: 0;
+        color: $midnight;
+    }
 }
 
-.card {
-    &.portrait {
-        .card-section {
-            padding: unset;
+.card img {
+    border-bottom: 2px solid $talavera;
+}
 
-            a {
-                font-weight: 700;
+.card .card-section {
+    padding: 1rem;
+}
+
+.card .card-footer {
+    background-color: $grue;
+    padding: 0.5rem;
+}
+
+.card.light {
+    background-color: $rivermist;
+    border: none;
+}
+
+.card.color {
+    background-color: $midnight;
+    color: $off-white;
+    border: none;
+    h2,
+    h3,
+    h4,
+    h5 {
+        color: $off-white;
+    }
+}
+
+.card.neutral {
+    background-color: $concrete;
+    border: none;
+}
+
+.card.portrait .card-section {
+    padding: unset;
+}
+
+.card.portrait .card-section a {
+    font-weight: 700;
+}
+
+.card.portrait .profile-info {
+    padding: 1rem;
+    list-style-type: none;
+
+    h3,
+    h4,
+    h5 {
+        margin-bottom: 0;
+    }
+
+    p {
+        margin-top: 0;
+    }
+}
+
+.card.popout {
+    overflow: visible;
+    margin-top: 4.375rem;
+
+    img {
+        margin-top: -4.375rem;
+    }
+}
+
+.card.popout.border img {
+    border-top: solid 1rem $talavera;
+}
+
+.card.popout.border.color img {
+    border-top: solid 1rem $rivermist;
+}
+
+.card.popout.border.gold img {
+    border-top: solid 1rem $golden;
+}
+
+.card.popout.border.orange img {
+    border-top: solid 1rem $orange-main;
+}
+
+.card.tile {
+    position: relative;
+
+    img {
+        transform: scale(1);
+        transition: 0.4s ease-in-out;
+        border: none;
+    }
+
+    .card-section {
+        position: absolute;
+        bottom: 0;
+        background: rgba(23, 23, 23, 0.43);
+        color: $off-white;
+        max-width: 100%;
+        height: 100%;
+        padding: 30px;
+        margin-bottom: 0;
+        opacity: 100%;
+        transition: 0.4s ease-in-out;
+        text-align: center;
+        display: flex;
+
+        > div {
+            width: 100%;
+            align-self: flex-end;
+            transform: translateY(calc(100% - 4.5rem));
+            transition: 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+
+            h2,
+            h3,
+            h4,
+            h5 {
+                color: $off-white;
+            }
+
+            p {
+                opacity: 0;
+                transition: 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
             }
         }
 
-        .profile-info {
-            padding: 1rem;
-            list-style-type: none;
+        &:after {
+            display: none;
         }
     }
 
-    &.popout {
-        overflow: visible;
-        margin-top: 4.375rem;
-
-        img {
-            margin-top: -4.375rem;
-        }
-    }
-
-    &.popout.border img {
-        border-top: solid 1rem $talavera;
-    }
-
-    &.popout.border.color img {
-        border-top: solid 1rem $rivermist;
-    }
-
-    &.popout.border.gold img {
-        border-top: solid 1rem $golden;
-    }
-
-    &.popout.border.orange img {
-        border-top: solid 1rem $orange-main;
-    }
-
-    &.tile {
-        position: relative;
-
-        img {
-            transform: scale(1);
-            transition: 0.4s ease-in-out;
-        }
-
+    &:hover,
+    &:focus,
+    &:active {
         .card-section {
-            position: absolute;
-            bottom: 0;
-            background: rgba(23, 23, 23, 0.43);
-            color: $off-white;
-            width: 100%;
-            height: 100%;
-            padding: rem-calc(30px);
-            margin-bottom: 0;
-            opacity: 100%;
-            transition: 0.4s ease-in-out;
-            text-align: center;
-            display: flex;
+            //background: color.adjust($smoke, -25%);
 
             > div {
                 width: 100%;
                 align-self: flex-end;
-                transform: translateY(calc(100% - 4.5rem));
-                transition: 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+                transform: translateY(0);
 
                 p {
-                    opacity: 0;
-                    transition: 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+                    opacity: 100;
                 }
-            }
-
-            &:after {
-                display: none;
             }
         }
 
-        &:hover,
-        &:focus,
-        &:active {
-            .card-section {
-                background: darken(rgba(23, 23, 23, 0.7), 25%);
-
-                > div {
-                    width: 100%;
-                    align-self: flex-end;
-                    transform: translateY(0);
-
-                    p {
-                        opacity: 100;
-                    }
-                }
-            }
-
-            img {
-                transform: scale(1.05);
-            }
+        img {
+            transform: scale(1.05);
         }
     }
 }
+
+a.card {
+    padding: 0;
+    border-radius: 6px;
+    border: 0;
+    @extend %jump-base;
+    position: relative;
+    color: $off-black;
+}
+
+a.card:hover {
+    @extend %jump-hover;
+    color: $off-black;
+    background-color: inherit;
+}
+
+a.card img {
+    object-fit: cover;
+}
+
+a.card .card-section {
+    margin-bottom: 45px;
+}
+
+a.card .card-section:after {
+    position: absolute;
+    display: block;
+    font-family: "Font Awesome 7 Pro";
+    font-weight: 900;
+    font-size: 30px;
+    content: "\f105";
+    margin-right: 0.5rem;
+    margin-bottom: 0rem;
+    right: 0;
+    bottom: 0;
+    color: $orange-main;
+}
+
+a.card.color:hover {
+    background-color: $midnight;
+    color: $off-white;
+}
+
+a.card.light:hover {
+    background-color: $rivermist;
+}
+
+a.card.postcard {
+    position: relative;
+
+    img {
+        transform: scale(1);
+        transition: 0.4s ease-in-out;
+    }
+
+    .card-section {
+        position: absolute;
+        bottom: 0;
+        background: rgba(23, 23, 23, 0.7);
+        color: $off-white;
+        width: 100%;
+        height: 100%;
+        padding: rem-calc(30px);
+        margin-bottom: 0;
+        opacity: 100%;
+        transition: 0.4s ease-in-out;
+
+        h2,
+        h3,
+        h4,
+        p {
+            transition: 0.4s ease-in-out;
+        }
+
+        &:after {
+            color: $smoke;
+        }
+    }
+
+    &:hover {
+        .card-section {
+            background: none;
+            left: var(--mouse-x);
+            top: var(--mouse-y);
+
+            h2,
+            h3,
+            h4,
+            p {
+                opacity: 0%;
+            }
+        }
+
+        img {
+            transform: scale(1.05);
+        }
+    }
+}
+
+/**div.card.tile {
+    img {
+        //transform: scale(1);
+        transition: 0.4s ease-in-out;
+        border-bottom: none;
+    }
+
+    .card-section {
+        position: absolute;
+        bottom: 0;
+        background: rgba(23, 23, 23, 0.43);
+        color: $off-white;
+        //width: 100%;
+        height: 100%;
+        padding: 0;
+        margin-bottom: 0;
+        opacity: 100%;
+        transition: 0.4s ease-in-out;
+        text-align: center;
+        display: flex;
+
+        h2,
+        h4,
+        h4 {
+            color: $off-white;
+        }
+
+        > div {
+            width: 100%;
+            align-self: flex-end;
+            padding: 0 30px 30px 30px;
+            transform: translateY(calc(100% - 4.5rem));
+            transition: 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+
+            p {
+                opacity: 0;
+                transition: 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+            }
+        }
+
+        &:after {
+            display: none;
+        }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        transform: none;
+        .card-section {
+            background: darken(rgba(23, 23, 23, 0.7), 25%);
+
+            > div {
+                width: 100%;
+                align-self: flex-end;
+                transform: translateY(0);
+
+                p {
+                    opacity: 100;
+                }
+            }
+        }
+    }
+}**/
 
 .hero {
     &.card {

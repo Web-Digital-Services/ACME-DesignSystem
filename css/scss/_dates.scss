@@ -1,6 +1,9 @@
 /* ============================================================
     DATES
 ============================================================ */
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
 
 // Plain text event
 .event {
@@ -83,7 +86,7 @@ a.event {
         .arrow::after {
             position: relative;
             display: block;
-            font-family: "Font Awesome 6 Pro";
+            font-family: "Font Awesome 7 Pro";
             font-weight: 900;
             font-size: rem-calc(40px);
             content: "\f105";

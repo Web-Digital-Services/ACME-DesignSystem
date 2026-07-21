@@ -1,6 +1,11 @@
 /* ==============================
     Grid Adjustments
 ============================== */
+
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
 .grid.no-gap {
     gap: 0;
 }
@@ -192,25 +197,3 @@
 .text-match {
     text-align: match-parent;
 }
-
-/* ==============================
-    Interactive jump animation
-============================== */
-
-//Apply %jump-base to base element
-%jump-base {
-    transition: 0.3s ease-in-out;
-    box-shadow: $shadow;
-}
-
-//Apply jump-hover to :hover state
-%jump-hover {
-    transform: translateY(-0.3rem);
-    box-shadow: $shadow-hover;
-}
-
-//super secret class shhhhhh
-/*.gradient {
-    background: linear-gradient(to right, $golden 10%, $orange-main 50%, $midnight 75%;
-    ;
-}*/

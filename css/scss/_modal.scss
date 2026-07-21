@@ -1,6 +1,9 @@
 /* ============================================================
     MODAL
 ============================================================ */
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
 
 .close-button {
     color: $orange-main;

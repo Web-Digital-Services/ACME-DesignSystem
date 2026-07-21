@@ -6,6 +6,10 @@ This is our own university grid system that uses the built-in grid properties in
 Please refer to our online demo in the github for further documentation
 =============================================*/
 
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
 .grid-wrapper {
     max-width: 90rem;
     margin-left: auto;

@@ -1,3 +1,7 @@
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
 footer {
     color: $off-white;
     background-color: $midnight;

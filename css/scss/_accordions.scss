@@ -2,165 +2,84 @@
     ACCORDIONS
 ============================================================ */
 
-.accordion {
-    margin-left: 0;
-    background: transparent;
-    list-style-type: none;
-}
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
 
-.accordion[disabled] .accordion-title {
-    cursor: not-allowed;
-}
-
-.accordion-title {
-    margin-top: rem-calc(16px);
+.tab {
     position: relative;
-    display: block;
-    padding: 1.25rem 1rem;
-    border: 1px solid $smoke;
-    border-radius: 6px !important;
-    border-bottom: rem-calc(1px);
-    font-size: rem-calc(18px);
-    line-height: 1;
-    color: $off-black;
-    font-weight: 400;
-    box-shadow: rem-calc(0px 1px 3px) $smoke;
-    transition: background-color 0.2s ease-out;
-
-    &.heading {
-        font-family: $serif-font;
-        font-size: rem-calc(32px);
-        padding: rem-calc(1rem);
-    }
 }
-
-.accordion-title:hover,
-.accordion-title:focus {
-    color: $midnight;
-    background-color: $off-white;
-}
-
-.accordion-title::before {
+.tab input {
     position: absolute;
-    top: 50%;
-    right: rem-calc(12px);
-    margin-top: rem-calc(-27px);
-    content: "\f107";
-    font-family: "Font Awesome 6 Pro";
-    font-size: rem-calc(60px);
-    font-weight: 900;
-    color: $orange-main;
+    opacity: 0;
+    z-index: -1;
+}
+.tab_content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s;
+    //padding: 30px;
+}
+.tab input:checked ~ .tab_content {
+    max-height: 10rem;
+    padding: 30px;
+    opacity: 100%;
 }
 
-.is-active > .accordion-title::before {
-    content: "\f106";
-    font-family: "Font Awesome 6 Pro";
-    font-size: rem-calc(60px);
-    font-weight: 900;
-    color: $orange-main;
-}
-
-.accordion-content {
-    display: none;
-    margin-top: -0.5rem;
-    padding: rem-calc(30px);
-    border: rem-calc(1px) solid $smoke;
-    border-top: none;
-    border-radius: rem-calc(0 0 6px 6px);
-    border-bottom: 1;
-    background-color: $white;
+/* Visual styles */
+.accordion {
     color: $off-black;
+    border: 2px solid $midnight;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
-:last-child > .accordion-content:last-child {
-    border-bottom: rem-calc(1px) solid $smoke;
-}
-
-.accordion-item:last-child > :last-child {
-    border-radius: rem-calc(0 0 6px 6px);
-}
-
-.is-active > .accordion-content {
-    display: block;
-}
-
-// ======= Orange Accordion
-.accordion.orange {
-    .accordion-title {
-        color: $off-white !important;
-        border: rem-calc(1px) solid $orange-main !important;
-        background: $orange-main !important;
-    }
-
-    .accordion-title:hover,
-    .accordion-title:focus {
-        background: $midnight !important;
-    }
-
-    .accordion-title::before {
+.accordion.midnight {
+    border: none;
+    .tab_label,
+    .tab_close {
+        background-color: $midnight;
         color: $off-white;
-    }
-
-    .is-active > .accordion-title::before {
-        color: $off-white;
-    }
-
-    .accordion-content {
-        background-color: $concrete;
-        color: $off-black;
+        border-bottom: 2px solid $limestone;
     }
 }
 
-// ======= Grey Accordion
-.accordion.grey {
-    .accordion-title {
-        color: $off-white !important;
-        border: rem-calc(1px) solid $smoke !important;
-        background: $smoke !important;
-    }
-
-    .accordion-title:hover,
-    .accordion-title:focus {
-        background: $midnight !important;
-    }
-
-    .accordion-title::before {
-        color: $off-white;
-    }
-
-    .is-active > .accordion-title::before {
-        color: $off-white;
-    }
-
-    .accordion-content {
-        background-color: $smoke;
-        color: $off-black;
-    }
+.tab_label,
+.tab_close {
+    display: flex;
+    color: $midnight;
+    background-color: $limestone;
+    cursor: pointer;
+}
+.tab_label {
+    justify-content: space-between;
+    border-bottom: 2px solid $midnight;
+    padding: 1rem;
 }
 
-// ======= Blue Accordion
-.accordion.blue {
-    .accordion-title {
-        color: $off-white !important;
-        border: rem-calc(1px) solid $talavera !important;
-        background: $talavera !important;
-    }
+.tab:last-of-type .tab_label {
+    border-bottom: none;
+}
 
-    .accordion-title:hover,
-    .accordion-title:focus {
-        background: $talavera !important;
-    }
-
-    .accordion-title::before {
-        color: $off-white;
-    }
-
-    .is-active > .accordion-title::before {
-        color: $off-white;
-    }
-
-    .accordion-content {
-        background-color: $smoke;
-        color: $off-black;
-    }
+.tab_label::after {
+    font-family: "Font Awesome 7 Pro";
+    font-weight: 900;
+    content: "\2b";
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    transition: all 0.35s;
+}
+.tab input:checked + .tab_label::after {
+    transform: rotate(45deg);
+}
+.tab_content p {
+    margin: 0;
+    padding: 1rem;
+}
+.tab_close {
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
 }

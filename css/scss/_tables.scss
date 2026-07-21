@@ -2,6 +2,10 @@
     TABLES
 ============================================================ */
 
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
 table:not(.charts-css) {
     thead {
         background-color: $smoke;
@@ -43,9 +47,9 @@ table:not(.charts-css) {
             background-color: $orange-main;
 
             th.sort::after {
-                font-family: "Font Awesome 6 Pro solid";
+                font-family: "Font Awesome 7 Pro";
                 font-weight: 900;
-                font-size: rem-calc(18px);
+                font-size: $font-size-default;
                 content: "\f0dc";
                 padding-left: rem-calc(15px);
             }

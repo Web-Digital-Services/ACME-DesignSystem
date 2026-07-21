@@ -1,6 +1,10 @@
 /* ============================================================
 HORIZONTAL
 ============================================================ */
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
 .grid-x {
     &.factoids {
         padding: 0.5rem;

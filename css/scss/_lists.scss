@@ -2,6 +2,10 @@
     LISTS
 ============================================================ */
 
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
 div.arrow ul,
 div.check ul {
     list-style-type: none;
@@ -16,7 +20,7 @@ div.check ul li {
 }
 
 div.arrow ul li:before {
-    font-family: "Font Awesome 6 Pro";
+    font-family: "Font Awesome 7 Pro";
     font-weight: 900;
     content: "\f105";
     color: $orange-main;
@@ -24,7 +28,7 @@ div.arrow ul li:before {
 }
 
 div.check ul li:before {
-    font-family: "Font Awesome 6 Pro";
+    font-family: "Font Awesome 7 Pro";
     font-weight: 900;
     font-size: 0.85em;
     content: "\f00c";

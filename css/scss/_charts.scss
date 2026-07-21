@@ -1,3 +1,7 @@
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
 .blue {
     .charts-css {
         --color-1: #004661 !important; /*$midnight*/

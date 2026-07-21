@@ -2,6 +2,10 @@
     COLORS
 ============================================================ */
 
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
 // ======= Neutral
 
 .concrete {
@@ -27,4 +31,16 @@
 
 .golden {
     color: $golden;
+}
+
+.duo-theme-health {
+    --fa-secondary-opacity: 0.25;
+    --fa-primary-color: #ad4200;
+    --fa-secondary-color: #ad4200;
+}
+
+.duo-theme-utsa {
+    --fa-secondary-opacity: 1;
+    --fa-primary-color: #f55600;
+    --fa-secondary-color: #265bf7;
 }

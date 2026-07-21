@@ -4,6 +4,10 @@
     Variants: Pill, Manila, Folding
 ============================================================ */
 
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
 div.tab-container {
     ul.tabs {
         // ======= Floating style

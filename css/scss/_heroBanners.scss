@@ -1,178 +1,372 @@
 /* ============================================================
     HERO BANNERS
 ============================================================ */
-header.super-hero + .hero {
-    &.mission {
-        @media screen and (min-width: $small-screen) {
-            //height: rem-calc(1440px);
 
-            z-index: -1;
-            height: auto;
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
 
-            &.img-fill {
-                img,
-                video {
-                    position: relative;
-                }
-            }
+/* Stacked image hero */
+@mixin stacked-image-hero {
+    padding: 0;
+    overflow: visible;
+    background-color: transparent;
 
-            & .callout {
-                padding: rem-calc(18px);
-                position: absolute;
-                top: 50%;
+    >img {
+        position: static;
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
 
-                h1 {
-                    font-size: 80px;
-                    font-family: $sans-serif-font;
-                    font-weight: 700;
-                }
-            }
-        }
+    >.grid-wrapper {
+        padding-top: 0.625rem;
+        padding-bottom: 0.625rem;
 
-        @media screen and (max-width: $small-screen) {
-            &.img-fill {
-                img,
-                video {
-                    position: relative;
-                }
-            }
-
-            & .callout {
-                padding: rem-calc(18px);
-                position: absolute;
-                top: 50%;
-
-                h1 {
-                    font-family: $sans-serif-font;
-                    font-weight: 700;
-                }
-            }
+        >.grid {
+            min-height: 0;
+            align-items: start;
         }
     }
 
-    @media screen and (min-width: $small-screen) {
-        .grid-container {
-            margin-top: rem-calc(134px);
-        }
+    .callout {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        align-self: start;
+        justify-self: stretch;
+    }
 
-        .callout {
-            margin-bottom: 0;
-
-            &.mission {
-                margin-left: 0;
-
-                h1 {
-                    font-size: 80px;
-                    font-family: $sans-serif-font;
-                    font-weight: 700;
-                }
-            }
-        }
+    &::before {
+        display: none;
     }
 }
 
 .hero {
-    &.img-fill {
-        background-color: transparent;
-        overflow: initial; //Hidden produces a strange margin between hero area and new nav design. Clip accomplishes the same effect with no extra margins
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 3.75rem 0 5rem;
+    background-color: $concrete;
+    color: $off-black;
 
-        &.orange {
-            background: rgba(148, 41, 0, 0.75);
-            color: $off-white !important;
-        }
+    >.grid-wrapper {
+        position: relative;
+        z-index: 2;
 
-        &.black {
-            background: rgba(23, 23, 23, 0.75);
-            color: $off-white !important;
-        }
+        >.grid {
+            margin-top: 0;
 
-        &.blur {
-            background-color: rgba(23, 23, 23, 0.7);
-            overflow: clip;
+            >div {
+                > :first-child {
+                    margin-top: 0;
+                }
 
-            > img {
-                filter: blur(6px) opacity(80%);
+                > :last-child {
+                    margin-bottom: 0;
+                }
             }
         }
     }
 
-    & .callout {
-        padding: rem-calc(30px);
-        background: rgba(26, 36, 41, 0.85);
+    /* Spacing */
+    &.roomy {
+        padding-top: $spacing-roomy;
+        padding-bottom: $spacing-roomy;
+    }
+
+    &.extra-roomy {
+        padding-top: $spacing-extra-roomy;
+        padding-bottom: $spacing-extra-roomy;
+    }
+
+    &.chonky {
+        padding-top: $spacing-chonky;
+        padding-bottom: $spacing-chonky;
+    }
+
+    /* Media heroes */
+    &.img,
+    &.blur,
+    &.waves {
+        padding: 0;
         color: $off-white;
+    }
 
-        &.grey {
-            background-color: rgba(26, 36, 41, 0.85);
-            color: $off-white !important;
+    /* Blur and waves heights */
+    &.blur,
+    &.waves {
+        >.grid-wrapper>.grid {
+            min-height: 32rem;
+            align-items: center;
         }
 
-        &.white {
-            background: rgba(241, 245, 247, 0.85);
-            color: $off-black !important;
+        &.roomy>.grid-wrapper>.grid {
+            min-height: 35.75rem;
         }
 
-        &.orange {
-            background: rgba(148, 41, 0, 0.85);
-            color: $off-white !important;
+        &.extra-roomy>.grid-wrapper>.grid {
+            min-height: 39.5rem;
         }
 
-        &.transparent {
-            background: transparent;
-            color: $off-white !important;
-        }
-
-        .subheader {
-            color: $off-white !important;
+        &.chonky>.grid-wrapper>.grid {
+            min-height: 47rem;
         }
     }
 
-    //========== Gradient hero
+    &.img>img,
+    &.blur>img {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
 
-    @media screen and (min-width: $small-screen) {
-        &.gradient {
-            &.grey {
-                &.left {
-                    background: $smoke-gradient-left;
-                }
+    /* Image */
+    &.img {
+        background-color: $off-black;
 
-                &.right {
-                    background: $smoke-gradient-right;
-                }
+        .callout {
+            align-self: center;
+        }
+    }
+
+    /* Large */
+    @media (min-width: ($medium-screen + 1px)) {
+        &.img {
+            >.grid-wrapper>.grid {
+                min-height: 32rem;
+                align-items: center;
             }
 
-            &.orange {
-                &.left {
-                    background: $orange-main-gradient-left;
-                }
-
-                &.right {
-                    background: $orange-main-gradient-right;
-                }
+            &.roomy>.grid-wrapper>.grid {
+                min-height: 35.75rem;
             }
 
-            &.white {
-                &.left {
-                    background: $white-gradient-left;
-                }
+            &.extra-roomy>.grid-wrapper>.grid {
+                min-height: 39.5rem;
+            }
 
-                &.right {
-                    background: $white-gradient-right;
-                }
+            &.chonky>.grid-wrapper>.grid {
+                min-height: 47rem;
+            }
+
+            &.right .callout {
+                grid-column: 2;
+            }
+
+            &.left .callout {
+                grid-column: 1;
+            }
+        }
+    }
+
+    /* Blur */
+    &.blur {
+        background-color: $off-black;
+
+        >img {
+            filter: blur(6px);
+            opacity: 0.8;
+            transform: scale(1.04);
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: rgba(23, 23, 23, 0.68);
+            pointer-events: none;
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            max-height: 23rem;
+            object-fit: cover;
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.28);
+        }
+    }
+
+    /* Gradient */
+    &.img.gradient {
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        &.grey.right::before {
+            background: linear-gradient(90deg,
+                    rgba(26, 36, 41, 0) 25%,
+                    rgba(26, 36, 41, 0.58) 48%,
+                    rgba(26, 36, 41, 0.96) 72%);
+        }
+
+        &.grey.left::before {
+            background: linear-gradient(270deg,
+                    rgba(26, 36, 41, 0) 25%,
+                    rgba(26, 36, 41, 0.58) 48%,
+                    rgba(26, 36, 41, 0.96) 72%);
+        }
+
+        &.orange.right::before {
+            background: linear-gradient(90deg,
+                    rgba(173, 66, 0, 0) 25%,
+                    rgba(173, 66, 0, 0.62) 48%,
+                    rgba(173, 66, 0, 0.96) 72%);
+        }
+
+        &.orange.left::before {
+            background: linear-gradient(270deg,
+                    rgba(173, 66, 0, 0) 25%,
+                    rgba(173, 66, 0, 0.62) 48%,
+                    rgba(173, 66, 0, 0.96) 72%);
+        }
+    }
+
+    /* Waves */
+    &.waves {
+        background-color: #354d69;
+        background-image: url("../images/design/hero-smoke-driving.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+
+        &:not(.roomy):not(.extra-roomy):not(.chonky)>.grid-wrapper>.grid {
+            min-height: 34rem;
+        }
+
+        h1 {
+            margin-bottom: 0.75rem;
+            font-size: clamp(2.5rem, 3vw + 1rem, 4.0625rem);
+            line-height: 1.1;
+        }
+
+        p {
+            margin: 0;
+            font-family: $serif-font;
+            font-size: clamp(1.125rem, 1vw + 0.875rem, 1.5rem);
+            line-height: 1.35;
+        }
+    }
+
+    /* Medium: 640–1023px */
+    @media (min-width: ($small-screen + 1px)) and (max-width: $medium-screen) {
+
+        /* Standard image */
+        &.img:not(.gradient) {
+            >.grid-wrapper>.grid {
+                min-height: 32rem;
+                align-items: center;
+            }
+
+            &.roomy>.grid-wrapper>.grid {
+                min-height: 35.75rem;
+            }
+
+            &.extra-roomy>.grid-wrapper>.grid {
+                min-height: 39.5rem;
+            }
+
+            &.chonky>.grid-wrapper>.grid {
+                min-height: 47rem;
             }
 
             .callout {
-                background: transparent;
+                grid-column: 1 / -1;
+                width: 100%;
+                max-width: 52rem;
+            }
+
+            &.right .callout {
+                justify-self: end;
+            }
+
+            &.left .callout {
+                justify-self: start;
             }
         }
-    }
-}
 
-@media screen and (max-width: $small-screen) {
-    .img-fill {
-        &:not(.blur) {
-            img,
-            video {
-                position: relative;
+        /* Stacked gradient */
+        &.img.gradient {
+            @include stacked-image-hero;
+        }
+    }
+
+    /* Small: 0–639px */
+    @media (max-width: $small-screen) {
+        padding: 2.5rem 0 3rem;
+
+        &.roomy {
+            padding-top: $spacing-roomy-small;
+            padding-bottom: $spacing-roomy-small;
+        }
+
+        &.extra-roomy {
+            padding-top: $spacing-extra-roomy-small;
+            padding-bottom: $spacing-extra-roomy-small;
+        }
+
+        &.chonky {
+            padding-top: $spacing-chonky-small;
+            padding-bottom: $spacing-chonky-small;
+        }
+
+        /* Stacked images */
+        &.img {
+            @include stacked-image-hero;
+        }
+
+        /* Blur */
+        &.blur {
+            >.grid-wrapper>.grid {
+                min-height: 24rem;
+                padding-top: 2.5rem;
+                padding-bottom: 2.5rem;
+            }
+
+            &.roomy>.grid-wrapper>.grid {
+                min-height: 27rem;
+            }
+
+            &.extra-roomy>.grid-wrapper>.grid {
+                min-height: 30rem;
+            }
+
+            &.chonky>.grid-wrapper>.grid {
+                min-height: 36rem;
+            }
+
+            .hero-image img {
+                max-height: none;
+            }
+        }
+
+        &.waves {
+            >.grid-wrapper>.grid {
+                min-height: 28rem;
+            }
+
+            &.roomy>.grid-wrapper>.grid {
+                min-height: 30rem;
+            }
+
+            &.extra-roomy>.grid-wrapper>.grid {
+                min-height: 33rem;
+            }
+
+            &.chonky>.grid-wrapper>.grid {
+                min-height: 39rem;
             }
         }
     }

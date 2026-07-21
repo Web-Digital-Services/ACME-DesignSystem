@@ -2,6 +2,10 @@
     ICONS
 ============================================================ */
 
+@use "variables" as *;
+@use "sass:math" as math;
+@use "sass:color" as color;
+
 // ======= Misc icon styles
 i.fa-inverse {
     color: $off-white;
@@ -11,10 +15,13 @@ i.fa-inverse {
 a:not(.callout) {
     &.fa-stack,
     span.fa-stack {
-        color: $orange-main !important; //Test to remove
+        color: $orange-main;
 
         i {
             transition: 0.3s ease-in-out;
+        }
+        i.fa-inverse {
+            color: $limestone;
         }
     }
 
@@ -46,11 +53,11 @@ ul.inline {
         color: $talavera;
 
         &.fa-5x {
-            margin-bottom: rem-calc(30px) !important; //test to remove
+            margin-bottom: rem-calc(30px);
         }
 
-        &.grey {
-            color: $midnight !important; //test to remove
+        &.midnight {
+            color: $midnight;
         }
     }
 
@@ -98,7 +105,7 @@ ul.inline {
         }
 
         li {
-            margin-bottom: rem-calc(18px);
+            margin-bottom: $font-size-default;
         }
     }
 
@@ -120,13 +127,13 @@ ul.inline {
     &.outline {
         .far {
             &.fa-circle {
-                color: $smoke;
+                color: $midnight;
             }
         }
 
         .fa-stack {
             > .fa-stack-1x {
-                color: $smoke;
+                color: $midnight;
             }
         }
     }
@@ -134,14 +141,14 @@ ul.inline {
 
 .far {
     &.fa-circle {
-        color: $smoke;
+        color: $midnight;
     }
 }
 
 .fa-stack {
     &.outline {
         > .fa-stack-1x {
-            color: $smoke;
+            color: $midnight;
         }
     }
 }
@@ -240,7 +247,7 @@ ul.fa-ul {
                 }
 
                 .fa-stack-2x {
-                    color: $off-white;
+                    color: $concrete;
                     border-radius: rem-calc(6px);
                     transition: 0.2s ease-in-out;
                 }
@@ -329,7 +336,7 @@ footer {
         top: 75%;
 
         i {
-            font-size: rem-calc(18px);
+            font-size: $font-size-default;
         }
     }
 }
@@ -399,7 +406,7 @@ footer.mission {
         top: 75%;
 
         i {
-            font-size: rem-calc(18px);
+            font-size: $font-size-default;
         }
     }
 }
