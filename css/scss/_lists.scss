@@ -6,110 +6,101 @@
 @use "sass:math" as math;
 @use "sass:color" as color;
 
-div.arrow ul,
-div.check ul {
-    list-style-type: none;
+ul,
+ol {
+    margin: 0 1.25rem 1.25rem;
+
+    li {
+        line-height: 1.4;
+    }
+}
+
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+    margin-bottom: 0;
+}
+
+ul.no-bullet,
+ol.no-bullet,
+ul.inline,
+ol.inline,
+ul.lines,
+ol.lines,
+ul.arrow,
+ol.arrow {
+    list-style: none;
     margin-left: 0;
     padding-left: 0;
 }
 
-div.arrow ul li,
-div.check ul li {
-    text-indent: -0.875rem;
-    padding-left: 1em;
-}
-
-div.arrow ul li:before {
-    font-family: "Font Awesome 7 Pro";
-    font-weight: 900;
-    content: "\f105";
-    color: $orange-main;
-    padding-right: 0.313rem;
-}
-
-div.check ul li:before {
-    font-family: "Font Awesome 7 Pro";
-    font-weight: 900;
-    font-size: 0.85em;
-    content: "\f00c";
-    padding-right: 0.313rem;
-}
-
-ul li a,
-ol li a {
-    font-size: 18.7px;
-    font-weight: 600;
-}
-
-div.lines {
-    ul,
-    ol {
-        list-style-type: none;
-    }
-
-    ul:not(.tags) {
-        > li {
-            padding: 0.938em 0;
-            border-bottom: solid rem-calc(1px) #667075;
-        }
-    }
-
-    ul.tags {
-        padding-bottom: 0;
-    }
-
-    & a {
-        display: block;
-    }
-}
-
-div.indent-list {
-    margin-left: 2.5rem;
-}
-
-div.loose-list {
-    li {
-        margin-bottom: 0.625rem;
-    }
+ul.indent,
+ol.indent {
+    margin-left: 3.75rem;
 }
 
 ul.inline,
 ol.inline {
     li {
-        list-style-type: none;
         display: inline-block;
     }
 }
 
-ul,
-ol {
-    margin: 0 1.25rem 1.25rem 1.25rem;
-}
+ul.loose,
+ol.loose {
+    > li {
+        margin-bottom: 0.625rem;
+    }
 
-div.decoration {
-    li > a {
-        text-decoration-line: underline;
-        text-decoration-style: solid;
-        text-decoration-color: $orange-main;
-        text-decoration-thickness: rem-calc(1px);
-
-        &:hover {
-            text-decoration-line: underline;
-            text-decoration-color: $midnight;
-        }
+    > li:last-child {
+        margin-bottom: 0;
     }
 }
 
-// ======= News Byline
+ul.lines,
+ol.lines {
+    > li {
+        border-bottom: 1px solid $midnight;
+        padding: 0.938rem 0;
+    }
 
-ul.byline {
-    margin-bottom: rem-calc(27px);
-    margin-left: 0;
-    padding-left: 0;
+    a {
+        display: block;
+    }
+}
 
-    li {
-        font-weight: 300;
-        margin-top: 0;
-        list-style: none;
+ul.arrow,
+ol.arrow {
+    > li {
+        padding-left: 1.25rem;
+        position: relative;
+    }
+
+    > li::before {
+        color: $orange-health;
+        content: "\f105";
+        font-family: "Font Awesome 7 Pro";
+        font-weight: 900;
+        left: 0;
+        position: absolute;
+        top: 0;
+    }
+
+    &.journey {
+        > li {
+            padding-left: 1.5rem;
+        }
+
+        > li::before {
+            content: "\e002";
+            font-family: "Font Awesome Kit";
+            font-weight: 400;
+            transition: $transition-global;
+        }
+
+        > li:hover::before {
+            translate: 0.2rem;
+        }
     }
 }
