@@ -24382,6 +24382,66 @@ blockquote.fancy cite {
     background: rgba(148, 41, 0, 0.88);
   }
 }
+.callout {
+  position: relative;
+  margin: 0 0 1rem 0;
+  padding: 1.875rem;
+  border-radius: 0;
+  word-wrap: break-word;
+  color: #171717;
+  background-color: #f8f4f1;
+}
+
+.callout.outline {
+  border: 0.0625rem solid #667075 !important;
+  background-color: #fff;
+}
+
+.callout.outline.sheer {
+  border: 0.0625rem solid #265bf7 !important;
+  color: #f1f5f7;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+a.callout {
+  transition: 0.3s ease-in-out;
+  box-shadow: 0.1875rem 0.1875rem 0.4375rem 0 rgba(23, 23, 23, 0.5);
+  display: block;
+  color: #f1f5f7;
+  border-radius: 5px;
+  text-align: center;
+}
+a.callout .ruled {
+  border-bottom: 1px solid #F1F5F7;
+}
+a.callout p {
+  font-weight: 400;
+}
+a.callout .fa-circle {
+  color: rgba(23, 23, 23, 0.35);
+}
+
+a.callout:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0.1875rem 0.5rem 0.4375rem 0 rgba(23, 23, 23, 0.5);
+  color: #f1f5f7;
+}
+
+a.callout.orange {
+  background-color: #ad4200;
+}
+
+a.callout.midnight {
+  background-color: #032044;
+}
+a.callout.midnight .fa-circle {
+  color: rgba(241, 245, 247, 0.35);
+}
+
+a.callout.talavera {
+  background-color: #265bf7;
+}
+
 /* ==============================
     CHART.CSS
 ============================== */
@@ -24702,6 +24762,14 @@ ul.inline li {
   color: #265bf7;
 }
 
+span.fa-stack.talavera {
+  color: #265bf7;
+}
+
+span.fa-stack.midnight {
+  color: #032044;
+}
+
 .callout .fa-stack {
   color: #265bf7;
 }
@@ -24953,7 +25021,6 @@ footer.mission .contact .fa-inverse {
   }
 }
 .card {
-  border: 1px solid #d5cfc8;
   width: fit-content;
 }
 .card h2,
@@ -25285,11 +25352,10 @@ a.card.postcard:hover img {
   background-color: #d5cfc8;
 }
 
-.talavera {
-  background-color: #265bf7;
-  color: #f1f5f7;
-}
-
+/*.talavera {
+    background-color: $talavera;
+    color: $off-white;
+}*/
 .golden {
   color: #ffa01a;
 }
@@ -25413,8 +25479,8 @@ a.button {
 
 .hero .button {
   font-weight: 700;
-  padding-top: rem-calc(22px);
-  padding-bottom: rem-calc(22px);
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
 }
 .hero.button-group.button {
   font-weight: 700;
@@ -25683,8 +25749,13 @@ header .main-bar > div .menu ul li a:focus {
 header .top-bar {
   background-color: #032044;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   padding: 10px 15px;
+}
+header .top-bar p {
+  color: #fff;
+  font-weight: 700;
+  margin: 0;
 }
 header .top-bar ul {
   margin: 0;
@@ -25706,7 +25777,8 @@ header .top-bar ul li a {
 header .top-bar ul li a:hover {
   color: #ad4200;
   text-decoration: solid;
-  font-size: 18.7px;
+  padding: 0.25rem;
+  background-color: #ebe6e2;
 }
 header menu-mobile {
   transition: cubic-bezier(1, 0, 0, 1);
@@ -25740,6 +25812,9 @@ header .menu-mobile ul li:last-of-type {
   }
   header .top-bar {
     justify-content: center;
+  }
+  header .top-bar p {
+    display: none;
   }
   header .main-bar .menu-icon {
     display: block;
@@ -25968,175 +26043,76 @@ form.search button {
 ============================== */
 /* ============================== */
 footer {
-  color: #f1f5f7;
   background-color: #032044;
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  position: relative;
-  margin-top: rem-calc(60px);
 }
-footer.flatten {
-  margin-top: 0;
-}
-footer .alamo {
-  position: absolute;
-  top: rem-calc(-60px);
-  width: 100%;
-  text-align: center;
-}
-footer .alamo svg {
-  width: rem-calc(200px);
-  fill: #032044;
-}
-footer h2 {
-  font-size: rem-calc(30px);
-  font-weight: 800;
-}
-footer h3 {
-  font-size: rem-calc(22px);
-  margin-top: rem-calc(-25px);
-  margin-bottom: rem-calc(40px);
-  font-weight: 500;
-  font-family: "Libre Franklin", sans-serif;
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
+  color: #c8dcff;
 }
 footer p {
-  margin-bottom: rem-calc(12px);
+  color: #f1f5f7;
+  font-size: 1rem;
+  font-weight: 400;
 }
-footer p.large-text {
-  font-family: "Arsenal", sans-serif;
-  font-size: rem-calc(20px);
+footer address {
+  color: #f1f5f7;
+  font-size: 1rem;
+  font-weight: 400;
 }
-footer a {
-  color: #d5cfc8;
-  font-weight: 900 !important;
-}
-footer a:hover, footer a:focus, footer a:active {
-  color: #d5cfc8;
-}
-footer a.arrow::after {
-  color: #d5cfc8;
-}
-footer a.arrow:hover:after {
-  color: #d5cfc8;
-}
-footer p > a {
-  background-image: linear-gradient(#d5cfc8, #d5cfc8) !important;
-  color: #d5cfc8 !important;
-}
-footer p > a:hover {
-  background-color: #d5cfc8;
-  color: #032044 !important;
-}
-footer ul {
-  list-style: none;
-  margin-left: 0;
-}
-footer ul li {
-  margin-bottom: 0.625rem;
-}
-footer .contact {
-  display: flex;
-  align-items: center;
-  margin-bottom: rem-calc(30px);
-}
-footer .contact .fa-stack {
-  margin-right: rem-calc(10px);
-}
-footer .contact .fa-stack a:hover {
-  color: #f1f5f7 !important;
-}
-footer .status {
-  display: flex;
-  align-items: center;
-}
-footer .status i {
-  font-size: 36px;
-  color: #f8f4f1;
-  margin-right: rem-calc(10px);
-}
-footer .shield {
-  background-image: url("../images/half-shield.svg");
-  background-repeat: no-repeat;
-  position: relative;
-  background-position: right center;
-}
-@media screen and (max-width: 1159px) {
-  footer .shield {
-    background: none;
-  }
-}
-footer .bleed {
-  background-color: #032044;
+footer a:not(.callout).fa-stack {
   color: #f1f5f7;
 }
-footer.mission {
-  background-color: #fff;
-  color: #171717;
-  margin-top: rem-calc(-45px);
+footer a:not(.callout).fa-stack i.fa-inverse {
+  color: #032044;
 }
-footer.mission hr {
-  margin: rem-calc(60px 0);
-  max-width: none;
+footer ul.arrow.journey {
+  columns: 3;
+  gap: 2rem;
+  padding: 0;
 }
-footer.mission hr:after {
-  content: url("../images/orange-shield.svg");
-  left: 50%;
+footer ul.arrow.journey li {
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+footer ul.arrow.journey > li::before {
+  color: #265bf7;
+}
+footer a {
+  color: #f1f5f7;
+  text-decoration: underline;
+  font-weight: 400;
+}
+footer ul.bottom {
+  display: inline-block;
+  font-size: 0.875rem;
+}
+footer ul.bottom li {
+  display: inline-block;
+  margin: 0 0.75rem 0 0;
+}
+footer ul.bottom li:first-child {
+  color: #f1f5f7;
+}
+footer ul.bottom li:first-child::after {
+  content: "|";
+  margin: 0 0 0 0.75rem;
+}
+footer .container::before {
+  background-position: center top;
+  background-size: contain;
+  content: "";
+  display: block;
+  height: 3.125rem;
+  background-image: url(https://www.utsa.edu/_files/images/backgrounds/bg-waves-border.svg);
+  background-color: transparent;
+  top: -3.125rem;
   position: absolute;
-  transform: translateY(-50%) translateX(-50%);
-  padding: rem-calc(20px);
-  background: #fff;
+  width: 100%;
 }
-footer.mission a {
-  color: #f55600;
-}
-footer.mission a:hover, footer.mission a:focus, footer.mission a:active {
-  color: #032044;
-}
-footer.mission a.arrow::after {
-  color: #f55600;
-}
-footer.mission a.arrow:hover:after {
-  color: #032044;
-}
-footer.mission .social li a {
-  color: #f55600;
-}
-footer.mission .social li a:hover {
-  color: #032044;
-}
-footer.mission .columns {
-  -webkit-columns: 2 auto;
-  -moz-columns: 2 auto;
-  columns: 2 auto;
-}
-@media screen and (max-width: 1023px) {
-  footer.mission .columns {
-    -webkit-columns: 1 auto;
-    -moz-columns: 1 auto;
-    columns: 1 auto;
-  }
-}
-@media screen and (max-width: 639px) {
-  footer h2 {
-    font-size: 1.25rem;
-    text-align: center;
-  }
-  footer h3 {
-    font-size: 1.1875rem;
-    text-align: center;
-    margin-top: rem-calc(-20px);
-  }
-  footer .social {
-    text-align: center;
-    margin-top: rem-calc(45px);
-    margin-bottom: rem-calc(34px);
-  }
-  footer .social li {
-    margin-right: rem-calc(14px);
-  }
-  footer ul li {
-    margin-bottom: rem-calc(20px);
-  }
+footer .container::after {
+  content: "";
+  display: block;
+  height: 8.4375rem;
+  background-image: url(https://www.utsa.edu/_files/images/backgrounds/bg-waves.svg);
 }
 
 /* ==============================
@@ -27368,7 +27344,6 @@ a {
 
 a:hover {
   color: #032044;
-  background-color: #ebe6e2;
 }
 
 a.color {

@@ -269,8 +269,14 @@ header {
     .top-bar {
         background-color: $midnight;
         display: flex;
-        justify-content: end;
+        justify-content: space-between;
         padding: 10px 15px;
+
+        p {
+            color: $white;
+            font-weight: 700;
+            margin: 0;
+        }
 
         ul {
             margin: 0;
@@ -294,7 +300,9 @@ header {
         ul li a:hover {
             color: $orange-health;
             text-decoration: solid;
-            font-size: 18.7px;
+            //font-size: 18.7px;
+            padding: 0.25rem;
+            background-color: $concrete;
         }
     }
 
@@ -342,6 +350,10 @@ header {
 
         .top-bar {
             justify-content: center;
+        }
+
+        .top-bar p {
+            display: none;
         }
 
         .main-bar .menu-icon {

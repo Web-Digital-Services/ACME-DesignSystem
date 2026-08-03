@@ -68,6 +68,14 @@ ul.inline {
     }
 }
 
+span.fa-stack.talavera {
+    color: $talavera;
+}
+
+span.fa-stack.midnight {
+    color: $midnight;
+}
+
 .callout {
     .fa-stack {
         color: $talavera;

@@ -50,3 +50,60 @@
         }
     }
 }
+
+.callout {
+    position: relative;
+    margin: 0 0 1rem 0;
+    padding: 1.875rem;
+    border-radius: 0;
+    word-wrap: break-word;
+    color: $off-black;
+    background-color: $limestone;
+}
+
+.callout.outline {
+    border: 0.0625rem solid #667075 !important;
+    background-color: $white;
+}
+
+.callout.outline.sheer {
+    border: 0.0625rem solid $talavera !important;
+    color: $off-white;
+    background-color: rgba(0,0,0,.3);
+}
+
+a.callout {
+    transition: 0.3s ease-in-out;
+    box-shadow: 0.1875rem 0.1875rem 0.4375rem 0 rgba(23, 23, 23, 0.5);
+    display: block;
+    color: $off-white;
+    border-radius: 5px;
+    text-align: center;
+
+    .ruled {
+        border-bottom: 1px solid #F1F5F7;
+    }
+    p {
+        font-weight: 400;
+    }
+    .fa-circle {
+        color:rgba(23, 23, 23, 0.35);
+    }
+}
+a.callout:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0.1875rem 0.5rem 0.4375rem 0 rgba(23, 23, 23, 0.5);
+    color: $off-white;
+}
+a.callout.orange {
+    background-color: $orange-health;
+}
+a.callout.midnight {
+    background-color: $midnight;
+    .fa-circle {
+        color:rgba(241, 245, 247, 0.35);
+    }
+}
+a.callout.talavera {
+    background-color: $talavera;
+}
