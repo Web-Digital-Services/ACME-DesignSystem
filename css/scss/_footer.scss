@@ -4,7 +4,12 @@
 
 footer {
     background-color: $midnight;
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         color: $rivermist;
     }
     p {
@@ -25,7 +30,7 @@ footer {
     }
     ul.arrow.journey {
         columns: 3;
-        gap: 2rem; 
+        gap: 2rem;
         padding: 0;
 
         li {
@@ -43,7 +48,7 @@ footer {
     }
     ul.bottom {
         display: inline-block;
-        font-size: .875rem;
+        font-size: 0.875rem;
     }
     ul.bottom li {
         display: inline-block;
@@ -55,6 +60,14 @@ footer {
     ul.bottom li:first-child::after {
         content: "|";
         margin: 0 0 0 0.75rem;
+    }
+
+    .grid-wrapper {
+        padding: 1.66rem;
+    }
+
+    .container {
+        position: relative;
     }
     .container::before {
         background-position: center top;
@@ -73,8 +86,5 @@ footer {
         display: block;
         height: 8.4375rem;
         background-image: url(https://www.utsa.edu/_files/images/backgrounds/bg-waves.svg);
-        }
+    }
 }
-
-
-

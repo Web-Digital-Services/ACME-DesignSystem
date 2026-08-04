@@ -23520,6 +23520,7 @@ body {
 p.eyebrow {
   font-size: 18px;
   font-family: "Arsenal", sans-serif;
+  margin-bottom: 0;
 }
 p.eyebrow + h1,
 p.eyebrow + h2,
@@ -23868,7 +23869,7 @@ cite a {
 
 /* Fancy */
 blockquote.fancy {
-  background-color: #d5cfc8;
+  background-color: #f1f5f7;
 }
 blockquote.fancy p {
   color: #171717;
@@ -24150,8 +24151,8 @@ blockquote.fancy cite {
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding-top: 3.75rem;
-  padding-bottom: 3.75rem;
+  padding-top: 1.66rem;
+  padding-bottom: 1.66rem;
   background-color: #f1f5f7;
   color: #171717;
   /* Spacing */
@@ -24170,16 +24171,16 @@ blockquote.fancy cite {
   margin-top: 1rem;
 }
 .bleed.roomy {
-  padding-top: 5.625rem;
-  padding-bottom: 5.625rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 .bleed.extra-roomy {
-  padding-top: 7.5rem;
-  padding-bottom: 7.5rem;
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
 }
 .bleed.chonky {
-  padding-top: 11.25rem;
-  padding-bottom: 11.25rem;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
 }
 .bleed.midnight {
   background-color: #032044;
@@ -24527,6 +24528,14 @@ Please refer to our online demo in the github for further documentation
   }
 }
 
+.grid.align-vertical {
+  align-items: center;
+}
+
+.grid.align-center {
+  justify-items: center;
+}
+
 @media (max-width: 1023px) {
   .grid.cols-8-4 {
     grid-template-columns: 3fr 2fr;
@@ -24586,6 +24595,11 @@ Please refer to our online demo in the github for further documentation
 
 .subgrid.span-3 {
   grid-row: span 3;
+}
+
+.test-box {
+  background-color: #265bf7;
+  color: #f1f5f7;
 }
 
 /* ==============================
@@ -24650,6 +24664,26 @@ ol.arrow {
   margin-left: 0;
   padding-left: 0;
 }
+ul.no-bullet a,
+ol.no-bullet a,
+ul.inline a,
+ol.inline a,
+ul.lines a,
+ol.lines a,
+ul.arrow a,
+ol.arrow a {
+  text-decoration: none;
+}
+ul.no-bullet li,
+ol.no-bullet li,
+ul.inline li,
+ol.inline li,
+ul.lines li,
+ol.lines li,
+ul.arrow li,
+ol.arrow li {
+  margin-bottom: 0.25rem;
+}
 
 ul.indent,
 ol.indent {
@@ -24673,11 +24707,12 @@ ol.loose > li:last-child {
 ul.lines > li,
 ol.lines > li {
   border-bottom: 1px solid #032044;
-  padding: 0.938rem 0;
+  padding: 1rem 0 0.5rem 0;
 }
 ul.lines a,
 ol.lines a {
   display: block;
+  text-decoration: none;
 }
 
 ul.arrow > li,
@@ -24720,6 +24755,10 @@ ol.arrow.journey > li:hover::before {
 ============================================================ */
 i.fa-inverse {
   color: #f1f5f7;
+}
+
+.fa-kit {
+  line-height: inherit;
 }
 
 a:not(.callout).fa-stack,
@@ -25517,9 +25556,9 @@ ul.breadcrumbs {
   max-width: 1440px;
   display: flex;
   align-items: center;
-  margin: rem-calc(30px) auto rem-calc(-30px) auto;
-  padding-left: rem-calc(15px);
-  padding-right: rem-calc(15px);
+  margin: 0;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
 }
 
 ul.breadcrumbs a {
@@ -25848,6 +25887,7 @@ div.subnav ul.menu {
   flex-wrap: wrap;
   justify-content: center;
   margin: 0;
+  padding: 0;
 }
 div.subnav ul.menu li {
   display: inline;
@@ -26045,7 +26085,12 @@ form.search button {
 footer {
   background-color: #032044;
 }
-footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer h6 {
   color: #c8dcff;
 }
 footer p {
@@ -26095,6 +26140,12 @@ footer ul.bottom li:first-child {
 footer ul.bottom li:first-child::after {
   content: "|";
   margin: 0 0 0 0.75rem;
+}
+footer .grid-wrapper {
+  padding: 1.66rem;
+}
+footer .container {
+  position: relative;
 }
 footer .container::before {
   background-position: center top;
@@ -27011,16 +27062,16 @@ a .datebox:hover {
   margin-bottom: 0;
 }
 .hero.roomy {
-  padding-top: 5.625rem;
-  padding-bottom: 5.625rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 .hero.extra-roomy {
-  padding-top: 7.5rem;
-  padding-bottom: 7.5rem;
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
 }
 .hero.chonky {
-  padding-top: 11.25rem;
-  padding-bottom: 11.25rem;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
 }
 .hero.img, .hero.blur, .hero.waves {
   padding: 0;

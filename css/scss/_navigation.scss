@@ -12,9 +12,10 @@ ul.breadcrumbs {
     max-width: $global-width;
     display: flex;
     align-items: center;
-    margin: rem-calc(30px) auto rem-calc(-30px) auto;
-    padding-left: rem-calc(15px);
-    padding-right: rem-calc(15px);
+    //margin: 1.5rem auto -1.5rem auto;
+    margin: 0;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
 }
 
 ul.breadcrumbs a {
@@ -393,6 +394,7 @@ div.subnav {
         flex-wrap: wrap;
         justify-content: center;
         margin: 0;
+        padding: 0;
     }
 
     ul.menu li {

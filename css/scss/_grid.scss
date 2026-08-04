@@ -71,6 +71,14 @@ Please refer to our online demo in the github for further documentation
     }
 }
 
+.grid.align-vertical {
+    align-items: center;
+}
+
+.grid.align-center {
+    justify-items: center;
+}
+
 @media (max-width: $medium-screen) {
     .grid.cols-8-4 {
         grid-template-columns: 3fr 2fr;
@@ -135,4 +143,9 @@ Please refer to our online demo in the github for further documentation
 
 .subgrid.span-3 {
     grid-row: span 3;
+}
+
+.test-box {
+    background-color: $talavera;
+    color: $off-white;
 }

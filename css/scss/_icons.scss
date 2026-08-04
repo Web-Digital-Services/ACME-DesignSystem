@@ -11,6 +11,10 @@ i.fa-inverse {
     color: $off-white;
 }
 
+.fa-kit {
+    line-height: inherit;
+}
+
 // ======= Linked icons
 a:not(.callout) {
     &.fa-stack,

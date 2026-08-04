@@ -10,21 +10,21 @@
     position: relative;
     overflow: hidden;
     width: 100%;
-    padding-top: 3.75rem;
-    padding-bottom: 3.75rem;
+    padding-top: $global-padding;
+    padding-bottom: $global-padding;
     background-color: $off-white;
     color: $off-black;
 
-    >.grid-wrapper {
+    > .grid-wrapper {
         position: relative;
         z-index: 2;
     }
 
-    >.grid-wrapper>.grid {
+    > .grid-wrapper > .grid {
         margin-top: 0;
     }
 
-    >.grid-wrapper>.grid+.grid {
+    > .grid-wrapper > .grid + .grid {
         margin-top: 1rem;
     }
 
@@ -74,8 +74,8 @@
         background-color: $off-black;
         color: $off-white;
 
-        >img,
-        >video {
+        > img,
+        > video {
             position: absolute;
             inset: 0;
             z-index: 0;
@@ -94,19 +94,19 @@
             pointer-events: none;
         }
 
-        >img.top,
-        >video.top {
+        > img.top,
+        > video.top {
             object-position: top;
         }
 
-        >img.bottom,
-        >video.bottom {
+        > img.bottom,
+        > video.bottom {
             object-position: bottom;
         }
     }
 
-    &.img-fill>video,
-    &.video>video {
+    &.img-fill > video,
+    &.video > video {
         margin-bottom: -0.5625rem;
     }
 

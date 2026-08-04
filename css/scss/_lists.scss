@@ -33,6 +33,14 @@ ol.arrow {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
+
+    a {
+        text-decoration: none;
+    }
+
+    li {
+        margin-bottom: 0.25rem;
+    }
 }
 
 ul.indent,
@@ -62,11 +70,12 @@ ul.lines,
 ol.lines {
     > li {
         border-bottom: 1px solid $midnight;
-        padding: 0.938rem 0;
+        padding: 1rem 0 0.5rem 0;
     }
 
     a {
         display: block;
+        text-decoration: none;
     }
 }
 

@@ -1,9 +1,9 @@
 /* ============================================================
-    
+
     VARIABLES
 
     Includes: Typography, Font Weights, Colors, Icons, Shadows, Padding & Margin, Hero & Bleed Spacing, Rounded Corners
-    
+
 ============================================================ */
 
 // Grid
@@ -56,11 +56,13 @@ $shadow-2: 0 2px 5px 0 rgba(23, 23, 23, 0.35);
 $shadow-3: 3px 3px 7px 0 rgba(23, 23, 23, 0.35);
 
 // Spacing
+$global-padding: 1.66rem;
 $top-bottom: 1.875rem 0;
 $top-bottom-2: 3.75rem 0;
-$spacing-roomy: 5.625rem;
-$spacing-extra-roomy: 7.5rem;
-$spacing-chonky: 11.25rem;
+$spacing-roomy: 3rem;
+$spacing-extra-roomy: 4.5rem;
+$spacing-chonky: 7rem;
+$spacing-godly: 11rem;
 $spacing-roomy-small: 4.25rem;
 $spacing-extra-roomy-small: 5rem;
 $spacing-chonky-small: 6rem;
@@ -69,12 +71,42 @@ $spacing-chonky-small: 6rem;
 $rounded-corners: 6px;
 
 // Gradients
-$grey-gradient-right: linear-gradient(90deg, rgba(26, 36, 41, 0) 25%, rgba(26, 36, 41, 0.58) 48%, rgba(26, 36, 41, 0.96) 72%);
-$grey-gradient-left: linear-gradient(270deg, rgba(26, 36, 41, 0) 25%, rgba(26, 36, 41, 0.58) 48%, rgba(26, 36, 41, 0.96) 72%);
-$orange-gradient-right: linear-gradient(90deg, rgba(173, 66, 0, 0) 25%, rgba(173, 66, 0, 0.62) 48%, rgba(173, 66, 0, 0.96) 72%);
-$orange-gradient-left: linear-gradient(270deg, rgba(173, 66, 0, 0) 25%, rgba(173, 66, 0, 0.62) 48%, rgba(173, 66, 0, 0.96) 72%);
-$white-gradient-right: linear-gradient(90deg, rgba(241, 245, 247, 0) 25%, rgba(241, 245, 247, 0.75) 48%, rgba(241, 245, 247, 0.96) 72%);
-$white-gradient-left: linear-gradient(270deg, rgba(241, 245, 247, 0) 25%, rgba(241, 245, 247, 0.75) 48%, rgba(241, 245, 247, 0.96) 72%);
+$grey-gradient-right: linear-gradient(
+    90deg,
+    rgba(26, 36, 41, 0) 25%,
+    rgba(26, 36, 41, 0.58) 48%,
+    rgba(26, 36, 41, 0.96) 72%
+);
+$grey-gradient-left: linear-gradient(
+    270deg,
+    rgba(26, 36, 41, 0) 25%,
+    rgba(26, 36, 41, 0.58) 48%,
+    rgba(26, 36, 41, 0.96) 72%
+);
+$orange-gradient-right: linear-gradient(
+    90deg,
+    rgba(173, 66, 0, 0) 25%,
+    rgba(173, 66, 0, 0.62) 48%,
+    rgba(173, 66, 0, 0.96) 72%
+);
+$orange-gradient-left: linear-gradient(
+    270deg,
+    rgba(173, 66, 0, 0) 25%,
+    rgba(173, 66, 0, 0.62) 48%,
+    rgba(173, 66, 0, 0.96) 72%
+);
+$white-gradient-right: linear-gradient(
+    90deg,
+    rgba(241, 245, 247, 0) 25%,
+    rgba(241, 245, 247, 0.75) 48%,
+    rgba(241, 245, 247, 0.96) 72%
+);
+$white-gradient-left: linear-gradient(
+    270deg,
+    rgba(241, 245, 247, 0) 25%,
+    rgba(241, 245, 247, 0.75) 48%,
+    rgba(241, 245, 247, 0.96) 72%
+);
 
 // Legacy gradient aliases
 $smoke-gradient-left: $grey-gradient-left;
