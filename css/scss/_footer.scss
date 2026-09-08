@@ -2,6 +2,34 @@
 @use "sass:math" as math;
 @use "sass:color" as color;
 
+.ankle .grid-wrapper {
+    padding: unset;
+}
+
+.ankle .grid-wrapper .grid {
+    margin-top: 0;
+}
+
+.ankle h3,
+h4 {
+    margin-top: 1rem;
+}
+.ankle .left {
+    background-color: #dbe8ff;
+    padding: 1rem;
+}
+
+.ankle .right {
+    background-color: $rivermist;
+    padding: 1rem;
+}
+
+.ankle a:not(.callout).fa-stack {
+    color: $midnight;
+}
+.ankle a:not(.callout):hover .fa-circle {
+    color: $orange-main;
+}
 footer {
     background-color: $midnight;
     h1,
@@ -25,6 +53,9 @@ footer {
     a:not(.callout).fa-stack {
         color: $off-white;
     }
+    a:not(.callout):hover .fa-circle {
+        color: $orange-main;
+    }
     a:not(.callout).fa-stack i.fa-inverse {
         color: $midnight;
     }
@@ -46,6 +77,11 @@ footer {
         text-decoration: underline;
         font-weight: 400;
     }
+    a:not(.fa-stack):hover {
+        background-color: $off-white;
+        color: $off-black;
+        padding: 3px;
+    }
     ul.bottom {
         display: inline-block;
         font-size: 0.875rem;
@@ -66,10 +102,10 @@ footer {
         padding: 1.66rem;
     }
 
-    .container {
+    .university {
         position: relative;
     }
-    .container::before {
+    .university::before {
         background-position: center top;
         background-size: contain;
         content: "";
@@ -81,10 +117,55 @@ footer {
         position: absolute;
         width: 100%;
     }
-    .container::after {
+    .university::after {
         content: "";
         display: block;
         height: 8.4375rem;
         background-image: url(https://www.utsa.edu/_files/images/backgrounds/bg-waves.svg);
+    }
+
+    .right {
+        text-align: right;
+    }
+
+    .left img {
+        height: 32px;
+        margin-bottom: 1rem;
+    }
+
+    .campus-links ul {
+        margin: 0;
+    }
+
+    .social-icons a:hover {
+        background-color: transparent;
+    }
+
+    .campus-links ul li {
+        list-style-type: none;
+        display: inline;
+        margin-right: 0.5rem;
+        border-right: 1px solid $off-white;
+    }
+
+    .campus-links ul li a {
+        padding-right: 0.5rem;
+    }
+
+    .campus-links ul li:last-of-type {
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: $small-screen) {
+    .ankle .grid-wrapper {
+        margin: unset;
+    }
+    footer .standard {
+        text-align: center;
+    }
+
+    footer .standard .right {
+        text-align: center;
     }
 }

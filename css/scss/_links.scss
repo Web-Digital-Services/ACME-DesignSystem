@@ -6,24 +6,15 @@
 @use "sass:color" as color;
 
 a {
-    color: $orange-health;
+    color: $midnight;
     cursor: pointer;
     font-weight: 700;
     transition: $transition-global;
 }
 
 a:hover {
-    color: $midnight;
-    //background-color: $concrete;
-}
-
-a.color {
-    color: $midnight;
-}
-
-a.color:hover {
     color: $orange-health;
-    background-color: $limestone;
+    background-color: $concrete;
 }
 
 a.coward {

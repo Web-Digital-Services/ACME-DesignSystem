@@ -235,7 +235,7 @@ header {
             .logo {
                 //display: flex;
                 img {
-                    width: 300px;
+                    height: 80px;
                 }
             }
 
@@ -267,11 +267,39 @@ header {
             }
         }
     }
+
+    .main-bar.full > div {
+        display: block;
+    }
+
+    .main-bar.full > div .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .main-bar.full > div .logo.pipe img {
+        padding-right: 0.5rem;
+        border-right: 2px solid $midnight;
+    }
+
+    .main-bar.full > div .logo p {
+        font-size: 24px;
+        font-weight: 600;
+        margin-left: 0.5rem;
+    }
+
+    .main-bar.full .menu {
+        margin: 1rem 1rem 0 1rem;
+    }
     .top-bar {
         background-color: $midnight;
         display: flex;
         justify-content: space-between;
         padding: 10px 15px;
+
+        img {
+            height: 25px;
+        }
 
         p {
             color: $white;
@@ -351,6 +379,12 @@ header {
 
         .top-bar {
             justify-content: center;
+            display: block;
+            text-align: center;
+        }
+
+        .top-bar .links {
+            margin-top: 0.5rem;
         }
 
         .top-bar p {
@@ -359,6 +393,14 @@ header {
 
         .main-bar .menu-icon {
             display: block;
+        }
+
+        .main-bar.full > div {
+            display: flex;
+        }
+
+        .main-bar.full > div .logo img {
+            height: 50px;
         }
 
         .main-bar .menu-icon:after {

@@ -19,7 +19,7 @@ i.fa-inverse {
 a:not(.callout) {
     &.fa-stack,
     span.fa-stack {
-        color: $orange-main;
+        color: $midnight;
 
         i {
             transition: 0.3s ease-in-out;
@@ -31,7 +31,7 @@ a:not(.callout) {
 
     &:hover {
         .fa-circle {
-            color: $midnight;
+            color: $orange-main;
         }
 
         .fa-stack-1x {

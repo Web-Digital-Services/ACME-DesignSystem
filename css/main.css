@@ -24763,7 +24763,7 @@ i.fa-inverse {
 
 a:not(.callout).fa-stack,
 a:not(.callout) span.fa-stack {
-  color: #f55600;
+  color: #032044;
 }
 a:not(.callout).fa-stack i,
 a:not(.callout) span.fa-stack i {
@@ -24774,7 +24774,7 @@ a:not(.callout) span.fa-stack i.fa-inverse {
   color: #f8f4f1;
 }
 a:not(.callout):hover .fa-circle {
-  color: #032044;
+  color: #f55600;
 }
 a:not(.callout):hover .fa-stack-1x {
   font-size: 110%;
@@ -25764,7 +25764,7 @@ header .main-bar > div {
   max-width: 1400px;
 }
 header .main-bar > div .logo img {
-  width: 300px;
+  height: 80px;
 }
 header .main-bar > div .menu ul {
   margin: 0;
@@ -25785,11 +25785,33 @@ header .main-bar > div .menu ul li a:hover,
 header .main-bar > div .menu ul li a:focus {
   color: #ad4200;
 }
+header .main-bar.full > div {
+  display: block;
+}
+header .main-bar.full > div .logo {
+  display: flex;
+  align-items: center;
+}
+header .main-bar.full > div .logo.pipe img {
+  padding-right: 0.5rem;
+  border-right: 2px solid #032044;
+}
+header .main-bar.full > div .logo p {
+  font-size: 24px;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+header .main-bar.full .menu {
+  margin: 1rem 1rem 0 1rem;
+}
 header .top-bar {
   background-color: #032044;
   display: flex;
   justify-content: space-between;
   padding: 10px 15px;
+}
+header .top-bar img {
+  height: 25px;
 }
 header .top-bar p {
   color: #fff;
@@ -25851,12 +25873,23 @@ header .menu-mobile ul li:last-of-type {
   }
   header .top-bar {
     justify-content: center;
+    display: block;
+    text-align: center;
+  }
+  header .top-bar .links {
+    margin-top: 0.5rem;
   }
   header .top-bar p {
     display: none;
   }
   header .main-bar .menu-icon {
     display: block;
+  }
+  header .main-bar.full > div {
+    display: flex;
+  }
+  header .main-bar.full > div .logo img {
+    height: 50px;
   }
   header .main-bar .menu-icon:after {
     color: #032044;
@@ -26082,6 +26115,37 @@ form.search button {
     CHART.CSS
 ============================== */
 /* ============================== */
+.ankle .grid-wrapper {
+  padding: unset;
+}
+
+.ankle .grid-wrapper .grid {
+  margin-top: 0;
+}
+
+.ankle h3,
+h4 {
+  margin-top: 1rem;
+}
+
+.ankle .left {
+  background-color: #dbe8ff;
+  padding: 1rem;
+}
+
+.ankle .right {
+  background-color: #c8dcff;
+  padding: 1rem;
+}
+
+.ankle a:not(.callout).fa-stack {
+  color: #032044;
+}
+
+.ankle a:not(.callout):hover .fa-circle {
+  color: #f55600;
+}
+
 footer {
   background-color: #032044;
 }
@@ -26106,6 +26170,9 @@ footer address {
 footer a:not(.callout).fa-stack {
   color: #f1f5f7;
 }
+footer a:not(.callout):hover .fa-circle {
+  color: #f55600;
+}
 footer a:not(.callout).fa-stack i.fa-inverse {
   color: #032044;
 }
@@ -26126,6 +26193,11 @@ footer a {
   text-decoration: underline;
   font-weight: 400;
 }
+footer a:not(.fa-stack):hover {
+  background-color: #f1f5f7;
+  color: #171717;
+  padding: 3px;
+}
 footer ul.bottom {
   display: inline-block;
   font-size: 0.875rem;
@@ -26144,10 +26216,10 @@ footer ul.bottom li:first-child::after {
 footer .grid-wrapper {
   padding: 1.66rem;
 }
-footer .container {
+footer .university {
   position: relative;
 }
-footer .container::before {
+footer .university::before {
   background-position: center top;
   background-size: contain;
   content: "";
@@ -26159,13 +26231,49 @@ footer .container::before {
   position: absolute;
   width: 100%;
 }
-footer .container::after {
+footer .university::after {
   content: "";
   display: block;
   height: 8.4375rem;
   background-image: url(https://www.utsa.edu/_files/images/backgrounds/bg-waves.svg);
 }
+footer .right {
+  text-align: right;
+}
+footer .left img {
+  height: 32px;
+  margin-bottom: 1rem;
+}
+footer .campus-links ul {
+  margin: 0;
+}
+footer .social-icons a:hover {
+  background-color: transparent;
+}
+footer .campus-links ul li {
+  list-style-type: none;
+  display: inline;
+  margin-right: 0.5rem;
+  border-right: 1px solid #f1f5f7;
+}
+footer .campus-links ul li a {
+  padding-right: 0.5rem;
+}
+footer .campus-links ul li:last-of-type {
+  margin-right: 0;
+}
 
+@media screen and (max-width: 639px) {
+  .ankle .grid-wrapper {
+    margin: unset;
+  }
+  footer .standard {
+    text-align: center;
+  }
+  footer .standard .right {
+    text-align: center;
+  }
+}
 /* ==============================
     CHART.CSS
 ============================== */
@@ -27387,23 +27495,15 @@ ul.charts-css.legend {
     LINKS
 ============================================================ */
 a {
-  color: #ad4200;
+  color: #032044;
   cursor: pointer;
   font-weight: 700;
   transition: 0.2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
 
 a:hover {
-  color: #032044;
-}
-
-a.color {
-  color: #032044;
-}
-
-a.color:hover {
   color: #ad4200;
-  background-color: #f8f4f1;
+  background-color: #ebe6e2;
 }
 
 a.coward {
