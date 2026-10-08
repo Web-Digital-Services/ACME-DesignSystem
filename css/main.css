@@ -23755,6 +23755,30 @@ Tooltip
   border-color: transparent transparent #265bf7;
 }
 
+/* =========================
+Horizontal Rule
+========================= */
+hr {
+  border: 0;
+  border-top: 1px solid #808a8f;
+  margin: 30px 0;
+}
+
+.hr-shield {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 30px 0;
+}
+.hr-shield::before, .hr-shield::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid #808a8f;
+}
+.hr-shield img {
+  width: 50px;
+}
+
 /* ==============================
     CHART.CSS
 ============================== */
@@ -25804,9 +25828,6 @@ header .main-bar.full > div .logo p {
 header .main-bar.full .menu {
   margin: 1rem 1rem 0 1rem;
 }
-header .main-bar.full .menu ul {
-  padding-left: 0;
-}
 header .top-bar {
   background-color: #032044;
   display: flex;
@@ -26416,134 +26437,142 @@ VERTICAL
     Padding Helpers
 ============================== */
 .padding {
-  padding: 30px;
+  padding: 1.875rem;
 }
 
 .padding-2 {
-  padding: 60px;
+  padding: 3.75rem;
 }
 
 .padding-3 {
-  padding: 90px;
+  padding: 5.625rem;
 }
 
 .padding-4 {
-  padding: 120px;
+  padding: 7.5rem;
 }
 
 .padding-top {
-  padding-top: 30px;
+  padding-top: 1.875rem;
 }
 
 .padding-top-2 {
-  padding-top: 60px;
+  padding-top: 3.75rem;
 }
 
 .padding-top-3 {
-  padding-top: 90px;
+  padding-top: 5.625rem;
 }
 
 .padding-top-4 {
-  padding-top: 120px;
+  padding-top: 7.5rem;
 }
 
 .padding-bottom {
-  padding-bottom: 30px;
+  padding-bottom: 1.875rem;
 }
 
 .padding-bottom-2 {
-  padding-bottom: 60px;
+  padding-bottom: 3.75rem;
 }
 
 .padding-bottom-3 {
-  padding-bottom: 90px;
+  padding-bottom: 5.625rem;
 }
 
 .padding-bottom-4 {
-  padding-bottom: 120px;
+  padding-bottom: 7.5rem;
 }
 
 .padding-top-bottom {
-  padding: 30px 0 30px 0;
+  padding-top: 1.875rem;
+  padding-bottom: 1.875rem;
 }
 
 .padding-top-bottom-2 {
-  padding: 60px 0 60px 0;
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
 }
 
 .padding-top-bottom-3 {
-  padding: 90px 0 90px 0;
+  padding-top: 5.625rem;
+  padding-bottom: 5.625rem;
 }
 
 .padding-top-bottom-4 {
-  padding: 120px 0 120px 0;
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
 }
 
 /* ==============================
     Margin Helpers
 ============================== */
 .margin {
-  margin: 30px;
+  margin: 1.875rem;
 }
 
 .margin-2 {
-  margin: 60px;
+  margin: 3.75rem;
 }
 
 .margin-3 {
-  margin: 90px;
+  margin: 5.625rem;
 }
 
 .margin-4 {
-  margin: 120px;
+  margin: 7.5rem;
 }
 
 .margin-top {
-  margin-top: 30px;
+  margin-top: 1.875rem;
 }
 
 .margin-top-2 {
-  margin-top: 60px;
+  margin-top: 3.75rem;
 }
 
 .margin-top-3 {
-  margin-top: 90px;
+  margin-top: 5.625rem;
 }
 
 .margin-top-4 {
-  margin-top: 120px;
+  margin-top: 7.5rem;
 }
 
 .margin-bottom {
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 }
 
 .margin-bottom-2 {
-  margin-bottom: 60px;
+  margin-bottom: 3.75rem;
 }
 
 .margin-bottom-3 {
-  margin-bottom: 90px;
+  margin-bottom: 5.625rem;
 }
 
 .margin-bottom-4 {
-  margin-bottom: 120px;
+  margin-bottom: 7.5rem;
 }
 
 .margin-top-bottom {
-  margin: 30px 0 30px 0;
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem;
 }
 
 .margin-top-bottom-2 {
-  margin: 60px 0 60px 0;
+  margin-top: 3.75rem;
+  margin-bottom: 3.75rem;
 }
 
 .margin-top-bottom-3 {
-  margin: 90px 0 90px 0;
+  margin-top: 5.625rem;
+  margin-bottom: 5.625rem;
 }
 
 .margin-top-bottom-4 {
-  margin: 120px 0 120px 0;
+  margin-top: 7.5rem;
+  margin-bottom: 7.5rem;
 }
 
 .close-top {
@@ -26583,6 +26612,21 @@ VERTICAL
 
 .text-match {
   text-align: match-parent;
+}
+
+/* ==============================
+    Text Pipe
+============================== */
+.text-pipe {
+  border-left: 3px solid #b4bdc7;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.text-pipe > :first-child {
+  margin-top: 0;
+}
+.text-pipe > :last-child {
+  margin-bottom: 0;
 }
 
 /* ==============================

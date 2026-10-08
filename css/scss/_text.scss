@@ -393,3 +393,31 @@ Tooltip
         }
     }
 }
+
+/* =========================
+Horizontal Rule
+========================= */
+
+hr {
+    border: 0;
+    border-top: 1px solid #808a8f;
+    margin: 30px 0;
+}
+
+.hr-shield {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 30px 0;
+
+    &::before,
+    &::after {
+        content: "";
+        flex: 1;
+        border-top: 1px solid #808a8f;
+    }
+
+    img {
+        width: 50px;
+    }
+}
