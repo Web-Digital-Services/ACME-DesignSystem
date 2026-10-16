@@ -23698,27 +23698,6 @@ p.large {
   font-size: rem-calc(20px);
 }
 
-figcaption {
-  color: #265bf7;
-  font-style: italic;
-  padding: rem-calc(2px);
-  text-align: center;
-  text-align: left;
-}
-figcaption.small {
-  font-size: rem-calc(14px);
-}
-figcaption.large {
-  font-size: rem-calc(22px);
-}
-figcaption.grey {
-  color: #032044;
-}
-
-.color figcaption {
-  color: #f1f5f7 !important;
-}
-
 /* =========================
 Date
 =================*/
@@ -24503,6 +24482,18 @@ Please refer to our online demo in the github for further documentation
   justify-items: stretch;
 }
 
+.grid.align-middle {
+  align-items: center;
+}
+
+.grid.align-start {
+  align-items: start;
+}
+
+.grid.align-end {
+  align-items: end;
+}
+
 .grid.no-gap {
   gap: 0;
 }
@@ -24636,6 +24627,8 @@ Please refer to our online demo in the github for further documentation
 .modal-overlay {
   background-color: rgba(3, 32, 68, 0.95);
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -24657,7 +24650,7 @@ Please refer to our online demo in the github for further documentation
   border-top: none;
   border-radius: 4px;
   max-width: 40.625rem;
-  margin: auto;
+  margin: 0 1.25rem;
   transform: scale(0.95) translateY(-10px);
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0;
@@ -24677,6 +24670,46 @@ Please refer to our online demo in the github for further documentation
 }
 .modal-title {
   font-size: 1.9375rem;
+}
+.modal-lg {
+  max-width: 50rem;
+}
+.modal-thumbnail {
+  max-width: 56.25rem;
+  border: 1px solid #b4bdc7;
+}
+.modal-thumbnail:before {
+  display: none;
+}
+.modal-thumbnail figure {
+  margin: 0;
+}
+.modal-thumbnail figure img {
+  width: 100%;
+  height: auto;
+}
+.modal-thumbnail figure figcaption {
+  font-size: 0.875rem;
+  color: #032044;
+  text-align: center;
+  margin-top: 0.625rem;
+}
+
+.thumbnail-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  justify-content: flex-start;
+}
+.thumbnail-container a {
+  display: inline-block;
+  margin: 0.625rem;
+  border: 1px solid #b4bdc7;
+  transition: all 0.3s ease;
+}
+.thumbnail-container a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(3, 32, 68, 0.2);
 }
 
 .modal-overlay.is-open .modal {
@@ -26449,6 +26482,30 @@ table:not(.charts-css).sortable tbody tr:nth-child(even) {
   line-height: 1.4;
 }
 
+/* Quickfacts Tiles */
+.quickfacts.tiles .cell {
+  background-color: #1a46b8;
+  border-radius: 6px;
+  min-width: 0;
+}
+.quickfacts.tiles .cell:nth-child(2), .quickfacts.tiles .cell:nth-child(3) {
+  background-color: #1a46b8;
+}
+.quickfacts.tiles .quickfact-number {
+  margin-top: 15px;
+  font-size: 54px;
+  overflow-wrap: break-word;
+}
+@media screen and (max-width: 639px) {
+  .quickfacts.tiles .quickfact-number {
+    font-size: 44px;
+  }
+}
+.quickfacts.tiles i.fa-solid {
+  display: block;
+  color: #fff;
+}
+
 /* ==============================
     CHART.CSS
 ============================== */
@@ -26950,17 +27007,71 @@ img.logo {
   }
 }
 
+figcaption {
+  color: #265bf7;
+  font-style: italic;
+  padding: 2px;
+  text-align: left;
+}
+
+figcaption.small {
+  font-size: 0.8rem;
+}
+
+figcaption.large {
+  font-size: 1.2rem;
+}
+
+figcaption.dark {
+  color: #032044;
+}
+
+figcaption.light {
+  color: #f1f5f7;
+}
+
 figcaption.camera::before {
   font-family: "Font Awesome 7 Pro";
   content: "\f030";
   font-weight: 900;
   font-style: normal;
   display: inline-block;
-  font-variant: normal;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
+  padding-right: 2px;
 }
 
+.img-collage-right {
+  padding: 30px;
+  margin-left: -4rem;
+  background-color: #032044;
+  color: #f1f5f7;
+  position: relative;
+  top: 3rem;
+}
+
+.img-collage-left {
+  padding: 30px;
+  margin-right: -4rem;
+  background-color: #032044;
+  color: #f1f5f7;
+  position: relative;
+  top: 3rem;
+}
+
+.img-collage-right.alt,
+.img-collage-left.alt {
+  background-color: #265bf7;
+}
+
+@media screen and (max-width: 639px) {
+  .img-collage-right {
+    margin-left: unset;
+    position: unset;
+  }
+  .img-collage-left {
+    margin-right: unset;
+    position: unset;
+  }
+}
 /* ==============================
     CHART.CSS
 ============================== */

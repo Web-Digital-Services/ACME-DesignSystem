@@ -5,14 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
 
-    <link rel="stylesheet" href="../../css/main.css?1792176836124" media="all" />
-    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1792176836124" media="all" />
+    <link rel="stylesheet" href="../../css/main.css?1792180777754" media="all" />
+    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?1792180777754" media="all" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
 
     <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
-    <link rel="stylesheet" href="../../styleguide/css/pattern-lab.css?1792176836124" media="all">
+    <link rel="stylesheet" href="../../styleguide/css/pattern-lab.css?1792180777754" media="all">
     <!-- End Pattern Lab -->
 
   </head>
@@ -91,7 +91,92 @@
 			</div><!--end pl-js-pattern-example-->
 		
 			<script type="text/json" id="pl-pattern-data-components-quickfacts" class="pl-js-pattern-data">
-			{"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"<p>This is the default version of the quickfacts with a larger number and an optional short description below it. Use no more than 3 quickfacts in this configuration with a minimum of 1.</p>\n<p>Apply <code>.quickfacts</code> to the section that contains the quickfacts. Use the existing <code>.grid-wrapper</code>, <code>.grid</code>, <code>.cols-multi</code>, and <code>.no-gap</code> classes for the layout.</p>\n<p>Each quickfact should be added in a <code>.cell</code>. Add <code>.quickfact-number</code> to the paragraph tag that has the fact and <code>.quickfact-description</code> to the optional description below it.</p>\n<p>The boxes use shades based on the ACME Talavera and Midnight blues. All text is white and should keep passing color contrast requirements.</p>\n<p>The number and description are both larger than the standard body text. Keep the facts and descriptions short so the boxes stay balanced.</p>\n<p>If a description is not needed, remove the <code>.quickfact-description</code> paragraph.</p>\n","patternBreadcrumb":{"patternGroup":"components","patternSubgroup":"quickfacts"},"patternExtension":"hbs","patternName":"Quickfacts - Standard","patternPartial":"components-quickfacts","patternState":"","patternEngineName":"handlebars","extraOutput":{"order":7}}
+			{"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"<ul>\n<li>\n<p>This is the default version of the quickfacts with a larger number and an optional short description below it. Use no more than 3 quickfacts in this configuration with a minimum of 1.</p>\n</li>\n<li>\n<p>Apply <code>.quickfacts</code> to the section that contains the quickfacts. Use the existing <code>.grid-wrapper</code>, <code>.grid</code>, <code>.cols-multi</code>, and <code>.no-gap</code> classes for the layout.</p>\n</li>\n<li>\n<p>Each quickfact should be added in a <code>.cell</code>. Add <code>.quickfact-number</code> to the paragraph tag that has the fact and <code>.quickfact-description</code> to the optional description below it.</p>\n</li>\n<li>\n<p>The boxes use shades based on the ACME Talavera and Midnight blues. All text is white and should meet color contrast requirements.</p>\n</li>\n<li>\n<p>The number and description are both larger than the standard body text. Keep the facts and descriptions short so the boxes stay balanced.</p>\n</li>\n<li>\n<p>If a description is not needed, remove the <code>.quickfact-description</code> paragraph.</p>\n</li>\n</ul>\n","patternBreadcrumb":{"patternGroup":"components","patternSubgroup":"quickfacts"},"patternExtension":"hbs","patternName":"Quickfacts - Standard","patternPartial":"components-quickfacts","patternState":"","patternEngineName":"handlebars","extraOutput":{"order":1}}
+			</script>
+		
+		</div><!--end pl-c-pattern-->
+		<div id="components-quickfacts-tiles" class="pl-c-pattern">
+		
+			<div class="pl-c-pattern__header">
+		
+				<h3 class="pl-c-pattern__title">
+		
+					<a href="../../patterns/components-quickfacts-quickfacts-tiles&#x2F;components-quickfacts-quickfacts-tiles.rendered.html" class="pl-c-pattern__title-link patternLink" data-patternpartial="components-quickfacts-tiles" title="Link to Pattern">
+						Quickfacts - Tiles
+		
+		
+					</a><!--end pl-c-pattern__title-link-->
+		
+				</h3><!--end pl-c-pattern__title-->
+		
+				<button class="pl-c-pattern__extra-toggle pl-js-pattern-extra-toggle" id="pl-pattern-extra-toggle-components-quickfacts-tiles" data-patternpartial="components-quickfacts-tiles" title="View Pattern Info" type="button">
+					<span class="pl-c-pattern__extra-toggle-text pl-c-pattern__extra-toggle-text--expand">Expand</span>
+					<span class="pl-c-pattern__extra-toggle-text pl-c-pattern__extra-toggle-text--collapse">Collapse</span>
+						<svg viewBox="0 0 16 16" width="20" height="20" class="pl-c-pattern__toggle-icon pl-c-pattern__toggle-icon--expand">
+							<path fill="currentColor" d="M9 11.5l1.5 1.5 5-5-5-5-1.5 1.5 3.5 3.5z"></path>
+							<path fill="currentColor" d="M7 4.5l-1.5-1.5-5 5 5 5 1.5-1.5-3.5-3.5z"></path>
+						</svg>
+		
+						<svg viewBox="0 0 20 16" width="20" height="20" class="pl-c-pattern__toggle-icon pl-c-pattern__toggle-icon--collapse">
+							<path fill="currentColor" d="M13 11.5l1.5 1.5 5-5-5-5-1.5 1.5 3.5 3.5z"></path>
+							<path fill="currentColor" d="M7 4.5l-1.5-1.5-5 5 5 5 1.5-1.5-3.5-3.5z"></path>
+							<path fill="currentColor" d="M10.958 2.352l1.085 0.296-3 11-1.085-0.296 3-11z"></path>
+						</svg>
+				</button>
+		
+			</div><!--end pl-c-pattern__header-->
+		
+			<div class="pl-c-pattern__extra pl-js-pattern-extra" id="pl-pattern-extra-components-quickfacts-tiles">
+		    </div><!--end pl-c-pattern__extra-->
+		
+			<div class="pl-js-pattern-example">
+			<section class="bleed talavera quickfacts tiles">
+    <div class="grid-wrapper">
+        <div class="grid cols-multi">
+            <div class="cell">
+                <p class="quickfact-number">Tier 1</p>
+                <p class="quickfact-description">Carnegie R1 designation based on research excellence</p>
+            </div>
+            <div class="cell">
+                <i class="fa-regular fa-heart-pulse fa-3x" aria-hidden="true"></i>
+                <p class="quickfact-number">Top 2%</p>
+                <p class="quickfact-description">Global ranking for biomedical research output and leadership</p>
+            </div>
+            <div class="cell">
+                <p class="quickfact-number">#1</p>
+                <p class="quickfact-description">Ranked dental school in Texas and #9 in the nation</p>
+            </div>
+            <div class="cell">
+                <i class="fa-regular fa-flag fa-3x" aria-hidden="true"></i>
+                <p class="quickfact-number">Top 35</p>
+                <p class="quickfact-description">Public Research University</p>
+            </div>
+            <div class="cell">
+                <i class="fa-solid fa-desktop fa-3x" aria-hidden="true"></i>
+                <p class="quickfact-number">#1</p>
+                <p class="quickfact-description">Best Online Bachelor's Program in San Antonio and UT System</p>
+            </div>
+            <div class="cell">
+                <p class="quickfact-number">Top 10%</p>
+                <p class="quickfact-description">Best public university for social mobility in the nation</p>
+            </div>
+            <div class="cell">
+                <i class="fa-regular fa-arrows-rotate fa-3x" aria-hidden="true"></i>
+                <p class="quickfact-number">Top 5%</p>
+                <p class="quickfact-description">Best college for tuition dollars in the nation</p>
+            </div>
+            <div class="cell">
+                <p class="quickfact-number">1 of 11</p>
+                <p class="quickfact-description">Institutions with NIH-funded DDS/PhD and MD/PhD programs</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+			</div><!--end pl-js-pattern-example-->
+		
+			<script type="text/json" id="pl-pattern-data-components-quickfacts-tiles" class="pl-js-pattern-data">
+			{"cssEnabled":false,"patternLineageExists":false,"patternLineages":[],"lineage":[],"patternLineageRExists":false,"patternLineagesR":[],"lineageR":[],"patternLineageEExists":false,"patternDesc":"<ul>\n<li>\n<p>This is the tile version of the quickfacts with a larger fact, a short description, and an optional Font Awesome icon. Tiles can be added or removed as needed.</p>\n</li>\n<li>\n<p>Apply <code>.bleed</code>, <code>.talavera</code>, <code>.quickfacts</code>, and <code>.tiles</code> to the section. Use the existing <code>.grid-wrapper</code>, <code>.grid</code>, and <code>.cols-multi</code> classes for the responsive layout.</p>\n</li>\n<li>\n<p>Each tile should be added in a <code>.cell</code>. Add <code>.quickfact-number</code> to the paragraph with the fact and <code>.quickfact-description</code> to the description below it.</p>\n</li>\n<li>\n<p>The panel uses the ACME Talavera blue background with darker blue tiles and white text. Keep the facts and descriptions short so the tiles stay balanced.</p>\n</li>\n<li>\n<p>Icons are optional. Remove the icon tag if one is not needed.</p>\n</li>\n<li>\n<p>The tiles will automatically adjust based on screen size using the existing ACME grid. No additional grid classes are needed.</p>\n</li>\n</ul>\n","patternBreadcrumb":{"patternGroup":"components","patternSubgroup":"quickfacts"},"patternExtension":"hbs","patternName":"Quickfacts - Tiles","patternPartial":"components-quickfacts-tiles","patternState":"","patternEngineName":"handlebars","extraOutput":{"order":2}}
 			</script>
 		
 		</div><!--end pl-c-pattern-->
@@ -143,10 +228,10 @@
   }
 </script>
 
-<script id="pl-js-polyfill-insert-1792176836124">
+<script id="pl-js-polyfill-insert-1792180777754">
   (function() {
     if (self != top) {
-      var cb = '1792176836124';
+      var cb = '1792180777754';
       var js = [];
       scriptLoader.run(js,cb,'pl-js-polyfill-insert');
     }
@@ -159,7 +244,7 @@
   import('../../styleguide/js/patternlab-pattern.modern.js');
 </script>
 
-<script id="pl-js-insert-1792176836124" nomodule>
+<script id="pl-js-insert-1792180777754" nomodule>
   /*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on https://goo.gl/REQGQ by Paul Irish). Licensed MIT */
   !function(e){var t=function(t,n){"use strict";var o=e.document.getElementsByTagName("script")[0],r=e.document.createElement("script");return r.src=t,r.async=!0,o.parentNode.insertBefore(r,o),n&&"function"==typeof n&&(r.onload=n),r};"undefined"!=typeof module?module.exports=t:e.loadJS=t}("undefined"!=typeof global?global:this);
 
