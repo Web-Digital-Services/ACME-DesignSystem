@@ -32,6 +32,18 @@ Please refer to our online demo in the github for further documentation
     justify-items: stretch;
 }
 
+.grid.align-middle {
+    align-items: center;
+}
+
+.grid.align-start {
+    align-items: start;
+}
+
+.grid.align-end {
+    align-items: end;
+}
+
 .grid.no-gap {
     gap: 0;
 }

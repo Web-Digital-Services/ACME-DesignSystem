@@ -9,19 +9,28 @@
 // ======= Neutral
 
 .concrete {
-    background-color: $concrete;
+	background-color: $concrete;
 }
 
 .clay {
-    background-color: $clay;
+	background-color: $clay;
 }
 
 .brass {
-    background-color: $brass;
+	background-color: $brass;
 }
 
 .smoke {
-    background-color: $smoke;
+	background-color: $smoke;
+}
+
+.antiflash {
+	background-color: $antiflash;
+}
+
+.grue,
+.french-gray {
+	background-color: $grue;
 }
 
 /*.talavera {
@@ -30,17 +39,17 @@
 }*/
 
 .golden {
-    color: $golden;
+	color: $golden;
 }
 
 .duo-theme-health {
-    --fa-secondary-opacity: 0.25;
-    --fa-primary-color: #ad4200;
-    --fa-secondary-color: #ad4200;
+	--fa-secondary-opacity: 0.25;
+	--fa-primary-color: #ad4200;
+	--fa-secondary-color: #ad4200;
 }
 
 .duo-theme-utsa {
-    --fa-secondary-opacity: 1;
-    --fa-primary-color: #f55600;
-    --fa-secondary-color: #265bf7;
+	--fa-secondary-opacity: 1;
+	--fa-primary-color: #f55600;
+	--fa-secondary-color: #265bf7;
 }

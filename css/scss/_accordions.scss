@@ -7,79 +7,79 @@
 @use "sass:color" as color;
 
 .tab {
-    position: relative;
+	position: relative;
 }
 .tab input {
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
 }
 .tab_content {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.4s;
-    //padding: 30px;
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	transition: all 0.4s;
+	//padding: 30px;
 }
 .tab input:checked ~ .tab_content {
-    max-height: 10rem;
-    padding: 30px;
-    opacity: 100%;
+	max-height: 10rem;
+	padding: 30px;
+	opacity: 100%;
 }
 
 /* Visual styles */
 .accordion {
-    color: $off-black;
-    border: 2px solid $midnight;
-    border-radius: 6px;
-    overflow: hidden;
+	color: $off-black;
+	border: 2px solid $midnight;
+	border-radius: 6px;
+	overflow: hidden;
 }
 
 .accordion.midnight {
-    border: none;
-    .tab_label,
-    .tab_close {
-        background-color: $midnight;
-        color: $off-white;
-        border-bottom: 2px solid $limestone;
-    }
+	border: none;
+	.tab_label,
+	.tab_close {
+		background-color: $midnight;
+		color: $off-white;
+		border-bottom: 2px solid $limestone;
+	}
 }
 
 .tab_label,
 .tab_close {
-    display: flex;
-    color: $midnight;
-    background-color: $limestone;
-    cursor: pointer;
+	display: flex;
+	color: $midnight;
+	background-color: $limestone;
+	cursor: pointer;
 }
 .tab_label {
-    justify-content: space-between;
-    border-bottom: 2px solid $midnight;
-    padding: 1rem;
+	justify-content: space-between;
+	border-bottom: 2px solid $midnight;
+	padding: 1rem;
 }
 
 .tab:last-of-type .tab_label {
-    border-bottom: none;
+	border-bottom: none;
 }
 
 .tab_label::after {
-    font-family: "Font Awesome 7 Pro";
-    font-weight: 900;
-    content: "\2b";
-    width: 1em;
-    height: 1em;
-    text-align: center;
-    transition: all 0.35s;
+	font-family: "Font Awesome 7 Pro";
+	font-weight: 900;
+	content: "\2b";
+	width: 1em;
+	height: 1em;
+	text-align: center;
+	transition: all 0.35s;
 }
 .tab input:checked + .tab_label::after {
-    transform: rotate(45deg);
+	transform: rotate(45deg);
 }
 .tab_content p {
-    margin: 0;
-    padding: 1rem;
+	margin: 0;
+	padding: 1rem;
 }
 .tab_close {
-    justify-content: flex-end;
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
+	justify-content: flex-end;
+	padding: 0.5rem 1rem;
+	font-size: 0.75rem;
 }

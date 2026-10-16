@@ -319,31 +319,6 @@ p {
     font-size: rem-calc(20px);
 }
 
-// ======= Figcaption
-figcaption {
-    color: $talavera;
-    font-style: italic;
-    padding: rem-calc(2px);
-    text-align: center;
-    text-align: left;
-
-    &.small {
-        font-size: rem-calc(14px);
-    }
-
-    &.large {
-        font-size: rem-calc(22px);
-    }
-
-    &.grey {
-        color: $midnight;
-    }
-}
-
-.color figcaption {
-    color: $off-white !important;
-}
-
 /* =========================
 Date
 =================*/

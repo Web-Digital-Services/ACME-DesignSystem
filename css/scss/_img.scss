@@ -81,7 +81,29 @@ img.logo {
     }
 }
 
-// figcaption
+// ======= Figcaption
+figcaption {
+    color: $talavera;
+    font-style: italic;
+    padding: 2px;
+    text-align: left;
+}
+
+figcaption.small {
+    font-size: 0.8rem;
+}
+
+figcaption.large {
+    font-size: 1.2rem;
+}
+
+figcaption.dark {
+    color: $midnight;
+}
+
+figcaption.light {
+    color: $off-white;
+}
 
 figcaption.camera::before {
     font-family: "Font Awesome 7 Pro";
@@ -89,7 +111,40 @@ figcaption.camera::before {
     font-weight: 900;
     font-style: normal;
     display: inline-block;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
+    padding-right: 2px;
+}
+
+.img-collage-right {
+    padding: 30px;
+    margin-left: -4rem;
+    background-color: $midnight;
+    color: $off-white;
+    position: relative;
+    top: 3rem;
+}
+
+.img-collage-left {
+    padding: 30px;
+    margin-right: -4rem;
+    background-color: $midnight;
+    color: $off-white;
+    position: relative;
+    top: 3rem;
+}
+
+.img-collage-right.alt,
+.img-collage-left.alt {
+    background-color: $talavera;
+}
+
+@media screen and (max-width: $small-screen) {
+    .img-collage-right {
+        margin-left: unset;
+        position: unset;
+    }
+
+    .img-collage-left {
+        margin-right: unset;
+        position: unset;
+    }
 }

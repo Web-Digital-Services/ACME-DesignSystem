@@ -24633,24 +24633,64 @@ Please refer to our online demo in the github for further documentation
 /* ============================================================
     MODAL
 ============================================================ */
-.close-button {
-  color: #f55600;
-  font-weight: 900;
-}
-
-.reveal-overlay {
-  background-color: hsla(0, 0%, 4%, 0.75);
-}
-
-.reveal.modal {
-  padding: 30px !important;
-  /*padding:rem-calc(30px) !important*/
-}
-.reveal.modal-image {
-  padding: none !important;
-}
-.reveal.modal-imageimg {
+.modal-overlay {
+  background-color: rgba(3, 32, 68, 0.95);
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background-color: #edeff2;
+  border: 1px solid #b4bdc7;
+  border-top: none;
+  border-radius: 4px;
+  max-width: 40.625rem;
+  margin: auto;
+  transform: scale(0.95) translateY(-10px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+.modal:before {
+  content: "";
+  background-color: #f55600;
+  height: 0.25rem;
+  width: 100%;
+  display: block;
+  border-radius: 4px 4px 0 0;
+}
+.modal-body {
+  padding: 1rem 2rem 3rem 3rem;
+  line-height: 160%;
+  border-top: 1px solid #b4bdc7;
+}
+.modal-title {
+  font-size: 1.9375rem;
+}
+
+.modal-overlay.is-open .modal {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.modal-close {
+  float: right;
+  color: #032044;
+  font-size: 2.1875rem;
+  font-weight: 900;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* ==============================
@@ -25415,6 +25455,15 @@ a.card.postcard:hover img {
   background-color: #d5cfc8;
 }
 
+.antiflash {
+  background-color: #edeff2;
+}
+
+.grue,
+.french-gray {
+  background-color: #b4bdc7;
+}
+
 /*.talavera {
     background-color: $talavera;
     color: $off-white;
@@ -25470,6 +25519,10 @@ a.button {
   background-color: #fff;
   color: #ad4200;
   border: 1px solid #f55600;
+}
+.button.outline.midnight {
+  border-color: #032044;
+  color: #032044;
 }
 .button.ghost {
   background-color: transparent;
@@ -26352,66 +26405,48 @@ table:not(.charts-css).sortable tbody tr:nth-child(even) {
 ============================== */
 /* ============================== */
 /* ============================================================
-HORIZONTAL
+    QUICKFACTS
 ============================================================ */
-.grid-x.factoids {
-  padding: 0.5rem;
+.quickfacts .cell {
+  padding: 45px 30px;
+  background-color: #265bf7;
+  color: #fff;
 }
-.grid-x.factoids p > i {
-  color: #265bf7;
+.quickfacts .cell:nth-child(2) {
+  background-color: #1a46b8;
 }
-.grid-x.factoids.grey p > i {
-  color: #032044;
-}
-.grid-x.factoids .supersize,
-.grid-x.factoids .h1,
-.grid-x.factoids .h2,
-.grid-x.factoids .h3 {
-  font-weight: 900;
-  font-family: "Libre Franklin", sans-serif;
+.quickfacts .cell:nth-child(3) {
+  background-color: #11388c;
 }
 @media screen and (max-width: 639px) {
-  .grid-x.factoids .fa-5x {
-    font-size: 3.5rem;
+  .quickfacts .cell {
+    padding: 30px;
   }
 }
-.grid-x.factoids p.supersize {
-  margin-bottom: 0;
-  line-height: 1.3;
+.quickfacts p {
+  color: inherit;
 }
-
-.bleed.color .factoids p > i {
-  color: #f1f5f7;
+.quickfacts .quickfact-number {
+  margin: 0 0 15px;
+  font-family: "Arsenal", sans-serif;
+  font-size: 74px;
+  font-weight: 700;
+  line-height: 1.2;
 }
-
-/* ============================================================
-VERTICAL
-============================================================ */
-.callout .grid-y.factoids h4,
-.callout .grid-y.factoids h5,
-.callout .grid-y.factoids .h4,
-.callout .grid-y.factoids .h5 {
-  font-weight: 900;
-  font-family: "Libre Franklin", sans-serif;
-  color: #032044;
-  margin-bottom: 0.12rem;
+@media screen and (max-width: 1023px) {
+  .quickfacts .quickfact-number {
+    font-size: 64px;
+  }
 }
-.callout .grid-y .cell h3,
-.callout .grid-y .cell .h3,
-.callout .grid-y .cell .h4 {
-  padding-top: 0;
-  padding-bottom: 0.12rem;
-  border-bottom: #808a8f rem-calc(1px) solid;
+@media screen and (max-width: 639px) {
+  .quickfacts .quickfact-number {
+    font-size: 54px;
+  }
 }
-.callout.color .grid-y.factoids h4,
-.callout.color .grid-y.factoids h5,
-.callout.color .grid-y.factoids .h4,
-.callout.color .grid-y.factoids .h5 {
-  color: #f1f5f7;
-  margin-bottom: 0.12rem;
-}
-.callout.color .grid-y .cell h3 {
-  border-bottom: #f1f5f7 rem-calc(1px) solid;
+.quickfacts .quickfact-description {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
 }
 
 /* ==============================

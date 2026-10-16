@@ -4,25 +4,119 @@
 @use "variables" as *;
 @use "sass:math" as math;
 @use "sass:color" as color;
+@use "../helpers/functions" as func;
 
-.close-button {
-    color: $orange-main;
-    font-weight: 900;
+.modal-overlay {
+	background-color: rgba($midnight, 0.95);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	display: flex;
+	align-items: center; // vertical center
+	justify-content: center; // horizontal center
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease;
+
+	&.is-open {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 
-.reveal-overlay {
-    background-color: hsla(0, 0%, 4%, 0.75);
+.modal {
+	background-color: $antiflash;
+	border: 1px solid $french-gray;
+	border-top: none;
+	border-radius: 4px;
+	max-width: func.rem(650px);
+	margin: 0 func.rem(20px);
+	//animations
+	transform: scale(0.95) translateY(-10px);
+	transition:
+		transform 0.3s ease,
+		opacity 0.3s ease;
+	opacity: 0;
+
+	&:before {
+		content: "";
+		background-color: $orange-main;
+		height: 0.25rem;
+		width: 100%;
+		display: block;
+		border-radius: 4px 4px 0 0;
+	}
+
+	&-body {
+		padding: 1rem 2rem 3rem 3rem;
+		line-height: 160%;
+		border-top: 1px solid $french-gray;
+	}
+
+	&-title {
+		font-size: func.rem(31);
+	}
+
+	&-lg {
+		max-width: func.rem(800px);
+	}
+
+	&-thumbnail {
+		max-width: func.rem(900px);
+		border: 1px solid $french-gray;
+
+		&:before {
+			display: none;
+		}
+
+		figure {
+			margin: 0;
+			img {
+				width: 100%;
+				height: auto;
+			}
+			figcaption {
+				font-size: func.rem(14px);
+				color: $midnight;
+				text-align: center;
+				margin-top: func.rem(10px);
+			}
+		}
+	}
 }
 
-.reveal {
-    &.modal {
-        padding: 30px !important;
-        /*padding:rem-calc(30px) !important*/
-    }
-    &.modal-image {
-        padding: none !important;
-        &img {
-            height: 100%;
-        }
-    }
+.thumbnail-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: func.rem(10px);
+	justify-content: flex-start;
+
+	a {
+		display: inline-block;
+		margin: func.rem(10px);
+		border: 1px solid $french-gray;
+		transition: all 0.3s ease;
+
+		&:hover {
+			transform: scale(1.05);
+			box-shadow: 0 4px 8px rgba($midnight, 0.2);
+		}
+	}
+}
+
+.modal-overlay.is-open .modal {
+	transform: scale(1) translateY(0);
+	opacity: 1;
+}
+
+.modal-close {
+	float: right;
+	color: $midnight;
+	font-size: func.rem(35px);
+	font-weight: 900;
+	text-decoration: none;
+	cursor: pointer;
 }

@@ -31,9 +31,20 @@ $off-black: #171717;
 $limestone: #f8f4f1;
 $concrete: #ebe6e2;
 $smoke: #d5cfc8;
+$antiflash: #edeff2;
 $grue: #b4bdc7;
+$french-gray: $grue;
 $rivermist: #c8dcff;
 $talavera: #265bf7;
+$blue-10: #dfe9ff;
+$blue-20: $rivermist;
+$blue-30: #9bb8ff;
+$blue-40: #6f96ff;
+$blue-50: #4775fb;
+$blue-60: $talavera;
+$blue-70: #1a46b8;
+$blue-80: #11388c;
+$blue-90: $midnight;
 $clay: #dbb485;
 $brass: #a06620;
 $golden-light: #f3d6a7;
@@ -71,42 +82,12 @@ $spacing-chonky-small: 6rem;
 $rounded-corners: 6px;
 
 // Gradients
-$grey-gradient-right: linear-gradient(
-    90deg,
-    rgba(26, 36, 41, 0) 25%,
-    rgba(26, 36, 41, 0.58) 48%,
-    rgba(26, 36, 41, 0.96) 72%
-);
-$grey-gradient-left: linear-gradient(
-    270deg,
-    rgba(26, 36, 41, 0) 25%,
-    rgba(26, 36, 41, 0.58) 48%,
-    rgba(26, 36, 41, 0.96) 72%
-);
-$orange-gradient-right: linear-gradient(
-    90deg,
-    rgba(173, 66, 0, 0) 25%,
-    rgba(173, 66, 0, 0.62) 48%,
-    rgba(173, 66, 0, 0.96) 72%
-);
-$orange-gradient-left: linear-gradient(
-    270deg,
-    rgba(173, 66, 0, 0) 25%,
-    rgba(173, 66, 0, 0.62) 48%,
-    rgba(173, 66, 0, 0.96) 72%
-);
-$white-gradient-right: linear-gradient(
-    90deg,
-    rgba(241, 245, 247, 0) 25%,
-    rgba(241, 245, 247, 0.75) 48%,
-    rgba(241, 245, 247, 0.96) 72%
-);
-$white-gradient-left: linear-gradient(
-    270deg,
-    rgba(241, 245, 247, 0) 25%,
-    rgba(241, 245, 247, 0.75) 48%,
-    rgba(241, 245, 247, 0.96) 72%
-);
+$grey-gradient-right: linear-gradient(90deg, rgba(26, 36, 41, 0) 25%, rgba(26, 36, 41, 0.58) 48%, rgba(26, 36, 41, 0.96) 72%);
+$grey-gradient-left: linear-gradient(270deg, rgba(26, 36, 41, 0) 25%, rgba(26, 36, 41, 0.58) 48%, rgba(26, 36, 41, 0.96) 72%);
+$orange-gradient-right: linear-gradient(90deg, rgba(173, 66, 0, 0) 25%, rgba(173, 66, 0, 0.62) 48%, rgba(173, 66, 0, 0.96) 72%);
+$orange-gradient-left: linear-gradient(270deg, rgba(173, 66, 0, 0) 25%, rgba(173, 66, 0, 0.62) 48%, rgba(173, 66, 0, 0.96) 72%);
+$white-gradient-right: linear-gradient(90deg, rgba(241, 245, 247, 0) 25%, rgba(241, 245, 247, 0.75) 48%, rgba(241, 245, 247, 0.96) 72%);
+$white-gradient-left: linear-gradient(270deg, rgba(241, 245, 247, 0) 25%, rgba(241, 245, 247, 0.75) 48%, rgba(241, 245, 247, 0.96) 72%);
 
 // Legacy gradient aliases
 $smoke-gradient-left: $grey-gradient-left;
@@ -123,11 +104,11 @@ $medium-screen: 1023px;
 
 // Jump animation
 %jump-base {
-    transition: 0.3s ease-in-out;
-    box-shadow: $shadow;
+	transition: 0.3s ease-in-out;
+	box-shadow: $shadow;
 }
 
 %jump-hover {
-    transform: translateY(-0.3rem);
-    box-shadow: $shadow-hover;
+	transform: translateY(-0.3rem);
+	box-shadow: $shadow-hover;
 }
