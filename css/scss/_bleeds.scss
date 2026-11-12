@@ -62,9 +62,44 @@
 
     &.midnight.waves,
     &.talavera.waves {
-        background-image: url("../images/design/bg-pattern-waves-white.svg");
+        background-image: url("../../images/backgrounds/bg-pattern-waves-white.svg");
         background-position: top left;
         background-repeat: repeat;
+    }
+
+    &.updraft,
+    &.sidewaves {
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            background-position: top left;
+            background-repeat: repeat-y;
+            pointer-events: none;
+        }
+
+        &.left::after {
+            left: 0;
+            right: auto;
+        }
+
+        &.right::after {
+            right: 0;
+            left: auto;
+        }
+    }
+
+    &.updraft::after {
+        width: 152px;
+        background-image: url("../../images/backgrounds/bg-pattern-updraft.svg");
+    }
+
+    &.sidewaves::after {
+        width: 172px;
+        background-image: url("../../images/backgrounds/bg-pattern-sidewaves.svg");
     }
 
     /* Media fill */

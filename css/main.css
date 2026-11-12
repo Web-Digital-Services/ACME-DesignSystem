@@ -24198,9 +24198,36 @@ blockquote.fancy cite {
   color: #171717;
 }
 .bleed.midnight.waves, .bleed.talavera.waves {
-  background-image: url("../images/design/bg-pattern-waves-white.svg");
+  background-image: url("../../images/backgrounds/bg-pattern-waves-white.svg");
   background-position: top left;
   background-repeat: repeat;
+}
+.bleed.updraft::after, .bleed.sidewaves::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background-position: top left;
+  background-repeat: repeat-y;
+  pointer-events: none;
+}
+.bleed.updraft.left::after, .bleed.sidewaves.left::after {
+  left: 0;
+  right: auto;
+}
+.bleed.updraft.right::after, .bleed.sidewaves.right::after {
+  right: 0;
+  left: auto;
+}
+.bleed.updraft::after {
+  width: 152px;
+  background-image: url("../../images/backgrounds/bg-pattern-updraft.svg");
+}
+.bleed.sidewaves::after {
+  width: 172px;
+  background-image: url("../../images/backgrounds/bg-pattern-sidewaves.svg");
 }
 .bleed.img-fill, .bleed.video, .bleed.video-fill {
   background-color: #171717;
