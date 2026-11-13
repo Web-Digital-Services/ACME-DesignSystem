@@ -24198,7 +24198,7 @@ blockquote.fancy cite {
   color: #171717;
 }
 .bleed.midnight.waves, .bleed.talavera.waves {
-  background-image: url("../../images/bg-pattern-waves-white-2.svg");
+  background-image: url("../images/bg-pattern-waves-white-2.svg");
   background-position: top left;
   background-repeat: repeat;
 }
@@ -24223,11 +24223,11 @@ blockquote.fancy cite {
 }
 .bleed.updraft::after {
   width: 152px;
-  background-image: url("../../images/bg-pattern-updraft-2.svg");
+  background-image: url("../images/bg-pattern-updraft-2.svg");
 }
 .bleed.sidewaves::after {
   width: 172px;
-  background-image: url("../../images/bg-pattern-sidewaves-2.svg");
+  background-image: url("../images/bg-pattern-sidewaves-2.svg");
 }
 .bleed.img-fill, .bleed.video, .bleed.video-fill {
   background-color: #171717;

@@ -62,7 +62,7 @@
 
     &.midnight.waves,
     &.talavera.waves {
-        background-image: url("../../images/bg-pattern-waves-white-2.svg");
+        background-image: url("../images/bg-pattern-waves-white-2.svg");
         background-position: top left;
         background-repeat: repeat;
     }
@@ -94,12 +94,12 @@
 
     &.updraft::after {
         width: 152px;
-        background-image: url("../../images/bg-pattern-updraft-2.svg");
+        background-image: url("../images/bg-pattern-updraft-2.svg");
     }
 
     &.sidewaves::after {
         width: 172px;
-        background-image: url("../../images/bg-pattern-sidewaves-2.svg");
+        background-image: url("../images/bg-pattern-sidewaves-2.svg");
     }
 
     /* Media fill */
