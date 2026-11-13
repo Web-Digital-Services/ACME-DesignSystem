@@ -24423,6 +24423,10 @@ blockquote.fancy cite {
   background-color: #f8f4f1;
 }
 
+.callout.white {
+  background-color: #fff;
+}
+
 .callout.outline {
   border: 0.0625rem solid #667075 !important;
   background-color: #fff;
@@ -24441,25 +24445,40 @@ a.callout {
   color: #f1f5f7;
   border-radius: 5px;
   text-align: center;
+  background-color: #265bf7;
 }
 a.callout .ruled {
-  border-bottom: 1px solid #F1F5F7;
+  border-bottom: 1px solid #f1f5f7;
+  transition: 0.3s ease-in-out;
 }
 a.callout p {
   font-weight: 400;
 }
 a.callout .fa-circle {
   color: rgba(23, 23, 23, 0.35);
+  transition: 0.3s ease-in-out;
 }
 
 a.callout:hover {
   transform: translateY(-0.3rem);
   box-shadow: 0.1875rem 0.5rem 0.4375rem 0 rgba(23, 23, 23, 0.5);
+  background-color: #032044;
   color: #f1f5f7;
+}
+a.callout:hover .fa-circle {
+  color: rgba(241, 245, 247, 0.35);
 }
 
 a.callout.orange {
   background-color: #ad4200;
+}
+
+a.callout.orange:hover {
+  background-color: #032044;
+  color: #f1f5f7;
+}
+a.callout.orange:hover .fa-circle {
+  color: rgba(241, 245, 247, 0.35);
 }
 
 a.callout.midnight {
@@ -24469,8 +24488,12 @@ a.callout.midnight .fa-circle {
   color: rgba(241, 245, 247, 0.35);
 }
 
-a.callout.talavera {
+a.callout.midnight:hover {
   background-color: #265bf7;
+  color: #f1f5f7;
+}
+a.callout.midnight:hover .fa-circle {
+  color: rgba(23, 23, 23, 0.35);
 }
 
 /* ==============================
@@ -25078,10 +25101,10 @@ footer .social ul li a .fa-2x {
 }
 
 .top-page {
-  background: #f1f5f7;
+  background: #f8f4f1;
   box-shadow: 3px 3px 7px 0 rgba(23, 23, 23, 0.5);
   border-radius: 0.33rem;
-  color: #f55600;
+  color: #032044;
   text-align: center;
   position: fixed;
   top: 50%;
@@ -25089,20 +25112,25 @@ footer .social ul li a .fa-2x {
   z-index: 99;
   padding: 0.5rem 1rem 0.5rem 1rem;
   transition: 0.3s ease-in-out;
+  text-decoration: none;
 }
+
 .top-page i {
   font-size: rem-calc(22px);
-  color: #f55600;
+  color: #032044;
   transition: 0.3s ease-in-out;
 }
+
 .top-page span {
   display: block;
 }
+
 .top-page:hover {
-  color: #032044;
+  background-color: #032044;
+  color: #f1f5f7;
 }
 .top-page:hover i {
-  color: #032044;
+  color: #f1f5f7;
 }
 
 @media screen and (max-width: 465px) {

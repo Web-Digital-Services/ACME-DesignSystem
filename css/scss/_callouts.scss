@@ -61,6 +61,10 @@
     background-color: $limestone;
 }
 
+.callout.white {
+    background-color: $white;
+}
+
 .callout.outline {
     border: 0.0625rem solid #667075 !important;
     background-color: $white;
@@ -69,7 +73,7 @@
 .callout.outline.sheer {
     border: 0.0625rem solid $talavera !important;
     color: $off-white;
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 a.callout {
@@ -79,31 +83,55 @@ a.callout {
     color: $off-white;
     border-radius: 5px;
     text-align: center;
+    background-color: $talavera;
 
     .ruled {
-        border-bottom: 1px solid #F1F5F7;
+        border-bottom: 1px solid #f1f5f7;
+        transition: 0.3s ease-in-out;
     }
     p {
         font-weight: 400;
     }
     .fa-circle {
-        color:rgba(23, 23, 23, 0.35);
+        color: rgba(23, 23, 23, 0.35);
+        transition: 0.3s ease-in-out;
     }
 }
 a.callout:hover {
     transform: translateY(-0.3rem);
     box-shadow: 0.1875rem 0.5rem 0.4375rem 0 rgba(23, 23, 23, 0.5);
+    background-color: $midnight;
     color: $off-white;
+
+    .fa-circle {
+        color: rgba(241, 245, 247, 0.35);
+    }
 }
 a.callout.orange {
     background-color: $orange-health;
 }
+
+a.callout.orange:hover {
+    background-color: $midnight;
+    color: $off-white;
+
+    .fa-circle {
+        color: rgba(241, 245, 247, 0.35);
+    }
+}
+
 a.callout.midnight {
     background-color: $midnight;
     .fa-circle {
-        color:rgba(241, 245, 247, 0.35);
+        color: rgba(241, 245, 247, 0.35);
     }
 }
-a.callout.talavera {
+
+a.callout.midnight:hover {
     background-color: $talavera;
+    color: $off-white;
+
+    .fa-circle {
+        color: rgba(23, 23, 23, 0.35);
+    }
 }
